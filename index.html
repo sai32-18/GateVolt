@@ -1,61 +1,666 @@
-<!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#08111f">
-<meta name="description" content="GateVolt — GATE Electrical Engineering preparation app">
-<title>GateVolt — GATE EE</title>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>GateVolt</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#07101d;color:#edf4ff}
-a{text-decoration:none;color:inherit}.wrap{max-width:1100px;margin:auto;padding:20px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:10px 0 30px}
-.logo{font-size:27px;font-weight:900}.bolt{color:#4aa5ff}.nav{padding:10px 16px;border:1px solid #29405e;border-radius:999px}
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding:35px 0 65px}
-.badge{display:inline-block;padding:7px 12px;border-radius:999px;background:#102640;border:1px solid #27547f;color:#9dceff;font-weight:750;font-size:13px}
-h1{font-size:clamp(44px,7vw,78px);line-height:.98;letter-spacing:-3px;margin:18px 0}
-.lead{font-size:19px;line-height:1.6;color:#aabbd1;max-width:650px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{padding:15px 21px;border-radius:14px;border:1px solid #2c405c;font-weight:800;background:#111d2d}
-.primary{background:#258ce8;border-color:#258ce8}.note{font-size:12px;color:#8293aa;margin-top:12px}
-.phone{background:#0d1828;border:1px solid #263a55;border-radius:28px;padding:14px}.screen{border-radius:20px;background:#101b2d;padding:24px;min-height:430px}
-.fake{padding:15px;margin:12px 0;border-radius:15px;background:#17263b;border:1px solid #29415e}
-section{border-top:1px solid #1b2a3f;padding:55px 0}.head{max-width:700px;margin-bottom:25px}
-h2{font-size:34px;margin:0 0 10px}.muted{color:#9aaac0;line-height:1.6}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{padding:21px;border:1px solid #203149;background:#0d1726;border-radius:18px}
-.card h3{margin:12px 0 7px}.card p{margin:0;color:#9aaac0;line-height:1.55}.icon{font-size:26px}
-footer{text-align:center;padding:35px 0 45px;color:#8a9bb2;font-size:14px}
-@media(max-width:760px){.hero,.grid{grid-template-columns:1fr}h1{letter-spacing:-2px}.wrap{padding:16px}}
-</style></head>
-<body><div class="wrap">
-<nav><div class="logo">Gate<span class="bolt">Volt</span> ⚡</div><a class="nav" href="#features">Features</a></nav>
-<main>
-<section class="hero" style="border-top:0;padding-top:10px">
-<div><span class="badge">GATE Electrical Engineering</span>
-<h1>Prepare smarter.<br>Crack GATE.</h1>
-<p class="lead">GateVolt is a mobile-first GATE EE preparation app for learning, practice, formulas, mock tests, AI-assisted study and progress tracking.</p>
-<div class="actions"><a class="btn primary" href="GateVolt.apk" download>⬇️ Download GateVolt APK</a><a class="btn" href="#features">Explore features</a></div>
-<p class="note">Android APK • Working GateVolt release</p></div>
-<div class="phone"><div class="screen"><span class="badge">GATE EE</span><h2>Master your preparation.</h2>
-<div class="fake">📚 <b>Syllabus & Learning</b><br><span class="muted">Study topics and track mastery.</span></div>
-<div class="fake">🎯 <b>Practice</b><br><span class="muted">Solve questions and review explanations.</span></div>
-<div class="fake">🧮 <b>Formula Book</b><br><span class="muted">Keep important formulas handy.</span></div>
-<div class="fake">📊 <b>Progress</b><br><span class="muted">See your preparation at a glance.</span></div>
-</div></div></section>
-<section id="features"><div class="head"><h2>Everything in one place.</h2><p class="muted">The website highlights the features already present in the working GateVolt app.</p></div>
-<div class="grid">
-<div class="card"><div class="icon">📚</div><h3>Syllabus & Learning</h3><p>Explore GATE EE subjects and topic-based learning.</p></div>
-<div class="card"><div class="icon">🎯</div><h3>Practice</h3><p>Practice questions with answers and explanations.</p></div>
-<div class="card"><div class="icon">📝</div><h3>Mock Tests</h3><p>Test your preparation and review results.</p></div>
-<div class="card"><div class="icon">🧮</div><h3>Formula Book</h3><p>Search and keep important formulas handy.</p></div>
-<div class="card"><div class="icon">🤖</div><h3>AI Teacher</h3><p>Use the built-in study helper for topic guidance.</p></div>
-<div class="card"><div class="icon">📊</div><h3>Progress Tracking</h3><p>Track attempts, accuracy, completed topics and mock performance.</p></div>
-</div></section>
-<section><div class="head"><h2>Install in 3 steps.</h2><p class="muted">Download the APK, open it on Android, and follow the installation instructions shown by your device.</p></div>
-<div class="grid">
-<div class="card"><h3>01 — Download</h3><p>Tap the Download GateVolt APK button.</p></div>
-<div class="card"><h3>02 — Open</h3><p>Open the downloaded APK from your Downloads folder.</p></div>
-<div class="card"><h3>03 — Install</h3><p>Follow Android's installation instructions.</p></div>
-</div></section>
-<section><div class="head"><h2>About GateVolt</h2><p class="muted">A focused GATE Electrical Engineering preparation companion with an offline-friendly study experience.</p></div>
-<div class="card"><p class="muted">Platform: Android<br>Release: Working GateVolt APK</p></div></section>
-</main>
-<footer><strong>App made by EMANDI SAI MADHU</strong><br>Contact: 7997281275<br><br>© 2026 GateVolt</footer>
-</div></body></html>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+*:focus{outline:none}
+button{-webkit-appearance:none;background:none;border:none;color:inherit;font:inherit;cursor:pointer}
+input,textarea,select{-webkit-appearance:none;font:inherit}
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;font-family:-apple-system,sans-serif;background:#0d0d1a;color:#eaeaea;min-height:100vh}
+input,textarea,[contenteditable]{-webkit-user-select:text;user-select:text}
+button{min-height:44px}
+#app{max-width:600px;margin:auto;min-height:100vh;padding-bottom:86px}
+.header{padding:20px 16px 10px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:27px;font-weight:800}.logo span{color:#4FC3F7}.subtitle{font-size:12px;color:rgba(255,255,255,.5);margin-top:4px}
+.iconbtn,.backbtn{width:44px;height:44px;border-radius:50%;background:#1a1a2e;display:flex;align-items:center;justify-content:center;font-size:20px}
+.page{padding:0 16px}.hero{background:linear-gradient(145deg,#162c4c,#1a1a2e);border-radius:12px;padding:20px;margin:10px 0 16px;border:1px solid rgba(79,195,247,.15)}
+.hero h1{font-size:23px;margin-bottom:8px}.hero p,.lesson p,.solution p{color:rgba(255,255,255,.68);line-height:1.6;font-size:14px;margin:8px 0}
+.card{background:#1a1a2e;border-radius:12px;padding:15px;margin-bottom:11px}
+.card:active,.navitem:active,.option:active,.subject:active,.tile:active{transform:scale(.985);opacity:.92}
+.section-title{font-size:18px;font-weight:750;margin:18px 0 11px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.tile{background:#1a1a2e;border-radius:12px;padding:15px;min-height:102px;text-align:left}.tile .emoji{font-size:24px;margin-bottom:8px}.tile b{font-size:14px;display:block}.tile small{display:block;color:rgba(255,255,255,.48);margin-top:5px;line-height:1.3}
+.subject{background:#1a1a2e;border-radius:12px;padding:14px;margin-bottom:9px;display:flex;gap:12px;align-items:center;width:100%;text-align:left}
+.subject-icon{width:44px;height:44px;border-radius:12px;background:#0f3460;display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+.subject-info{flex:1}.subject-info b{font-size:14px}.subject-info small{display:block;color:rgba(255,255,255,.48);margin-top:4px;line-height:1.3}.arrow{color:#4FC3F7;font-size:21px}
+.progressbar{height:7px;background:#0d0d1a;border-radius:20px;overflow:hidden;margin-top:9px}.progressfill{height:100%;background:#4FC3F7;border-radius:20px}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:#1a1a2e;border-radius:12px;padding:13px 7px;text-align:center}.stat strong{display:block;font-size:20px;color:#4FC3F7}.stat small{color:rgba(255,255,255,.5);font-size:10px}
+.bottomnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:600px;height:72px;background:#111121;border-top:1px solid rgba(255,255,255,.07);display:flex;z-index:50}
+.navitem{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:rgba(255,255,255,.45);font-size:9px}.navitem.active{color:#4FC3F7}.navicon{font-size:19px}
+.topback{display:flex;align-items:center;gap:10px}.topback h2{font-size:20px}.btn{width:100%;border-radius:50px;background:#0f3460;padding:13px 17px;font-weight:700;text-align:center;margin-top:9px}.btn.secondary{background:#1a1a2e;border:1px solid rgba(255,255,255,.08)}.btn.success{background:#235c48}.btn.danger{background:#66343b}
+.tag{display:inline-block;padding:5px 9px;border-radius:50px;background:#0f3460;color:#4FC3F7;font-size:10px;font-weight:700}.tag.easy{color:#69F0AE}.tag.medium{color:#FFD166}.tag.hard{color:#FF6B6B}
+.lesson h2{font-size:20px;margin-top:10px}.formula{background:#0d0d1a;border-left:3px solid #4FC3F7;padding:12px;border-radius:8px;margin:9px 0;font-family:monospace;line-height:1.55;overflow:auto}
+.option{background:#0d0d1a;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px;margin:7px 0;text-align:left;width:100%;line-height:1.4}.option.correct{border-color:#69F0AE;background:rgba(105,240,174,.08)}.option.wrong{border-color:#FF6B6B;background:rgba(255,107,107,.08)}
+.feedback{padding:12px;border-radius:10px;margin-top:9px;font-size:13px;line-height:1.55}.feedback.good{background:rgba(105,240,174,.09);color:#69F0AE}.feedback.bad{background:rgba(255,107,107,.09);color:#FF6B6B}
+.search{width:100%;background:#1a1a2e;border:1px solid rgba(255,255,255,.07);border-radius:50px;color:white;padding:13px 15px;margin-bottom:10px}.empty{text-align:center;padding:32px 15px;color:rgba(255,255,255,.45)}
+.badge{float:right;background:#0f3460;color:#4FC3F7;border-radius:50px;padding:4px 8px;font-size:9px}.small{font-size:12px;color:rgba(255,255,255,.5);line-height:1.5}.muted{color:rgba(255,255,255,.5)}.hide{display:none!important}
+.tabs{display:flex;gap:7px;overflow:auto;margin-bottom:10px}.tab{white-space:nowrap;background:#1a1a2e;border-radius:50px;padding:10px 13px;font-size:12px}.tab.active{background:#0f3460;color:#4FC3F7}
+.chat{height:420px;overflow:auto;padding:4px}.msg{max-width:88%;padding:11px;border-radius:14px;margin:7px 0;line-height:1.5;font-size:13px}.bot{background:#1a1a2e;border-bottom-left-radius:4px}.user{background:#0f3460;margin-left:auto;border-bottom-right-radius:4px}
+.chatinput{display:flex;gap:7px;background:#1a1a2e;border-radius:50px;padding:4px;margin-top:9px}.chatinput input{flex:1;background:transparent;border:0;color:white;padding:10px 11px}.chatinput button{width:45px;height:45px;border-radius:50%;background:#0f3460}
+.star{float:right;font-size:20px}.notice{border-left:3px solid #FFD166;padding:10px;background:rgba(255,209,102,.06);border-radius:8px;margin:9px 0;font-size:12px;line-height:1.5}
+@media(max-width:360px){.grid{grid-template-columns:1fr}.hero h1{font-size:21px}}
+
+.syllabus-unit{align-items:flex-start}.syllabus-unit .subject-info small{white-space:normal}
+.coverage-card{background:#162c4c;border:1px solid rgba(79,195,247,.2)}
+</style>
+</head>
+<body><div id="app"></div>
+<script>
+var appState={},currentView='home',selectedSubject='',selectedTopic=0,practicePool=[],practiceIndex=0,practiceAnswered=false,lastChoice=-1,mockPool=[],mockIndex=0,mockAnswers=[],mockActive=false,chatMessages=[];
+var subjects=[{"id":"maths","name":"Engineering Mathematics","icon":"📐","weight":"Approx. 8–12 marks (historical trend; varies by paper)","priority":"Linear Algebra, Calculus, Differential Equations, Complex Variables, Probability & Statistics, Numerical Methods","topics":[["Linear Algebra","Matrices, determinants, rank, systems of equations, eigenvalues/eigenvectors and diagonalization.",["det(A)≠0 ⇒ unique solution","|A−λI|=0","For triangular A, eigenvalues are diagonal entries"],"GATE Engineering Mathematics by standard GATE maths lectures","Higher Engineering Mathematics — B.S. Grewal"],["Calculus","Limits, continuity, differentiability, mean value theorems, Taylor series, maxima/minima and multivariable calculus.",["d/dx(x^n)=nx^(n−1)","∫x^n dx=x^(n+1)/(n+1)+C","∇f=0 gives stationary points"],"GATE Engineering Mathematics calculus lectures","Higher Engineering Mathematics — B.S. Grewal"],["Differential Equations","First/second-order ODEs, linear equations, initial conditions and standard solution methods.",["For ay''+by'+cy=0 use the auxiliary equation ar²+br+c=0","Complementary + particular solution"],"GATE differential equations topic lectures","Advanced Engineering Mathematics — Erwin Kreyszig"],["Complex Variables","Complex numbers, analytic functions, Cauchy-Riemann equations and basic contour integration.",["z=x+jy","Cauchy-Riemann: ux=vy, uy=−vx"],"GATE complex variables basics","Advanced Engineering Mathematics — Erwin Kreyszig"],["Probability & Statistics","Random variables, distributions, expectation, variance, conditional probability and basic statistics.",["P(A|B)=P(A∩B)/P(B)","Var(X)=E[X²]−E[X]²","E[aX+b]=aE[X]+b"],"GATE probability and statistics lectures","Engineering Mathematics — B.S. Grewal"],["Numerical Methods","Roots of equations, interpolation, numerical integration and solution of linear equations.",["Newton-Raphson: x_(n+1)=x_n−f(x_n)/f'(x_n)","Trapezoidal rule uses weighted end points"],"GATE numerical methods lectures","Numerical Methods for Engineers — Chapra & Canale"]]},{"id":"circuits","name":"Electric Circuits","icon":"🔋","weight":"Approx. 6–10 marks (historical trend; varies by paper)","priority":"Network Theorems, AC steady state, transient response, three-phase circuits, resonance","topics":[["Basic Circuit Laws","KCL, KVL, voltage/current division, power and energy in resistive circuits.",["KCL: algebraic sum of currents at a node is zero","KVL: algebraic sum of voltages around a loop is zero","P=VI=I²R=V²/R"],"GATE circuit analysis basics","Engineering Circuit Analysis — Hayt & Kemmerly"],["Network Theorems","Thevenin, Norton, superposition, maximum power transfer and source transformations.",["Vth=open-circuit voltage","Inorton=short-circuit current","Maximum DC power when RL=Rth"],"GATE network theorem lectures","Engineering Circuit Analysis — Hayt & Kemmerly"],["AC Circuits","Phasors, impedance/admittance, complex power, power factor and balanced circuits.",["Z_R=R","Z_L=jωL","Z_C=1/(jωC)","S=P+jQ=VI*"],"GATE AC circuit analysis","Fundamentals of Electric Circuits — Alexander & Sadiku"],["Transient Analysis","First- and second-order RL, RC and RLC natural/step responses.",["RC time constant τ=RC","RL time constant τ=L/R","After 5τ, a first-order transient is nearly settled"],"GATE transient circuits","Engineering Circuit Analysis — Hayt & Kemmerly"],["Resonance","Series and parallel resonance, bandwidth, quality factor and frequency response.",["Series resonance: ω0=1/√LC","Q=ω0L/R for series RLC","At resonance series RLC impedance is minimum"],"GATE resonance circuits","Fundamentals of Electric Circuits — Alexander & Sadiku"],["Three-Phase Circuits","Balanced star/delta loads, line/phase quantities and three-phase power.",["P=√3 VL IL cosφ","Star: VL=√3 Vph","Delta: IL=√3 Iph"],"GATE three phase circuit lectures","Electrical Engineering — Nagrath & Kothari"]]},{"id":"emf","name":"Electromagnetic Fields","icon":"🧲","weight":"Approx. 5–9 marks (historical trend; varies by paper)","priority":"Electrostatics, Magnetostatics, Maxwell equations, Boundary conditions, Waves, Transmission lines","topics":[["Electrostatics","Electric field, potential, Gauss law, capacitance and dielectric materials.",["E=−∇V","∮D·dS=Qfree","D=εE"],"GATE electrostatics","Engineering Electromagnetics — Hayt & Buck"],["Magnetostatics","Magnetic field, Biot-Savart law, Ampere law, flux and inductance.",["B=μH","∮H·dl=Ifree","∇×H=J"],"GATE magnetostatics","Engineering Electromagnetics — Hayt & Buck"],["Maxwell Equations","Integral and differential forms and physical meaning of the four Maxwell equations.",["∇·D=ρv","∇·B=0","∇×E=−∂B/∂t","∇×H=J+∂D/∂t"],"GATE Maxwell equations","Elements of Electromagnetics — Sadiku"],["Boundary Conditions","Normal and tangential field relationships at dielectric/conductor interfaces.",["Tangential E is continuous across ideal dielectric interface","Normal D changes with surface charge"],"GATE EM boundary conditions","Engineering Electromagnetics — Hayt & Buck"],["Electromagnetic Waves","Wave equation, propagation, polarization, Poynting vector and power flow.",["η=√(μ/ε) for lossless medium","S=E×H"],"GATE electromagnetic waves","Elements of Electromagnetics — Sadiku"],["Transmission Lines","Characteristic impedance, reflection coefficient, standing waves and matching.",["Γ=(ZL−Z0)/(ZL+Z0)","VSWR=(1+|Γ|)/(1−|Γ|)"],"GATE transmission line basics","Engineering Electromagnetics — Hayt & Buck"]]},{"id":"signals","name":"Signals & Systems","icon":"〰️","weight":"Approx. 6–10 marks (historical trend; varies by paper)","priority":"LTI systems, Convolution, Fourier Transform, Laplace/Z Transform, Sampling","topics":[["Signal Classification","Continuous/discrete, periodic/aperiodic, energy/power, even/odd and deterministic/random signals.",["Discrete periodic: x[n+N]=x[n]","Energy E=Σ|x[n]|²","Average power is long-term mean-square value"],"GATE signals and systems basics","Signals and Systems — Oppenheim & Willsky"],["LTI Systems","Linearity, time invariance, causality, stability and impulse response.",["LTI output y=x*h","BIBO stable if ∫|h(t)|dt<∞ (CT)"],"GATE LTI systems","Signals and Systems — Oppenheim & Willsky"],["Convolution","Graphical and algebraic convolution for continuous and discrete signals.",["y[n]=Σk x[k]h[n−k]","y(t)=∫x(τ)h(t−τ)dτ"],"GATE convolution step-by-step","Signals and Systems — Oppenheim & Willsky"],["Fourier Series/Transform","Frequency-domain representation, spectra, symmetry and important transform properties.",["Time shift ↔ phase factor","Differentiation in time ↔ jω multiplication"],"GATE Fourier transform","Signals and Systems — Oppenheim & Willsky"],["Laplace and Z Transform","ROC, poles/zeros, inverse transforms and system properties.",["Z{x[n]}=Σx[n]z^(−n)","ROC cannot contain poles"],"GATE Laplace and Z transform","Discrete-Time Signal Processing — Oppenheim & Schafer"],["Sampling","Sampling theorem, aliasing, reconstruction and ideal sampling.",["fs≥2fm","Nyquist rate=2fm"],"GATE sampling theorem","Signals and Systems — Oppenheim & Willsky"]]},{"id":"machines","name":"Electrical Machines","icon":"⚙️","weight":"Approx. 8–12 marks (historical trend; varies by paper)","priority":"Transformers, Induction Machines, Synchronous Machines, DC Machines","topics":[["Magnetic Circuits","MMF, reluctance, flux, hysteresis, eddy-current loss and magnetic materials.",["F=NI","Reluctance ℜ=l/(μA)","Φ=MMF/ℜ"],"GATE magnetic circuits","Electrical Machinery — P.S. Bimbhra"],["Transformers","EMF equation, equivalent circuit, losses, efficiency, regulation, tests and autotransformer.",["E=4.44fNΦm","V1/V2≈N1/N2","Maximum efficiency when copper loss=core loss"],"GATE transformer complete topic","Electrical Machinery — P.S. Bimbhra"],["DC Machines","EMF equation, torque, characteristics, speed control, starting and braking.",["Eg=PΦZN/(60A)","T∝ΦIa","Back emf Eb≈V−IaRa"],"GATE DC machines","Electrical Machinery — P.S. Bimbhra"],["Induction Machines","Rotating magnetic field, slip, torque-speed characteristic, equivalent circuit and starting.",["Ns=120f/P","s=(Ns−N)/Ns","fr=sf"],"GATE induction motor complete","Electrical Machinery — P.S. Bimbhra"],["Synchronous Machines","Alternator EMF, voltage regulation, power-angle relation, synchronous motor and V-curves.",["Ns=120f/P","For cylindrical rotor: P≈(3EV/Xs)sinδ"],"GATE synchronous machines","Electrical Machinery — P.S. Bimbhra"],["Special Machines","Single-phase motors, reluctance motors, stepper motors and basic PM machines.",["Stepper motors convert pulse trains into discrete angular movement","Synchronous speed depends on f and pole count"],"GATE special machines","Electrical Machinery — P.S. Bimbhra"]]},{"id":"power","name":"Power Systems","icon":"⚡","weight":"Approx. 8–12 marks (historical trend; varies by paper)","priority":"Per-unit, Transmission Lines, Load Flow, Fault Analysis, Protection, Stability","topics":[["Power System Basics","Generation, transmission, distribution, load curves, tariffs and per-unit representation.",["Per-unit value=actual/base","Choose consistent MVA and kV bases"],"GATE power system basics","Power System Analysis — Hadi Saadat"],["Transmission Lines","Short/medium/long line models, ABCD constants, regulation and efficiency.",["VS=AVR+BIR","VR=CVS+DIR","η=PR/PS×100"],"GATE transmission lines","Power System Analysis — Hadi Saadat"],["Per-Unit System","Base quantities and conversion of impedances and ratings.",["Zbase=Vbase²/Sbase","Ibase=Sbase/(√3Vbase) for 3-phase"],"GATE per unit system","Power System Analysis — Hadi Saadat"],["Load Flow","Bus types, Gauss-Seidel, Newton-Raphson and power-flow equations.",["Slack: |V|,δ specified","PV: P,|V| specified","PQ: P,Q specified"],"GATE load flow basics","Power System Analysis — Hadi Saadat"],["Fault Analysis","Symmetrical components and balanced/unbalanced faults.",["LG, LL, LLG, LLL are common fault types","Three-phase fault is symmetrical"],"GATE fault analysis","Power System Analysis — Hadi Saadat"],["Protection","Relays, circuit breakers, CT/PT, overcurrent, distance and differential protection.",["Relay detects abnormal condition; breaker interrupts fault current","Differential protection compares currents entering/leaving a protected zone"],"GATE protection systems","Power System Protection — Badri Ram & D.N. Vishwakarma"],["Power System Stability","Steady-state and transient stability, swing equation and equal-area criterion.",["Pmax occurs at δ=90° for simple power-angle equation","Transient stability concerns large disturbances"],"GATE stability","Power System Analysis — Hadi Saadat"]]},{"id":"control","name":"Control Systems","icon":"🎛️","weight":"Approx. 6–10 marks (historical trend; varies by paper)","priority":"Block diagrams, Time Response, Stability, Root Locus, Frequency Response, State Space","topics":[["Modeling and Transfer Functions","Differential equations, block diagrams, signal-flow graphs and transfer functions.",["G(s)=C(s)/R(s) for zero initial conditions","Feedback: T=G/(1+GH) for negative feedback"],"GATE control system modeling","Modern Control Engineering — K. Ogata"],["Time Response","First/second-order systems, standard parameters, transient and steady-state response.",["First order: τ=1/a for pole at −a","Second order: ωn, ζ determine transient behavior"],"GATE time response","Modern Control Engineering — K. Ogata"],["Stability","Characteristic equation, Routh-Hurwitz and basic stability concepts.",["RHP pole ⇒ unstable continuous-time system","Routh first-column sign changes = RHP roots"],"GATE Routh stability","Modern Control Engineering — K. Ogata"],["Root Locus","Construction rules and relation between gain and closed-loop pole locations.",["Angles of open-loop poles/zeros determine root-locus condition","Branches start at poles and end at zeros or infinity"],"GATE root locus","Modern Control Engineering — K. Ogata"],["Frequency Response","Bode plots, Nyquist criterion, gain/phase margin and resonance.",["Phase margin measures distance from −180° at gain crossover","Gain margin is inverse magnitude at phase crossover"],"GATE Bode and Nyquist","Modern Control Engineering — K. Ogata"],["State Space","State variables, state equations, solution, controllability and observability.",["ẋ=Ax+Bu","y=Cx+Du","Controllability matrix [B AB ...]"],"GATE state space","Modern Control Engineering — K. Ogata"]]},{"id":"measurements","name":"Electrical & Electronic Measurements","icon":"📏","weight":"Approx. 4–7 marks (historical trend; varies by paper)","priority":"Bridges, Instruments, Errors, Transducers, CRO, Measurement Systems","topics":[["Measurement Errors","Accuracy, precision, sensitivity, resolution and types of errors.",["Absolute error=measured−true","Percentage error=absolute error/true×100"],"GATE electrical measurements errors","Electrical and Electronic Measurements and Instrumentation — A.K. Sawhney"],["Analog Instruments","PMMC, moving-iron, dynamometer and induction-type instruments.",["PMMC torque ∝ current","MI instruments can measure AC and DC"],"GATE analog instruments","Electrical and Electronic Measurements — A.K. Sawhney"],["Bridges","Wheatstone, Maxwell, Schering and Kelvin bridges.",["Wheatstone balance: ratio arms determine unknown resistance","AC bridges balance complex impedances"],"GATE bridge measurements","Electrical and Electronic Measurements — A.K. Sawhney"],["Electronic Instruments","Digital voltmeters, multimeters, frequency counters and CRO.",["CRO can display voltage versus time","Digital instruments have high input impedance"],"GATE CRO and electronic measurements","Electronic Instrumentation — H.S. Kalsi"],["Transducers","Resistive, inductive, capacitive, piezoelectric and thermoelectric transducers.",["A transducer converts a physical quantity into a measurable electrical signal","Piezoelectric devices are useful for dynamic measurements"],"GATE transducers","Electronic Instrumentation — H.S. Kalsi"],["Data Acquisition","Sampling, ADC/DAC, quantization and basic measurement systems.",["ADC resolution increases with number of bits","Ideal quantization step for N-bit range VFS is approximately VFS/2^N"],"GATE ADC DAC","Electronic Instrumentation — H.S. Kalsi"]]},{"id":"electronics","name":"Analog & Digital Electronics","icon":"💻","weight":"Approx. 8–12 marks (historical trend; varies by paper)","priority":"Diodes, BJT/MOSFET, Op-amps, Digital Logic, Sequential Circuits, Data Converters","topics":[["Semiconductor Diodes","PN junction, diode equation, rectifiers, Zener diode and clipping/clamping.",["Shockley: I=Is(e^(V/ηVT)−1)","Zener is commonly used for voltage regulation in breakdown"],"GATE diode circuits","Microelectronic Circuits — Sedra & Smith"],["BJT","Transistor operation regions, biasing, small-signal models and amplifiers.",["IC≈βIB","IE=IC+IB","Common-emitter gives voltage gain and phase inversion"],"GATE BJT basics","Microelectronic Circuits — Sedra & Smith"],["MOSFET","Enhancement/depletion MOSFET, biasing, regions and small-signal behavior.",["For long-channel NMOS saturation: ID≈(1/2)kn(VGS−VT)²"],"GATE MOSFET","Microelectronic Circuits — Sedra & Smith"],["Operational Amplifiers","Ideal op-amp rules, inverting/non-inverting amplifiers, integrator, differentiator and comparators.",["Ideal: input current≈0","With negative feedback: V+=V−","Inverting gain=−Rf/Rin"],"GATE op amp","Microelectronic Circuits — Sedra & Smith"],["Digital Logic","Boolean algebra, logic gates, K-map, combinational circuits and minimization.",["De Morgan: (AB)'=A'+B'","XOR= A'B+AB'"],"GATE digital logic K-map","Digital Design — M. Morris Mano"],["Sequential Logic","Latches, flip-flops, counters, registers and state machines.",["D flip-flop: Q(next)=D","JK toggles when J=K=1"],"GATE flip flops counters","Digital Design — M. Morris Mano"],["Data Converters","DAC/ADC architectures and quantization.",["Ideal N-bit ADC has 2^N quantization levels","Quantization error is typically within ±0.5 LSB for rounding"],"GATE ADC DAC","Microelectronic Circuits — Sedra & Smith"]]},{"id":"pe","name":"Power Electronics","icon":"🔌","weight":"Approx. 5–9 marks (historical trend; varies by paper)","priority":"Power Diodes, SCR, Controlled Rectifiers, Choppers, Inverters, AC Controllers","topics":[["Power Semiconductor Devices","Power diode, SCR, TRIAC, MOSFET, IGBT and switching characteristics.",["SCR has anode, cathode and gate","MOSFET is voltage-controlled","IGBT combines MOS gate with bipolar conduction"],"GATE power semiconductor devices","Power Electronics — M.H. Rashid"],["SCR and Thyristor Circuits","SCR triggering, commutation, latching/holding current and firing angle.",["SCR turns on when forward biased and gate triggered","Holding current < latching current typically"],"GATE SCR","Power Electronics — M.H. Rashid"],["Controlled Rectifiers","Single/three-phase semi-controlled and fully-controlled converters.",["For a single-phase full converter with continuous current: Vdc=(2Vm/π)cosα"],"GATE controlled rectifiers","Power Electronics — M.H. Rashid"],["DC-DC Choppers","Buck, boost and buck-boost converters, duty ratio and continuous conduction.",["Buck: Vo=D Vin","Boost: Vo=Vin/(1−D)","Ideal inverting buck-boost: Vo=−D Vin/(1−D)"],"GATE choppers","Power Electronics — M.H. Rashid"],["Inverters","Voltage source/current source inverters, PWM and harmonic control.",["Inverter converts DC to AC","PWM controls fundamental magnitude and harmonics"],"GATE inverters","Power Electronics — M.H. Rashid"],["AC Controllers and Cycloconverters","AC voltage controllers, integral-cycle control and cycloconversion.",["AC controller changes RMS AC voltage without changing supply frequency","Cycloconverter directly converts AC at one frequency to another lower frequency"],"GATE AC controllers cycloconverters","Power Electronics — M.H. Rashid"]]},{"id":"aptitude","name":"General Aptitude","icon":"🧠","weight":"15 marks (GATE pattern; exact question mix can vary)","priority":"Numerical Ability, Data Interpretation, Verbal Ability, Logic & Reasoning","topics":[["Percentages","Percentage changes, successive changes and comparisons.",["x% of y=(x/100)y","Successive changes multiply factors, not percentages directly"],"GATE aptitude percentage questions","Quantitative Aptitude — R.S. Aggarwal"],["Ratio and Proportion","Ratios, proportions, mixtures and scaling.",["a:b=c:d ⇒ ad=bc"],"GATE ratio proportion","Quantitative Aptitude — R.S. Aggarwal"],["Averages","Arithmetic mean, weighted average and combined average.",["Average=sum/n","Combined average=(n1a1+n2a2)/(n1+n2)"],"GATE average questions","Quantitative Aptitude — R.S. Aggarwal"],["Time, Work and Speed","Work-rate, pipes, relative speed, trains and boats.",["Work rate=1/time","Distance=speed×time","Relative speed depends on direction"],"GATE aptitude time work speed","Quantitative Aptitude — R.S. Aggarwal"],["Probability and Counting","Basic counting, permutations, combinations and probability.",["nPr=n!/(n−r)!","nCr=n!/[r!(n−r)!]","P(A)=favourable/total for equally likely outcomes"],"GATE aptitude probability","Quantitative Aptitude — R.S. Aggarwal"],["Verbal and Logical Reasoning","Grammar, vocabulary, reading comprehension, sequences, deductions and logical relations.",["Read the exact wording before choosing an inference","For arrangements, list constraints before placing items"],"GATE general aptitude verbal reasoning","GATE General Aptitude practice resources"]]}];
+var officialSyllabus = {"Engineering Mathematics":[["Linear Algebra","Matrix Algebra; Systems of linear equations; Eigen values; Eigen vectors.","Use determinant, rank and characteristic equation to classify and solve matrix problems.","Higher Engineering Mathematics — B.S. Grewal"],["Calculus","Mean value theorems; Theorems of integral calculus; Definite and improper integrals; Partial derivatives; Maxima and minima; Multiple integrals; Fourier series.","Master single-variable and multivariable differentiation/integration plus Fourier-series basics and vector-calculus identities.","Higher Engineering Mathematics — B.S. Grewal"],["Vector Calculus","Vector identities; Directional derivatives; Line, surface and volume integrals; Stokes’s theorem; Gauss’s theorem; Divergence theorem; Green’s theorem.","Know the physical meaning of gradient, divergence and curl and when each integral theorem applies.","Higher Engineering Mathematics — B.S. Grewal"],["Differential Equations","First-order linear and nonlinear equations; Higher-order linear equations with constant coefficients; Variation of parameters; Cauchy’s equation; Euler’s equation; Initial and boundary value problems; Partial differential equations; Separation of variables.","Practice characteristic equations, particular solutions, boundary conditions and standard PDE separation problems.","Advanced Engineering Mathematics — Erwin Kreyszig"],["Complex Variables","Analytic functions; Cauchy’s integral theorem; Cauchy’s integral formula; Taylor series; Laurent series; Residue theorem; solution integrals.","Check analyticity with Cauchy-Riemann equations and use contour-integral/residue methods systematically.","Advanced Engineering Mathematics — Erwin Kreyszig"],["Probability & Statistics","Sampling theorems; Conditional probability; Mean; Median; Mode; Standard deviation; Random variables; Discrete and continuous distributions; Poisson; Normal; Binomial; Correlation; Regression.","Learn distribution properties, moments and the interpretation of correlation/regression results.","Engineering Mathematics — B.S. Grewal"]],"Electric Circuits":[["Network Elements","Ideal voltage/current sources; Dependent sources; R, L, C and mutual-inductance M elements.","Be able to model independent/dependent sources and coupled inductors with sign conventions.","Engineering Circuit Analysis — Hayt & Kemmerly"],["Network Solution Methods","KCL; KVL; Node analysis; Mesh analysis.","Choose nodal or mesh analysis efficiently and handle supernodes/supermeshes.","Engineering Circuit Analysis — Hayt & Kemmerly"],["Network Theorems","Thevenin; Norton; Superposition; Maximum Power Transfer.","Apply source deactivation correctly and distinguish resistive DC maximum-power conditions from complex AC cases.","Engineering Circuit Analysis — Hayt & Kemmerly"],["Transient Response","Transient response of DC and AC networks.","Solve first- and second-order natural/step responses and identify initial/final conditions.","Engineering Circuit Analysis — Hayt & Kemmerly"],["Sinusoidal Steady State","Phasors, impedance/admittance and steady-state sinusoidal response.","Convert between time and phasor domains and solve complex impedances.","Fundamentals of Electric Circuits — Alexander & Sadiku"],["Resonance","Series/parallel resonance and frequency-selective behavior.","Know resonant frequency, bandwidth and quality factor.","Fundamentals of Electric Circuits — Alexander & Sadiku"],["Two-Port Networks","Two-port parameters and network relationships.","Practice z, y, h and transmission/ABCD representations where applicable.","Network Analysis — M.E. Van Valkenburg"],["Balanced Three-Phase Circuits","Balanced three-phase systems; star-delta transformation.","Relate line/phase voltages and currents and convert Y↔Δ.","Electrical Engineering — Nagrath & Kothari"],["Complex Power & Power Factor","Complex power, real/reactive/apparent power and power factor.","Use S=P+jQ and power-factor correction methods.","Fundamentals of Electric Circuits — Alexander & Sadiku"]],"Electromagnetic Fields":[["Coulomb’s Law","Coulomb’s law; Electric field intensity; Electric flux density.","Calculate fields from point charges and relate E, D and charge.","Engineering Electromagnetics — Hayt & Buck"],["Gauss’s Law & Divergence","Gauss’s law and divergence.","Use symmetry to simplify flux calculations and connect integral and differential forms.","Engineering Electromagnetics — Hayt & Buck"],["Charge Distributions","Electric field and potential due to point, line, plane and spherical charge distributions.","Set up field/potential integrals for standard charge geometries.","Engineering Electromagnetics — Hayt & Buck"],["Dielectrics & Capacitance","Effect of dielectric medium; Capacitance of simple configurations.","Understand polarization, permittivity and series/parallel capacitance.","Engineering Electromagnetics — Hayt & Buck"],["Biot-Savart & Ampere","Biot-Savart’s law; Ampere’s law; Curl.","Choose Biot-Savart or Ampere based on geometry and symmetry.","Engineering Electromagnetics — Hayt & Buck"],["Faraday & Lorentz Force","Faraday’s law; Lorentz force.","Relate time-varying magnetic fields to induced electric fields and force on charges/currents.","Engineering Electromagnetics — Hayt & Buck"],["Inductance & Magnetic Circuits","Inductance; MMF; reluctance; magnetic circuits; self and mutual inductance of simple configurations.","Solve magnetic-circuit analogies and calculate self/mutual inductance.","Engineering Electromagnetics — Hayt & Buck"]],"Signals & Systems":[["Continuous and Discrete Signals","Representation of continuous- and discrete-time signals; shifting and scaling.","Practice time reversal, shifting, scaling and basic signal operations.","Signals and Systems — Oppenheim & Willsky"],["LTI & Causal Systems","Linear time-invariant and causal systems.","Use impulse response and system properties to determine outputs and stability/causality.","Signals and Systems — Oppenheim & Willsky"],["Fourier Series","Fourier-series representation of continuous- and discrete-time periodic signals.","Find coefficients and exploit symmetry to reduce work.","Signals and Systems — Oppenheim & Willsky"],["Sampling Theorem","Sampling theorem and aliasing.","Determine minimum sampling rate and identify spectral overlap.","Signals and Systems — Oppenheim & Willsky"],["Fourier Transform","Applications of Fourier Transform for continuous- and discrete-time signals.","Use transform pairs and properties such as time shift and differentiation.","Signals and Systems — Oppenheim & Willsky"],["Laplace Transform","Laplace transform and system analysis.","Use ROC/poles and inverse-transform methods for continuous-time systems.","Signals and Systems — Oppenheim & Willsky"],["Z Transform","Z transform and ROC.","Use poles/zeros and ROC to infer causality and stability.","Discrete-Time Signal Processing — Oppenheim & Schafer"],["RMS & Average Value","RMS and average-value calculation for any general periodic waveform.","Set correct integration limits and distinguish signed average from rectified/RMS values.","Electrical Engineering fundamentals"]],"Electrical Machines":[["Single-Phase Transformers","Equivalent circuit; phasor diagram; open-circuit and short-circuit tests; regulation; efficiency.","Extract equivalent-circuit parameters from OC/SC tests and calculate regulation/efficiency.","Electrical Machinery — P.S. Bimbhra"],["Three-Phase Transformers","Connections; vector groups; parallel operation.","Understand phase shifts/vector groups and conditions for safe parallel operation.","Electrical Machinery — P.S. Bimbhra"],["Autotransformer","Autotransformer principles and applications.","Compare copper usage, kVA rating and isolation with two-winding transformers.","Electrical Machinery — P.S. Bimbhra"],["Electromechanical Energy Conversion","Principles of electromechanical energy conversion.","Connect field energy/co-energy concepts to force/torque production.","Electrical Machinery — P.S. Bimbhra"],["DC Machines","Separately excited, series and shunt machines; motoring/generating; characteristics; speed control.","Master EMF/torque relations, characteristics and speed-control methods.","Electrical Machinery — P.S. Bimbhra"],["Three-Phase Induction Machines","Principle, types, performance, torque-speed characteristics, no-load and blocked-rotor tests, equivalent circuit, starting and speed control.","Relate slip, rotor frequency, torque and equivalent-circuit parameters to performance.","Electrical Machinery — P.S. Bimbhra"],["Single-Phase Induction Motors","Operating principle of single-phase induction motors.","Understand why a single-phase induction motor needs a starting mechanism and compare common types.","Electrical Machinery — P.S. Bimbhra"],["Synchronous Machines","Cylindrical/salient pole machines; performance/characteristics; generator regulation and parallel operation; synchronous-motor starting.","Practice EMF, regulation, power-angle and operating-characteristic problems.","Electrical Machinery — P.S. Bimbhra"],["Machine Losses & Efficiency","Types of losses and efficiency calculations of electrical machines.","Separate core, copper, mechanical and stray-load losses and calculate efficiency.","Electrical Machinery — P.S. Bimbhra"]],"Power Systems":[["Generation & Transmission Basics","Basic concepts of electrical power generation; AC and DC transmission concepts.","Compare generation/transmission arrangements and basic AC/DC transmission ideas.","Power System Analysis — Hadi Saadat"],["Transmission Lines & Cables","Models and performance of transmission lines and cables.","Use short/medium/long-line models, ABCD constants and cable basics.","Power System Analysis — Hadi Saadat"],["Economic Load Dispatch","Economic Load Dispatch with and without transmission losses.","Solve equal-incremental-cost conditions and include loss penalties when required.","Power System Analysis — Hadi Saadat"],["Series & Shunt Compensation","Series and shunt compensation.","Understand how compensation changes voltage profile, reactive power and line transfer capability.","Power System Analysis — Hadi Saadat"],["Electric Field Distribution & Insulators","Electric-field distribution and insulators.","Study string efficiency, voltage distribution and basic insulation behavior.","Power System Analysis — Hadi Saadat"],["Distribution Systems","Distribution-system configurations and characteristics.","Compare radial, ring-main and interconnected arrangements and basic distribution calculations.","Power System Analysis — Hadi Saadat"],["Per-Unit Quantities","Per-unit quantities and base conversion.","Use consistent MVA/kV bases and convert impedances correctly.","Power System Analysis — Hadi Saadat"],["Bus Admittance Matrix","Bus admittance matrix (Y-bus).","Build Y-bus from network data and interpret diagonal/off-diagonal elements.","Power System Analysis — Hadi Saadat"],["Load Flow","Gauss-Seidel and Newton-Raphson load-flow methods.","Classify slack/PV/PQ buses and solve iterative load-flow equations.","Power System Analysis — Hadi Saadat"],["Voltage & Frequency Control","Voltage and frequency control.","Understand excitation, governor and reactive-power control roles.","Power System Analysis — Hadi Saadat"],["Power Factor Correction","Power-factor correction.","Calculate capacitor requirements and reactive-power compensation.","Power System Analysis — Hadi Saadat"],["Symmetrical Components","Symmetrical components.","Transform unbalanced phasors into positive, negative and zero sequences.","Power System Analysis — Hadi Saadat"],["Fault Analysis","Symmetrical and unsymmetrical fault analysis.","Solve 3-phase and unbalanced LG/LL/LLG faults using sequence networks.","Power System Analysis — Hadi Saadat"],["Protection","Over-current, differential, directional and distance protection.","Understand relay characteristics, zones and basic protection coordination.","Power System Protection — Badri Ram & D.N. Vishwakarma"],["Circuit Breakers","Circuit breakers.","Know interruption principles and key breaker ratings/terms.","Power System Protection — Badri Ram & D.N. Vishwakarma"],["Stability & Equal-Area Criterion","System stability concepts; equal-area criterion.","Analyze rotor-angle stability and critical clearing concepts in simple systems.","Power System Analysis — Hadi Saadat"]],"Control Systems":[["Mathematical Modeling","Mathematical modelling and representation of systems.","Translate physical systems into differential equations and transfer/state models.","Modern Control Engineering — K. Ogata"],["Feedback & Transfer Functions","Feedback principle; transfer function.","Derive closed-loop transfer functions and understand feedback effects.","Modern Control Engineering — K. Ogata"],["Block Diagrams & Signal Flow Graphs","Block diagrams and signal-flow graphs.","Reduce block diagrams and apply Mason’s gain formula.","Modern Control Engineering — K. Ogata"],["Transient & Steady-State Analysis","Transient and steady-state analysis of LTI systems.","Calculate standard second-order metrics and steady-state errors.","Modern Control Engineering — K. Ogata"],["Routh-Hurwitz Stability","Stability using Routh-Hurwitz criterion.","Count right-half-plane roots and handle special rows/columns.","Modern Control Engineering — K. Ogata"],["Nyquist Stability","Stability using Nyquist criterion.","Relate encirclements, open-loop poles and closed-loop stability.","Modern Control Engineering — K. Ogata"],["Bode Plots","Bode magnitude/phase plots and margins.","Find gain/phase crossover and stability margins from asymptotic plots.","Modern Control Engineering — K. Ogata"],["Root Locus","Root-locus analysis.","Use angle/magnitude conditions and breakaway/departure rules.","Modern Control Engineering — K. Ogata"],["Compensators","Lag, lead and lead-lag compensators.","Understand how compensators alter transient response, steady-state error and margins.","Modern Control Engineering — K. Ogata"],["P, PI & PID Controllers","P, PI and PID controllers.","Compare controller actions and their effect on error and dynamics.","Modern Control Engineering — K. Ogata"],["State Space","State-space model and solution of state equations for LTI systems.","Form A,B,C,D models and solve state equations using standard methods.","Modern Control Engineering — K. Ogata"]],"Electrical & Electronic Measurements":[["Bridges & Potentiometers","Bridges and potentiometers.","Balance bridge networks and understand potentiometer measurement principles.","Electrical and Electronic Measurements and Instrumentation — A.K. Sawhney"],["Voltage, Current & Power Measurement","Measurement of voltage, current and power.","Understand loading effects, instrument connections and power measurement methods.","Electrical and Electronic Measurements — A.K. Sawhney"],["Energy & Power Factor Measurement","Measurement of energy and power factor.","Know energy-meter principles and power-factor measurement methods.","Electrical and Electronic Measurements — A.K. Sawhney"],["Instrument Transformers","Instrument transformers.","Understand CT/PT purpose, ratios and practical measurement/protection considerations.","Electrical and Electronic Measurements — A.K. Sawhney"],["Digital Voltmeters & Multimeters","Digital voltmeters and multi-meters.","Understand DVM architecture, accuracy and loading characteristics.","Electronic Instrumentation — H.S. Kalsi"],["Phase, Time & Frequency Measurement","Phase, time and frequency measurement.","Use counter/CRO-based and digital measurement principles.","Electronic Instrumentation — H.S. Kalsi"],["Oscilloscopes","Oscilloscopes.","Read amplitude/time/frequency/phase from CRO/DSO-style displays and understand triggering.","Electronic Instrumentation — H.S. Kalsi"],["Error Analysis","Error analysis.","Calculate absolute/relative/percentage errors and propagate uncertainty where required.","Electrical and Electronic Measurements — A.K. Sawhney"]],"Analog & Digital Electronics":[["Diode Circuits","Simple diode circuits: clipping, clamping and rectifiers.","Analyze diode conduction states and output waveforms.","Microelectronic Circuits — Sedra & Smith"],["Amplifiers","Amplifier biasing, equivalent circuit and frequency response.","Use bias points, small-signal models and low/mid/high-frequency behavior.","Microelectronic Circuits — Sedra & Smith"],["Oscillators & Feedback Amplifiers","Oscillators and feedback amplifiers.","Understand Barkhausen condition and feedback effects on gain/bandwidth.","Microelectronic Circuits — Sedra & Smith"],["Operational Amplifiers","Op-amp characteristics and applications.","Analyze ideal/nonideal op-amp circuits, integrators, differentiators and comparators.","Microelectronic Circuits — Sedra & Smith"],["Single-Stage Active Filters","Single-stage active filters.","Analyze cutoff frequency, gain and response of simple active-filter stages.","Microelectronic Circuits — Sedra & Smith"],["Sallen-Key & Butterworth Filters","Sallen-Key and Butterworth active filters.","Know topology purpose and Butterworth response characteristics.","Microelectronic Circuits — Sedra & Smith"],["VCOs & Timers","Voltage-controlled oscillators and timers.","Understand control-voltage-to-frequency behavior and timer operating modes.","Microelectronic Circuits — Sedra & Smith"],["Combinational Logic","Combinatorial logic circuits.","Use Boolean algebra/K-maps and analyze common combinational blocks.","Digital Design — M. Morris Mano"],["Sequential Logic","Sequential logic circuits.","Analyze latches, flip-flops, counters, registers and state behavior.","Digital Design — M. Morris Mano"],["Multiplexers & Demultiplexers","Multiplexers and demultiplexers.","Implement logic functions and route digital signals using MUX/DEMUX.","Digital Design — M. Morris Mano"],["Schmitt Triggers","Schmitt-trigger circuits.","Understand hysteresis and threshold switching.","Microelectronic Circuits — Sedra & Smith"],["Sample & Hold","Sample-and-hold circuits.","Understand acquisition/hold operation and its role before ADC conversion.","Microelectronic Circuits — Sedra & Smith"],["A/D & D/A Converters","A/D and D/A converters.","Know resolution, quantization and common ADC/DAC architectures.","Microelectronic Circuits — Sedra & Smith"]],"Power Electronics":[["Thyristor, MOSFET & IGBT","Static V-I characteristics and firing/gating circuits for Thyristor, MOSFET and IGBT.","Compare device characteristics, control terminals and switching behavior.","Power Electronics — M.H. Rashid"],["Buck, Boost & Buck-Boost","DC-DC conversion using Buck, Boost and Buck-Boost converters.","Relate duty ratio to average output and identify polarity/CCM assumptions.","Power Electronics — M.H. Rashid"],["Uncontrolled Rectifiers","Single- and three-phase uncontrolled rectifier configurations.","Calculate average output, ripple and basic diode-rectifier behavior.","Power Electronics — M.H. Rashid"],["Thyristor Converters","Voltage- and current-commutated thyristor-based converters.","Understand commutation mechanisms and firing-angle control.","Power Electronics — M.H. Rashid"],["Bidirectional AC-DC Converters","Bidirectional AC-to-DC voltage-source converters.","Understand four-quadrant/bidirectional power-flow concepts and switching control.","Power Electronics — M.H. Rashid"],["Converter Harmonics","Magnitude and phase of line-current harmonics for uncontrolled and thyristor converters.","Identify characteristic harmonics and their effect on supply current.","Power Electronics — M.H. Rashid"],["Power Factor & Distortion Factor","Power factor and distortion factor of AC-to-DC converters.","Separate displacement and distortion effects and calculate relevant factors.","Power Electronics — M.H. Rashid"],["Voltage-Source Inverters","Single- and three-phase voltage-source inverters.","Analyze switching states, output waveforms and fundamental components.","Power Electronics — M.H. Rashid"],["Current-Source Inverters","Single- and three-phase current-source inverters.","Understand current-source topology and output behavior.","Power Electronics — M.H. Rashid"],["Sinusoidal PWM","Sinusoidal pulse-width modulation.","Relate modulation index/frequency ratio to inverter output and harmonics.","Power Electronics — M.H. Rashid"]]};
+var officialGA = {"Verbal Aptitude":["Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions, verb-noun agreement and other parts of speech.","Basic vocabulary: words, idioms and phrases in context.","Reading and comprehension.","Narrative sequencing."],"Quantitative Aptitude":["Data interpretation: bar graphs, pie charts and other graphs.","2- and 3-dimensional plots, maps and tables.","Numerical computation and estimation.","Ratios, percentages, powers, exponents and logarithms.","Permutations and combinations.","Series.","Mensuration and geometry.","Elementary statistics and probability."],"Analytical Aptitude":["Deduction and induction.","Analogy.","Numerical relations and reasoning."],"Spatial Aptitude":["Translation, rotation and scaling of shapes.","Mirroring, assembling and grouping.","Paper folding, cutting and patterns in 2 and 3 dimensions."]};
+var syllabusOpenSection='';
+var syllabusFilter='';
+
+var formulas=[["Engineering Mathematics","Linear algebra","|A−λI|=0"],["Engineering Mathematics","Newton-Raphson","xₙ₊₁=xₙ−f(xₙ)/f′(xₙ)"],["Engineering Mathematics","Conditional probability","P(A|B)=P(A∩B)/P(B)"],["Electric Circuits","Ohm's law","V=IR"],["Electric Circuits","AC impedance","ZL=jωL,  ZC=1/(jωC)"],["Electric Circuits","3-phase power","P=√3 VL IL cosφ"],["Electromagnetic Fields","Gauss law","∮D·dS=Qfree"],["Electromagnetic Fields","Faraday law","∇×E=−∂B/∂t"],["Electromagnetic Fields","Transmission reflection","Γ=(ZL−Z0)/(ZL+Z0)"],["Signals & Systems","Convolution","y[n]=Σx[k]h[n−k]"],["Signals & Systems","Sampling","fs≥2fm"],["Signals & Systems","Energy","E=Σ|x[n]|²"],["Electrical Machines","Synchronous speed","Ns=120f/P"],["Electrical Machines","Slip","s=(Ns−N)/Ns"],["Electrical Machines","Transformer EMF","E=4.44fNΦm"],["Power Systems","3-phase power","P=√3VLILcosφ"],["Power Systems","Per-unit impedance base","Zbase=Vbase²/Sbase"],["Power Systems","Fault current","I≈V/Z"],["Control Systems","Negative feedback","T=G/(1+GH)"],["Control Systems","Final value theorem","lim t→∞ x(t)=lim s→0 sX(s)"],["Control Systems","Routh criterion","First-column sign changes = RHP roots"],["Measurements","Percentage error","% error=|measured−true|/true×100"],["Measurements","ADC levels","Levels=2^N"],["Analog & Digital Electronics","Inverting op-amp","Av=−Rf/Rin"],["Analog & Digital Electronics","BJT current relation","IE=IC+IB"],["Analog & Digital Electronics","De Morgan","(AB)'=A'+B'"],["Power Electronics","Buck","Vo=D Vin"],["Power Electronics","Boost","Vo=Vin/(1−D)"],["Power Electronics","Full converter","Vdc=(2Vm/π)cosα"],["General Aptitude","Percentage","Percentage=(part/whole)×100"],["General Aptitude","Average","Average=sum/n"],["General Aptitude","Combination","nCr=n!/[r!(n−r)!]"]];
+var questions=[["machines","Induction Machines","Easy","A 4-pole, 50 Hz induction motor has synchronous speed:",["1500 rpm","1000 rpm","750 rpm","3000 rpm"],0,"Ns=120f/P=120×50/4=1500 rpm.","1"],["machines","Induction Machines","Easy","An induction motor runs at 1440 rpm with Ns=1500 rpm. Slip is:",["2%","4%","6%","8%"],1,"s=(Ns−N)/Ns=(1500−1440)/1500=0.04=4%.","2"],["machines","Transformers","Medium","For a transformer, E=4.44fNΦm. If f doubles while N and Φm remain constant, induced emf:",["halves","remains same","doubles","becomes four times"],2,"E is directly proportional to f when N and Φm are constant.","3"],["machines","DC Machines","Easy","The back emf of a DC motor mainly opposes:",["armature current","applied voltage","field flux","mechanical torque"],1,"Back emf is generated by armature rotation and opposes the applied armature voltage.","4"],["machines","Synchronous Machines","Medium","The synchronous speed of a 6-pole, 50 Hz machine is:",["500 rpm","1000 rpm","1500 rpm","3000 rpm"],1,"Ns=120×50/6=1000 rpm.","5"],["machines","Transformers","Medium","Maximum transformer efficiency occurs approximately when:",["core loss is zero","copper loss equals core loss","copper loss is maximum","load is zero"],1,"Variable copper loss equals approximately constant core loss at maximum efficiency.","6"],["power","Transmission Lines","Easy","For fixed transmitted power, raising voltage mainly reduces:",["frequency","current","resistance","power factor"],1,"P≈VI for unity PF; higher V means lower I. I²R loss then falls.","7"],["power","Three Phase","Easy","Balanced three-phase active power is:",["VLILcosφ","3VLILcosφ","√3VLILcosφ","VLIL"],2,"For a balanced 3-phase system, P=√3VLILcosφ.","8"],["power","Per Unit","Medium","If Vbase=10 kV and Sbase=100 MVA, Zbase is:",["0.1 Ω","1 Ω","10 Ω","100 Ω"],2,"Zbase=Vbase²/Sbase=(10²)/100=1 kΩ? Careful with kV/MVA: 1 Ω. Therefore the correct option is 1 Ω.","9"],["power","Protection","Easy","A differential relay primarily compares:",["frequency","currents at zone boundaries","bus voltage with frequency","power factor"],1,"Differential protection compares current entering and leaving the protected zone.","10"],["power","Faults","Easy","Which is a symmetrical fault?",["LG","LL","LLG","LLL"],3,"A balanced three-phase LLL fault is symmetrical.","11"],["power","Stability","Medium","For P=(EV/X)sinδ, maximum power occurs at δ=",["0°","30°","90°","180°"],2,"sinδ is maximum at 90°.","12"],["circuits","Basic Laws","Easy","KCL is based on conservation of:",["energy","charge","momentum","mass"],1,"KCL follows conservation of electric charge at a node.","13"],["circuits","Network Theorems","Medium","For maximum power transfer in a resistive DC network, RL should equal:",["0","Rth","2Rth","1/Rth"],1,"Maximum power transfer occurs when RL=Rth.","14"],["circuits","AC Circuits","Easy","The impedance of an ideal inductor is:",["R","jωL","1/jωL","1"],1,"For an ideal inductor, ZL=jωL.","15"],["circuits","Three Phase","Easy","In a balanced star connection, line voltage is:",["equal to phase voltage","√3 times phase voltage","3 times phase voltage","phase voltage/√3"],1,"VL=√3Vph for a balanced star load.","16"],["circuits","Transient","Easy","The time constant of an RC circuit is:",["R/C","RC","C/R","1/RC"],1,"τ=RC.","17"],["circuits","Resonance","Medium","At series RLC resonance, circuit impedance is:",["maximum","minimum","infinite","zero for any R"],1,"At resonance XL=XC, so reactive parts cancel and Z=R, its minimum value.","18"],["signals","Sampling","Easy","A signal has highest frequency 5 kHz. The Nyquist rate is:",["2.5 kHz","5 kHz","10 kHz","20 kHz"],2,"Nyquist rate=2fm=10 kHz.","19"],["signals","Convolution","Easy","For an LTI system, output is the convolution of:",["input and output","input and impulse response","two inputs","step and ramp only"],1,"y=x*h for an LTI system.","20"],["signals","LTI Systems","Medium","An LTI continuous-time system is BIBO stable if:",["h(t)=0 only","∫|h(t)|dt is finite","h(t) is periodic","input is periodic"],1,"Absolute integrability of h(t) is the BIBO stability condition.","21"],["signals","Transforms","Medium","The ROC of a Z-transform cannot contain:",["zeros","poles","origin always","unit circle always"],1,"The ROC never contains poles.","22"],["signals","Signals","Easy","Energy of a discrete-time signal is:",["Σ|x[n]|","Σ|x[n]|²","average x[n]","max |x[n]|"],1,"Signal energy is the sum of squared magnitude.","23"],["emf","Electrostatics","Easy","Gauss law relates electric flux density to:",["free charge","magnetic charge","resistance","inductance"],0,"∮D·dS=Qfree.","24"],["emf","Maxwell Equations","Easy","Faraday's law in differential form is:",["∇·D=ρ","∇·B=0","∇×E=−∂B/∂t","∇×H=J"],2,"Faraday law states changing magnetic flux induces curl of E.","25"],["emf","Magnetostatics","Easy","For a linear isotropic medium:",["B=μH","B=εE","D=μH","E=μH"],0,"Constitutive relation for magnetic field is B=μH.","26"],["emf","Transmission Lines","Medium","If ZL=Z0, reflection coefficient is:",["1","−1","0","∞"],2,"Γ=(ZL−Z0)/(ZL+Z0)=0 for matched load.","27"],["emf","Waves","Medium","Poynting vector gives electromagnetic:",["charge density","power flow density","resistance","frequency only"],1,"S=E×H represents instantaneous power flow density.","28"],["control","Modeling","Easy","For negative feedback, closed-loop transfer function is:",["G/(1−GH)","G/(1+GH)","1/G","GH"],1,"Standard negative feedback: T=G/(1+GH).","29"],["control","Stability","Easy","A continuous-time stable system has all poles in the:",["right half-plane","left half-plane","positive imaginary axis","origin"],1,"All closed-loop poles must have negative real parts.","30"],["control","Routh","Easy","Number of sign changes in first column of Routh array equals number of:",["LHP poles","RHP roots","zeros","integrators"],1,"Routh criterion directly gives number of right-half-plane roots.","31"],["control","Frequency Response","Medium","Phase margin is measured at:",["phase crossover frequency only","gain crossover frequency","DC only","resonant frequency only"],1,"Phase margin is evaluated at gain crossover where magnitude is unity.","32"],["control","State Space","Easy","A state equation can be written as:",["x=Ay","ẋ=Ax+Bu","y=Ax","u=Cx"],1,"Standard state-space model: ẋ=Ax+Bu.","33"],["electronics","Diodes","Easy","A Zener diode is commonly operated in:",["forward active region","breakdown region","cutoff only","saturation of BJT"],1,"Zener regulation uses reverse breakdown operation.","34"],["electronics","BJT","Easy","For a BJT, approximately:",["IE=IC+IB","IC=IE+IB","IB=IE+IC","IE=IC−IB"],0,"KCL at transistor terminals gives IE=IC+IB.","35"],["electronics","Op Amps","Easy","Ideal inverting op-amp gain is:",["Rf/Rin","−Rf/Rin","1+Rf/Rin","−Rin/Rf"],1,"For the ideal inverting amplifier, Av=−Rf/Rin.","36"],["electronics","Digital Logic","Easy","De Morgan's law for (AB)' is:",["A'B'","A'+B'","AB","A+B"],1,"Complement of a product is the sum of complements.","37"],["electronics","Flip Flops","Easy","For a D flip-flop, next state is:",["Q","D","D'","0"],1,"Q(next)=D.","38"],["electronics","ADC DAC","Medium","An ideal N-bit ADC has how many quantization levels?",["N","2N","2^N","N²"],2,"N bits represent 2^N distinct codes/levels.","39"],["pe","Devices","Easy","An SCR has:",["2 terminals","3 terminals","4 terminals","5 terminals"],1,"SCR terminals are anode, cathode and gate.","40"],["pe","Choppers","Easy","For an ideal buck converter, Vo equals:",["Vin/D","D Vin","Vin(1−D)","Vin+D"],1,"Buck relation in continuous conduction: Vo=D Vin.","41"],["pe","Choppers","Medium","For an ideal boost converter with D=0.5 and Vin=100 V, Vo is:",["50 V","100 V","200 V","250 V"],2,"Vo=Vin/(1−D)=100/0.5=200 V.","42"],["pe","Rectifiers","Medium","For a single-phase full converter with continuous current, average output voltage is:",["Vm/π","2Vm/π","(2Vm/π)cosα","Vm cosα"],2,"Standard fully controlled bridge relation: Vdc=(2Vm/π)cosα.","43"],["pe","Inverters","Easy","A power inverter converts:",["AC to DC","DC to AC","DC to DC only","AC to AC only"],1,"Inverter is a DC-to-AC power converter.","44"],["measurements","Errors","Easy","Precision refers mainly to:",["closeness to true value","repeatability of measurements","instrument size","range only"],1,"Precision describes repeatability; accuracy describes closeness to true value.","45"],["measurements","Instruments","Easy","PMMC instruments are inherently suitable for:",["DC only","AC only","both without rectifier","high-frequency AC only"],0,"PMMC torque is proportional to DC current direction; direct PMMC is DC.","46"],["measurements","Bridges","Easy","Wheatstone bridge is commonly used to measure:",["resistance","frequency only","inductance only","power factor only"],0,"Wheatstone bridge is a resistance measurement bridge.","47"],["measurements","ADC DAC","Medium","Increasing ADC bit count generally:",["reduces resolution","increases quantization step","improves resolution","removes sampling need"],2,"More bits give more levels and a smaller LSB size.","48"],["maths","Linear Algebra","Easy","Eigenvalues satisfy:",["|A+λI|=1","|A−λI|=0","Aλ=0 only","det(A)=λ always"],1,"The characteristic equation is det(A−λI)=0.","49"],["maths","Calculus","Easy","Derivative of x^3 is:",["x²","2x²","3x²","3x"],2,"Power rule: d(x^n)/dx=nx^(n−1).","50"],["maths","Probability","Easy","If P(A)=0.4 and P(B)=0.5 for independent events, P(A∩B) is:",["0.1","0.2","0.4","0.9"],1,"For independent events P(A∩B)=P(A)P(B)=0.2.","51"],["maths","Differential Equations","Medium","For y''+5y'+6y=0, the roots of the auxiliary equation are:",["−2,−3","2,3","−1,−6","1,6"],0,"r²+5r+6=(r+2)(r+3), so r=−2,−3.","52"],["maths","Numerical Methods","Medium","Newton-Raphson uses:",["only integration","f and f'","only matrix inversion","Fourier series only"],1,"xnext=x−f(x)/f'(x).","53"],["aptitude","Percentages","Easy","20% of 250 equals:",["25","40","50","75"],2,"0.20×250=50.","54"],["aptitude","Average","Easy","Average of 10, 20 and 30 is:",["15","20","25","60"],1,"Sum=60; average=60/3=20.","55"],["aptitude","Ratio","Easy","If a:b=2:3 and a=10, b is:",["12","15","18","20"],1,"Scale factor is 5, so b=3×5=15.","56"],["aptitude","Time Work","Medium","If a job takes 5 days for one person at constant rate, work done in one day is:",["1/2","1/3","1/5","5"],2,"Daily work rate=1/5 of the job.","57"],["aptitude","Probability","Medium","A fair coin is tossed twice. Probability of two heads is:",["1/2","1/3","1/4","3/4"],2,"HH is one of four equally likely outcomes: 1/4.","58"]];
+var pyqStyle=[["2014–2025 trend","Electrical Machines","GATE-style","A 3-phase induction motor has Ns=1500 rpm and N=1440 rpm. Find slip.","4%","s=(1500−1440)/1500=0.04=4%."],["2014–2025 trend","Power Systems","GATE-style","Why is bulk power transmitted at high voltage?","To reduce current and I²R loss","For approximately fixed power, higher voltage means lower current. Conductor loss is I²R."],["2014–2025 trend","Signals & Systems","GATE-style","A signal is band-limited to 8 kHz. State the minimum sampling frequency.","16 kHz","Nyquist rate is 2fm, so 2×8=16 kHz."],["2014–2025 trend","Power Electronics","GATE-style","For an ideal buck converter with Vin=240 V and D=0.25, find Vo.","60 V","Vo=D Vin=0.25×240=60 V."],["2014–2025 trend","Control Systems","GATE-style","A Routh table has 3 sign changes. How many RHP roots exist?","3","The number of first-column sign changes equals the number of RHP roots."],["2014–2025 trend","Circuits","GATE-style","A resistive Thevenin source has Vth=10 V and Rth=5 Ω. Find load for maximum power transfer.","5 Ω","For a resistive network, RL=Rth."],["2014–2025 trend","Mathematics","GATE-style","For a 2×2 matrix with characteristic roots 2 and −1, find trace.","1","Sum of eigenvalues equals trace: 2+(−1)=1."],["2014–2025 trend","Electronics","GATE-style","An ideal inverting op-amp has Rin=10 kΩ and Rf=50 kΩ. Gain?","−5","Av=−Rf/Rin=−50/10=−5."],["2014–2025 trend","Measurements","GATE-style","An 8-bit ADC spans 0–5.12 V. Approximate LSB size?","20 mV","5.12/256=0.02 V=20 mV."],["2014–2025 trend","Aptitude","GATE-style","A quantity rises from 200 to 250. Percentage increase?","25%","Increase=50; 50/200×100=25%."]];
+
+function officialUnits(){
+  var out=[];
+  Object.keys(officialSyllabus).forEach(function(section){
+    officialSyllabus[section].forEach(function(u,i){
+      out.push({id:'ee_'+Object.keys(officialSyllabus).indexOf(section)+'_'+i,section:section,title:u[0],detail:u[1],guide:u[2],book:u[3]});
+    });
+  });
+  return out;
+}
+function gaUnits(){
+  var out=[];
+  Object.keys(officialGA).forEach(function(section){
+    officialGA[section].forEach(function(item,i){
+      out.push({id:'ga_'+Object.keys(officialGA).indexOf(section)+'_'+i,section:section,title:item,detail:'Official GATE 2026 General Aptitude syllabus item.',guide:'Learn the definition/skill, then solve timed examples and review mistakes.',book:'GATE General Aptitude practice resources'});
+    });
+  });
+  return out;
+}
+function allOfficialUnits(){return officialUnits().concat(gaUnits());}
+function syllabusDoneCount(){
+  var st=appState.syllabusCompleted||{};
+  return allOfficialUnits().filter(function(u){return !!st[u.id]}).length;
+}
+function syllabusPercent(){
+  var n=allOfficialUnits().length;
+  return n?Math.round(syllabusDoneCount()/n*100):0;
+}
+function markSyllabusUnit(id){
+  appState.syllabusCompleted=appState.syllabusCompleted||{};
+  appState.syllabusCompleted[id]=!appState.syllabusCompleted[id];
+  saveState();render();
+}
+function syllabusCard(u){
+  var done=!!(appState.syllabusCompleted||{})[u.id];
+  return '<button class="subject syllabus-unit" onclick="markSyllabusUnit(\''+u.id+'\')"><div class="subject-icon">'+(done?'✓':'📘')+'</div><div class="subject-info"><b>'+esc(u.title)+'</b><small>'+esc(u.detail)+'</small><small style="margin-top:5px;color:#4FC3F7">'+(done?'Covered • tap to mark pending':'Not marked • tap when mastered')+'</small></div><span class="arrow">›</span></button>';
+}
+function officialSyllabusView(){
+  var units=allOfficialUnits(),q=(syllabusFilter||'').trim().toLowerCase();
+  if(q) units=units.filter(function(u){return (u.section+' '+u.title+' '+u.detail+' '+u.guide).toLowerCase().indexOf(q)>=0;});
+  var sections=[];
+  units.forEach(function(u){if(sections.indexOf(u.section)<0)sections.push(u.section);});
+  var h='<div class="page"><div class="hero"><span class="tag">OFFICIAL 2026</span><h1>Complete GATE Syllabus 📚</h1><p>Every official EE syllabus item plus the complete General Aptitude syllabus is tracked separately. Existing GateVolt topics and data remain untouched.</p><div class="progressbar"><div class="progressfill" style="width:'+syllabusPercent()+'%"></div></div><p class="small">'+syllabusDoneCount()+' / '+allOfficialUnits().length+' official learning units marked covered ('+syllabusPercent()+'%)</p></div>';
+  h+='<div class="notice"><b>Official source:</b> IIT Guwahati GATE 2026 syllabus. This screen is a coverage checklist; marking an item complete means you have studied it, not merely opened it.</div>';
+  h+='<input class="search" placeholder="Search official syllabus..." value="'+esc(syllabusFilter)+'" oninput="syllabusFilter=this.value;renderOfficialSyllabusResults()">';
+  h+='<div id="officialSyllabusResults">';
+  sections.forEach(function(sec){
+    var arr=units.filter(function(u){return u.section===sec;});
+    h+='<div class="section-title">'+esc(sec)+' <span class="badge">'+arr.length+'</span></div>';
+    arr.forEach(function(u){h+=syllabusCard(u);});
+  });
+  h+='</div><button class="btn secondary" onclick="openOfficialSource()">Open official GATE 2026 syllabus</button></div>';
+  return h;
+}
+function renderOfficialSyllabusResults(){
+  var root=document.getElementById('officialSyllabusResults');
+  if(!root)return;
+  var units=allOfficialUnits(),q=(syllabusFilter||'').trim().toLowerCase();
+  if(q)units=units.filter(function(u){return (u.section+' '+u.title+' '+u.detail+' '+u.guide).toLowerCase().indexOf(q)>=0;});
+  var sections=[];
+  units.forEach(function(u){if(sections.indexOf(u.section)<0)sections.push(u.section);});
+  var out='';
+  sections.forEach(function(sec){
+    var arr=units.filter(function(u){return u.section===sec;});
+    out+='<div class="section-title">'+esc(sec)+' <span class="badge">'+arr.length+'</span></div>';
+    arr.forEach(function(u){out+=syllabusCard(u);});
+  });
+  root.innerHTML=out||'<div class="empty">No official syllabus item matches that search.</div>';
+}
+function openOfficialSource(){
+  window.location.href='https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/EE_2026_Syllabus.pdf';
+}
+function showOfficialSyllabus(){currentView='syllabus';syllabusFilter='';render();}
+
+function _initBridge(){if(typeof iappyx==='undefined'){setTimeout(_initBridge,50);return;}onReady();}
+window.addEventListener('load',function(){setTimeout(_initBridge,200);});
+
+function onReady(){
+ try{appState=JSON.parse(iappyx.load('gatevolt_state')||'{}')}catch(e){appState={};}
+ appState.completed=appState.completed||{};appState.attempted=appState.attempted||{};appState.bookmarks=appState.bookmarks||{};appState.practiceCorrect=appState.practiceCorrect||0;appState.practiceTotal=appState.practiceTotal||0;appState.mockScores=appState.mockScores||[];appState.syllabusCompleted=appState.syllabusCompleted||{};
+ render();
+}
+function saveState(){try{iappyx.save('gatevolt_state',JSON.stringify(appState));}catch(e){}}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function subj(id){return subjects.find(function(s){return s.id===id})||subjects[0];}
+function accuracy(){return appState.practiceTotal?Math.round(appState.practiceCorrect/appState.practiceTotal*100):0;}
+function totalTopics(){return subjects.reduce(function(n,s){return n+s.topics.length},0);}
+function doneTopics(){return Object.keys(appState.completed).filter(function(k){return appState.completed[k]}).length;}
+function render(){document.getElementById('app').innerHTML=header()+viewContent()+bottomNav();window.scrollTo(0,0);}
+function header(){
+ if(currentView==='home')return '<div class="header"><div><div class="logo">Gate<span>Volt</span> ⚡</div><div class="subtitle">GATE Electrical Engineering • Offline First</div></div><button class="iconbtn" onclick="showProgress()">📊</button></div>';
+ return '<div class="header"><div class="topback"><button class="backbtn" onclick="goBack()">‹</button><div><div class="logo">Gate<span>Volt</span></div><div class="subtitle">GATE EE preparation</div></div></div></div>';
+}
+function bottomNav(){
+ return '<div class="bottomnav">'+
+ '<button class="navitem '+(currentView==='home'?'active':'')+'" onclick="goHome()"><span class="navicon">⌂</span>Home</button>'+
+ '<button class="navitem '+(currentView==='learn'||currentView==='subject'||currentView==='topic'?'active':'')+'" onclick="showLearn()"><span class="navicon">📚</span>Learn</button>'+
+ '<button class="navitem '+(currentView==='practice'?'active':'')+'" onclick="startPractice()"><span class="navicon">✓</span>Practice</button>'+
+ '<button class="navitem '+(currentView==='formulas'?'active':'')+'" onclick="showFormulas()"><span class="navicon">Σ</span>Formula</button>'+
+ '<button class="navitem '+(currentView==='ai'?'active':'')+'" onclick="showAI()"><span class="navicon">🤖</span>AI</button></div>';
+}
+function viewContent(){
+ if(currentView==='home')return homeView();
+ if(currentView==='learn')return learnView();
+ if(currentView==='subject')return subjectView();
+ if(currentView==='topic')return topicView();
+ if(currentView==='practice')return practiceView();
+ if(currentView==='pyq')return pyqView();
+ if(currentView==='mock')return mockView();
+ if(currentView==='progress')return progressView();
+ if(currentView==='formulas')return formulaView();
+ if(currentView==='ai')return aiView();
+ if(currentView==='search')return searchView();
+ if(currentView==='syllabus')return officialSyllabusView();
+ return homeView();
+}
+function homeView(){
+ var p=totalTopics()?Math.round(doneTopics()/totalTopics()*100):0;
+ return '<div class="page"><div class="hero"><h1>Prepare smarter. Crack GATE. 🚀</h1><p>Complete GATE EE preparation with concepts, formulas, practice, GATE-style questions, mock tests and progress tracking — core study material works offline.</p>'+
+ '<div class="progressbar"><div class="progressfill" style="width:'+p+'%"></div></div><p class="small">'+p+'% of built-in topics completed</p></div>'+
+ '<div class="statgrid"><div class="stat"><strong>'+accuracy()+'%</strong><small>Accuracy</small></div><div class="stat"><strong>'+appState.practiceTotal+'</strong><small>Attempted</small></div><div class="stat"><strong>'+appState.practiceCorrect+'</strong><small>Correct</small></div></div>'+
+ '<div class="section-title">Quick Start</div><div class="grid">'+
+ tile('📖','Learn','Complete syllabus topics','showLearn()')+tile('🎯','Practice','MCQs with solutions','startPractice()')+tile('📝','Mock Test','Timed-style tests','startMock()')+tile('📚','GATE-style Qs','Year/trend practice','showPYQ()')+tile('Σ','Formula Book','Search & star formulas','showFormulas()')+tile('🤖','AI Teacher','Offline concept helper','showAI()')+tile('🔎','Search','Find topics & questions','showSearch()')+tile('📊','Progress','Weak & strong areas','showProgress()')+tile('🗂️','Official Syllabus','All official 2026 EE + GA units','showOfficialSyllabus()')+
+ '</div><div class="section-title">All GATE EE Subjects</div>'+subjects.map(subjectCard).join('')+'</div>';
+}
+function tile(icon,title,desc,fn){return '<button class="tile" onclick="'+fn+'"><div class="emoji">'+icon+'</div><b>'+title+'</b><small>'+desc+'</small></button>';}
+function subjectCard(s){
+ var d=subjectProgress(s.id);
+ return '<button class="subject" onclick="openSubject(\''+s.id+'\')"><div class="subject-icon">'+s.icon+'</div><div class="subject-info"><b>'+esc(s.name)+'</b><small>'+s.topics.length+' core topics • '+esc(s.weight)+'</small><div class="progressbar"><div class="progressfill" style="width:'+d+'%"></div></div></div><span class="arrow">›</span></button>';
+}
+function subjectProgress(id){
+ var s=subj(id),d=s.topics.filter(function(t,i){return appState.completed[id+'_'+i]}).length;
+ return s.topics.length?Math.round(d/s.topics.length*100):0;
+}
+function learnView(){
+ return '<div class="page"><div class="card coverage-card"><span class="tag">GATE 2026</span><h2 style="font-size:20px;margin:10px 0 6px">Official Detailed Syllabus</h2><p class="small">All 97 EE learning units + 18 General Aptitude learning units are available separately. Your original core topics remain below.</p><button class="btn" onclick="showOfficialSyllabus()">🗂️ Open Complete Syllabus Coverage</button></div><div class="section-title">Existing GATE EE Core Topics</div><div class="notice">The weightage shown is an approximate historical trend, not a prediction or guarantee. GATE question distribution changes by year.</div>'+subjects.map(subjectCard).join('')+'</div>';
+}
+function openSubject(id){selectedSubject=id;currentView='subject';render();}
+function subjectView(){
+ var s=subj(selectedSubject),p=subjectProgress(selectedSubject);
+ return '<div class="page"><div class="hero"><span class="tag">'+s.icon+' Subject</span><h1>'+esc(s.name)+'</h1><p>'+esc(s.weight)+'</p><p><b>High-priority:</b> '+esc(s.priority)+'</p><div class="progressbar"><div class="progressfill" style="width:'+p+'%"></div></div><p class="small">'+p+'% topic completion</p></div>'+
+ '<div class="section-title">Topics</div>'+s.topics.map(function(t,i){
+  var done=!!appState.completed[selectedSubject+'_'+i];
+  return '<button class="subject" onclick="openTopic('+i+')"><div class="subject-icon">'+(done?'✓':'📘')+'</div><div class="subject-info"><b>'+esc(t[0])+'</b><small>'+(done?'Completed • tap to revise':'Beginner explanation • formulas • shortcuts • references')+'</small></div><span class="arrow">›</span></button>';
+ }).join('')+
+ '<button class="btn" onclick="startSubjectPractice()">Practice '+esc(s.name)+'</button><button class="btn secondary" onclick="showPYQForSubject()">GATE-style questions</button></div>';
+}
+function openTopic(i){selectedTopic=i;currentView='topic';render();}
+function topicView(){
+ var s=subj(selectedSubject),t=s.topics[selectedTopic],key=selectedSubject+'_'+selectedTopic,book=!!appState.bookmarks[key];
+ var qs=questions.filter(function(q){return q[0]===selectedSubject && q[1]===t[0]});
+ return '<div class="page"><div class="card lesson"><span class="tag">'+esc(s.name)+'</span><button class="star" onclick="toggleBookmark(\''+key+'\')">'+(book?'⭐':'☆')+'</button><h2>'+esc(t[0])+'</h2>'+
+ '<p>'+esc(t[1])+'</p><h3>Important formulas / rules</h3>'+t[2].map(function(x){return '<div class="formula">'+esc(x)+'</div>'}).join('')+
+ '<h3 style="margin-top:15px">Key points & shortcuts</h3><p>• Learn the definition first, then connect it to the formula.<br>• Check units before substituting values.<br>• For numerical questions, write the governing equation before calculating.<br>• Mark repeated mistakes and revisit this topic from Progress.</p>'+
+ '<h3 style="margin-top:15px">Common mistakes</h3><p>• Mixing line and phase quantities.<br>• Using rpm where rad/s is required.<br>• Forgetting signs, initial conditions or assumptions.<br>• Memorising a formula without knowing its conditions.</p>'+
+ '<h3 style="margin-top:15px">Learn More</h3><div class="card" style="background:#0d0d1a"><b>📺 YouTube search/reference</b><p class="small">Search: '+esc(t[3])+'</p><button class="btn secondary" onclick="openYT(\''+encodeURIComponent(t[3])+'\')">Search YouTube</button><p class="small" style="margin-top:8px">📖 Text: '+esc(t[4])+'</p><p class="small">Use the reference to deepen derivations and solve additional examples. External references are optional; core app content remains offline.</p></div>'+
+ '<button class="btn success" onclick="markTopic(\''+key+'\')">'+(appState.completed[key]?'✓ Completed':'Mark topic complete')+'</button></div>'+
+ '<div class="section-title">Practice from this topic</div>'+ (qs.length?qs.slice(0,4).map(function(q){return '<div class="card"><span class="tag '+q[2].toLowerCase()+'">'+q[2]+'</span><p><b>'+esc(q[3])+'</b></p><p class="small">Open Practice for interactive options and solution.</p></div>'}).join(''):'<div class="empty">More questions can be added through future app updates.</div>')+
+ '<button class="btn" onclick="startTopicPractice()">Practice this topic</button></div>';
+}
+function markTopic(k){appState.completed[k]=true;saveState();render();}
+function toggleBookmark(k){if(appState.bookmarks[k])delete appState.bookmarks[k];else appState.bookmarks[k]=true;saveState();render();}
+function openYT(q){window.location.href='https://www.youtube.com/results?search_query='+q;}
+function startPractice(){
+ selectedSubject='';practicePool=questions.slice();practiceIndex=0;practiceAnswered=false;lastChoice=-1;currentView='practice';render();
+}
+function startSubjectPractice(){
+ practicePool=questions.filter(function(q){return q[0]===selectedSubject});if(!practicePool.length)practicePool=questions.slice();practiceIndex=0;practiceAnswered=false;lastChoice=-1;currentView='practice';render();
+}
+function startTopicPractice(){
+ var t=subj(selectedSubject).topics[selectedTopic];practicePool=questions.filter(function(q){return q[0]===selectedSubject&&q[1]===t[0]});if(!practicePool.length)practicePool=questions.filter(function(q){return q[0]===selectedSubject});practiceIndex=0;practiceAnswered=false;lastChoice=-1;currentView='practice';render();
+}
+function practiceView(){
+ if(practiceIndex>=practicePool.length){
+  var sc=practicePool.filter(function(q,i){return appState.sessionAnswers&&appState.sessionAnswers[i]===q[5]}).length;
+  return '<div class="page"><div class="hero"><h1>Practice complete! 🎉</h1><p>You finished '+practicePool.length+' questions. Session score: '+sc+'/'+practicePool.length+'.</p></div><div class="statgrid"><div class="stat"><strong>'+appState.practiceCorrect+'</strong><small>Correct overall</small></div><div class="stat"><strong>'+appState.practiceTotal+'</strong><small>Attempted</small></div><div class="stat"><strong>'+accuracy()+'%</strong><small>Accuracy</small></div></div><button class="btn" onclick="startPractice()">Practice all again</button><button class="btn secondary" onclick="goHome()">Home</button></div>';
+ }
+ var q=practicePool[practiceIndex],answered=practiceAnswered;
+ return '<div class="page"><div class="card"><div class="small">Question '+(practiceIndex+1)+' / '+practicePool.length+' <span class="badge">'+esc(q[0].toUpperCase())+'</span></div><div style="margin-top:8px"><span class="tag '+q[2].toLowerCase()+'">'+esc(q[2])+'</span> <span class="tag">'+esc(q[1])+'</span></div><h2 style="font-size:18px;line-height:1.45;margin:14px 0">'+esc(q[3])+'</h2>'+
+ q[4].map(function(o,i){var cls='';if(answered&&i===q[5])cls='correct';if(answered&&i===lastChoice&&i!==q[5])cls='wrong';return '<button class="option '+cls+'" '+(answered?'disabled':'onclick="answerPractice('+i+')"')+'>'+String.fromCharCode(65+i)+'. '+esc(o)+'</button>'}).join('')+
+ (answered?'<div class="feedback '+(lastChoice===q[5]?'good':'bad')+'"><b>'+(lastChoice===q[5]?'Correct! ✓':'Incorrect ✗')+'</b><br><span style="color:#eaeaea">'+esc(q[6])+'</span></div><button class="btn" onclick="nextPractice()">Next Question →</button>':'')+
+ '</div></div>';
+}
+function answerPractice(i){
+ if(practiceAnswered)return;
+ var q=practicePool[practiceIndex];lastChoice=i;practiceAnswered=true;appState.practiceTotal++;appState.attempted[q[7]||q[3]]=true;if(i===q[5])appState.practiceCorrect++;saveState();render();
+}
+function nextPractice(){practiceIndex++;practiceAnswered=false;lastChoice=-1;render();}
+function showPYQ(){currentView='pyq';render();}
+function showPYQForSubject(){currentView='pyq';render();}
+function pyqView(){
+ var arr=selectedSubject?pyqStyle.filter(function(p){return p[1].toLowerCase().indexOf(subj(selectedSubject).name.split(' ')[0].toLowerCase())>=0}):pyqStyle;
+ if(!arr.length)arr=pyqStyle;
+ return '<div class="page"><div class="section-title">Previous-Year-Style Practice</div><div class="notice">These are <b>GATE-style generated questions</b>, not official GATE questions. They are modeled on common historical concepts and difficulty patterns. Exact past-paper wording is not reproduced here.</div>'+
+ arr.map(function(p){return '<div class="card"><span class="tag">'+esc(p[0])+'</span> <span class="tag">'+esc(p[1])+'</span><h3 style="font-size:15px;margin:10px 0">'+esc(p[2])+'</h3><p><b>Question:</b> '+esc(p[3])+'</p><p><b>Answer:</b> <span style="color:#69F0AE">'+esc(p[4])+'</span></p><div class="formula">'+esc(p[5])+'</div></div>'}).join('')+'</div>';
+}
+function startMock(){
+ mockPool=questions.slice().sort(function(){return Math.random()-.5}).slice(0,15);mockIndex=0;mockAnswers=[];mockActive=true;currentView='mock';render();
+}
+function mockView(){
+ if(mockIndex>=mockPool.length){
+  var correct=mockAnswers.filter(function(a,i){return a===mockPool[i][5]}).length;
+  var score=Math.round(correct/mockPool.length*100);appState.mockScores.push({date:new Date().toISOString().slice(0,10),score:score,correct:correct,total:mockPool.length});if(appState.mockScores.length>20)appState.mockScores.shift();saveState();
+  return '<div class="page"><div class="hero"><h1>Mock Test Finished 🏆</h1><p>Score: '+correct+'/'+mockPool.length+' ('+score+'%).</p></div><div class="statgrid"><div class="stat"><strong>'+correct+'</strong><small>Correct</small></div><div class="stat"><strong>'+mockPool.length+'</strong><small>Total</small></div><div class="stat"><strong>'+score+'%</strong><small>Score</small></div></div><div class="section-title">Review</div>'+mockPool.map(function(q,i){return '<div class="card"><span class="tag '+q[2].toLowerCase()+'">'+q[2]+'</span><p><b>Q'+(i+1)+'. '+esc(q[3])+'</b></p><p class="small">Correct: '+String.fromCharCode(65+q[5])+' • '+esc(q[6])+'</p></div>'}).join('')+'<button class="btn" onclick="startMock()">New Mock</button></div>';
+ }
+ var q=mockPool[mockIndex],pct=Math.round(mockIndex/mockPool.length*100);
+ return '<div class="page"><div class="card"><div class="small">Full Mock • Question '+(mockIndex+1)+'/'+mockPool.length+'</div><div class="progressbar"><div class="progressfill" style="width:'+pct+'%"></div></div><div style="margin-top:9px"><span class="tag '+q[2].toLowerCase()+'">'+q[2]+'</span> <span class="tag">'+esc(q[0])+'</span></div><h2 style="font-size:18px;line-height:1.45;margin:14px 0">'+esc(q[3])+'</h2>'+q[4].map(function(o,i){return '<button class="option" onclick="answerMock('+i+')">'+String.fromCharCode(65+i)+'. '+esc(o)+'</button>'}).join('')+'</div></div>';
+}
+function answerMock(i){mockAnswers[mockIndex]=i;appState.practiceTotal++;if(i===mockPool[mockIndex][5])appState.practiceCorrect++;saveState();mockIndex++;render();}
+function showProgress(){currentView='progress';render();}
+function progressView(){
+ var all=totalTopics(),done=doneTopics(),pct=all?Math.round(done/all*100):0;
+ var weak=subjects.map(function(s){return {s:s,p:subjectProgress(s.id)}}).sort(function(a,b){return a.p-b.p}).slice(0,3);
+ var strong=subjects.map(function(s){return {s:s,p:subjectProgress(s.id)}}).sort(function(a,b){return b.p-a.p}).slice(0,3);
+ return '<div class="page"><div class="section-title">Your Progress 📊</div><div class="hero"><h1>'+pct+'% Topics Complete</h1><p>Attempt questions regularly and revisit weak areas.</p><div class="progressbar"><div class="progressfill" style="width:'+pct+'%"></div></div></div>'+
+ '<div class="statgrid"><div class="stat"><strong>'+done+'</strong><small>Topics done</small></div><div class="stat"><strong>'+appState.practiceTotal+'</strong><small>Attempted</small></div><div class="stat"><strong>'+accuracy()+'%</strong><small>Accuracy</small></div></div>'+
+ '<div class="section-title">Weak Topics</div>'+weak.map(function(x){return '<div class="card"><b>'+x.s.icon+' '+esc(x.s.name)+'</b><span class="badge">'+x.p+'%</span><p class="small" style="margin-top:8px">Prioritize this subject before moving to more advanced revision.</p></div>'}).join('')+
+ '<div class="section-title">Strong Topics</div>'+strong.map(function(x){return '<div class="card"><b>'+x.s.icon+' '+esc(x.s.name)+'</b><span class="badge">'+x.p+'%</span></div>'}).join('')+
+ '<div class="section-title">Mock Scores</div>'+((appState.mockScores||[]).length?appState.mockScores.slice().reverse().slice(0,10).map(function(m){return '<div class="card"><b>'+esc(m.date)+'</b><span class="badge">'+m.score+'%</span><p class="small">'+m.correct+'/'+m.total+' correct</p></div>'}).join(''):'<div class="empty">No mock tests completed yet.</div>')+
+ '<button class="btn danger" onclick="resetProgress()">Reset Progress</button></div>';
+}
+function resetProgress(){appState={completed:{},attempted:{},bookmarks:{},practiceCorrect:0,practiceTotal:0,mockScores:[]};saveState();render();}
+function showFormulas(){currentView='formulas';render();}
+function formulaView(){
+ return '<div class="page"><div class="section-title">Formula Book Σ</div><input class="search" id="formulaSearch" placeholder="Search subject, topic or formula..." oninput="filterFormulas(this.value)"><div class="tabs"><button class="tab active" onclick="showStarredFormulas()">⭐ Starred</button><button class="tab" onclick="showAllFormulas()">All formulas</button></div><div id="formulaList">'+formulaRows(formulas)+'</div></div>';
+}
+function formulaRows(arr){
+ if(!arr.length)return '<div class="empty">No formulas found.</div>';
+ return arr.map(function(f,i){var key='f_'+i,star=!!appState.bookmarks[key];return '<div class="card"><button class="star" onclick="toggleBookmark(\''+key+'\')">'+(star?'⭐':'☆')+'</button><span class="tag">'+esc(f[0])+'</span><h3 style="font-size:14px;margin:8px 0">'+esc(f[1])+'</h3><div class="formula">'+esc(f[2])+'</div></div>'}).join('');
+}
+function filterFormulas(v){var x=v.toLowerCase();var arr=formulas.filter(function(f){return (f[0]+' '+f[1]+' '+f[2]).toLowerCase().indexOf(x)>=0});document.getElementById('formulaList').innerHTML=formulaRows(arr);}
+function showStarredFormulas(){var arr=formulas.filter(function(f,i){return appState.bookmarks['f_'+i]});document.getElementById('formulaList').innerHTML=formulaRows(arr);}
+function showAllFormulas(){document.getElementById('formulaList').innerHTML=formulaRows(formulas);}
+function showAI(){currentView='ai';if(!chatMessages.length)chatMessages=[{who:'bot',text:'Hi! I am GateVolt AI Teacher 🤖. I work offline and can explain the built-in GATE EE topics. Ask for a definition, formula, example, shortcut or study strategy.'}];render();}
+function aiView(){
+ return '<div class="page"><div class="section-title">AI Teacher 🤖</div><div class="card chat" id="chatBox">'+chatMessages.map(function(m){return '<div class="msg '+m.who+'">'+esc(m.text).replace(/\n/g,'<br>')+'</div>'}).join('')+'</div><div class="chatinput"><input id="chatInput" placeholder="Ask a GATE concept..." onkeydown="if(event.key===\'Enter\')sendAI()"><button onclick="sendAI()">➤</button></div><div class="section-title" style="font-size:14px">Try asking</div><div class="grid"><button class="tile" onclick="quickAI(\'Explain slip of induction motor\')">Explain slip</button><button class="tile" onclick="quickAI(\'Explain sampling theorem\')">Sampling</button><button class="tile" onclick="quickAI(\'Give power systems formulas\')">Power formulas</button><button class="tile" onclick="quickAI(\'How should I prepare for GATE EE?\')">Study plan</button></div></div>';
+}
+function quickAI(t){document.getElementById('chatInput').value=t;sendAI();}
+function sendAI(){var inp=document.getElementById('chatInput');if(!inp||!inp.value.trim())return;var q=inp.value.trim();chatMessages.push({who:'user',text:q});chatMessages.push({who:'bot',text:getAIAnswer(q)});render();setTimeout(function(){var c=document.getElementById('chatBox');if(c)c.scrollTop=c.scrollHeight},40);}
+function getAIAnswer(q){
+ var x=q.toLowerCase();
+ for(var i=0;i<subjects.length;i++){
+  var s=subjects[i];
+  for(var j=0;j<s.topics.length;j++){
+   var t=s.topics[j],words=(t[0]+' '+t[1]).toLowerCase().split(/[^a-z0-9]+/);
+   if(words.some(function(w){return w.length>3&&x.indexOf(w)>=0})){
+    return t[0]+' — '+t[1]+'\\n\\nImportant:\\n'+t[2].map(function(z){return '• '+z}).join('\\n')+'\\n\\nShortcut: write the governing equation first, check units, then substitute. Open Learn → '+s.name+' for the full topic.';
+   }
+  }
+ }
+ if(x.indexOf('formula')>=0)return 'Use Formula Book Σ to search formulas by subject/topic. Star the formulas you repeatedly forget.';
+ if(x.indexOf('prepare')>=0||x.indexOf('study')>=0)return 'Suggested sequence:\\n1. Engineering Mathematics + General Aptitude basics.\\n2. One core subject at a time.\\n3. Learn concepts before memorising formulas.\\n4. Solve topic-wise MCQs immediately.\\n5. Solve GATE-style/PYQ-pattern questions.\\n6. Take mock tests.\\n7. Use Progress to revisit weak subjects.';
+ return 'I am an offline GateVolt teacher. Try a specific topic such as transformers, induction motor slip, Thevenin theorem, convolution, sampling, Routh stability, op-amps, SCR, fault analysis, probability or percentages.';
+}
+function showSearch(){currentView='search';render();}
+function searchView(){return '<div class="page"><div class="section-title">Search 🔎</div><input class="search" id="globalSearch" placeholder="Search subjects, topics, formulas, questions..." oninput="runSearch(this.value)"><div id="searchResults"><div class="empty">Start typing to search.</div></div></div>';}
+function runSearch(v){
+ var el=document.getElementById('searchResults');v=v.trim().toLowerCase();if(!v){el.innerHTML='<div class="empty">Start typing to search.</div>';return;}
+ var out=[];
+ subjects.forEach(function(s){if((s.name+' '+s.priority).toLowerCase().indexOf(v)>=0)out.push('<button class="subject" onclick="openSubject(\''+s.id+'\')"><div class="subject-icon">'+s.icon+'</div><div class="subject-info"><b>'+esc(s.name)+'</b><small>'+esc(s.weight)+'</small></div><span class="arrow">›</span></button>');s.topics.forEach(function(t,i){if((t[0]+' '+t[1]+' '+t[2].join(' ')).toLowerCase().indexOf(v)>=0)out.push('<button class="subject" onclick="selectedSubject=\''+s.id+'\';selectedTopic='+i+';currentView=\'topic\';render()"><div class="subject-icon">📘</div><div class="subject-info"><b>'+esc(t[0])+'</b><small>'+esc(s.name)+'</small></div><span class="arrow">›</span></button>');});});
+ questions.forEach(function(q){if((q[3]+' '+q[1]+' '+q[0]).toLowerCase().indexOf(v)>=0)out.push('<div class="card"><span class="tag">'+esc(q[2])+'</span><p><b>'+esc(q[3])+'</b></p><p class="small">'+esc(q[6])+'</p></div>');});
+ formulas.forEach(function(f){if((f[0]+' '+f[1]+' '+f[2]).toLowerCase().indexOf(v)>=0)out.push('<div class="card"><span class="tag">'+esc(f[0])+'</span><h3>'+esc(f[1])+'</h3><div class="formula">'+esc(f[2])+'</div></div>');});
+ el.innerHTML=out.length?out.join(''):'<div class="empty">No matching results.</div>';
+}
+function goHome(){currentView='home';selectedSubject='';render();}
+function showLearn(){currentView='learn';render();}
+function goBack(){
+ if(currentView==='topic'){currentView='subject'}
+ else if(currentView==='subject'){currentView='learn'}
+ else if(currentView==='learn'||currentView==='practice'||currentView==='pyq'||currentView==='mock'||currentView==='progress'||currentView==='formulas'||currentView==='ai'||currentView==='search'){currentView='home'}
+ else currentView='home';
+ render();
+}
+/* GATE EE — Stability & Play-Store preparation layer
+   This layer preserves the existing database/features and fixes runtime issues. */
+(function(){
+  var STORAGE_KEY='gatevolt_state';
+  var MOCK_SECONDS=180*60;
+  var mockTimerId=null;
+  var mockTimeLeft=MOCK_SECONDS;
+  var mockRecorded=false;
+
+  function bridgeAvailable(){
+    return typeof iappyx!=='undefined' && iappyx && typeof iappyx.load==='function' && typeof iappyx.save==='function';
+  }
+  function safeLoad(){
+    try{
+      if(bridgeAvailable()) return JSON.parse(iappyx.load(STORAGE_KEY)||'{}');
+    }catch(e){}
+    try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch(e){return {};}
+  }
+  function normalizeState(s){
+    s=s&&typeof s==='object'?s:{};
+    s.completed=s.completed&&typeof s.completed==='object'?s.completed:{};
+    s.attempted=s.attempted&&typeof s.attempted==='object'?s.attempted:{};
+    s.bookmarks=s.bookmarks&&typeof s.bookmarks==='object'?s.bookmarks:{};
+    s.practiceCorrect=Number(s.practiceCorrect)||0;
+    s.practiceTotal=Number(s.practiceTotal)||0;
+    s.mockScores=Array.isArray(s.mockScores)?s.mockScores:[];
+    s.sessionAnswers=Array.isArray(s.sessionAnswers)?s.sessionAnswers:[];
+    s.mistakes=Array.isArray(s.mistakes)?s.mistakes:[];
+    s.settings=s.settings&&typeof s.settings==='object'?s.settings:{};
+    return s;
+  }
+
+  /* Fix bridge dependency: the app now starts in a normal browser/PWA too. */
+  window._initBridge=function(){
+    if(window.__gateEEReady)return;
+    window.__gateEEReady=true;
+    appState=normalizeState(safeLoad());
+    if(typeof render==='function')render();
+  };
+
+  /* Correct the known Power Systems per-unit question without deleting it. */
+  try{
+    for(var qi=0;qi<questions.length;qi++){
+      if(questions[qi][0]==='power' && questions[qi][1]==='Per Unit' && questions[qi][3].indexOf('Zbase')>=0){
+        questions[qi][5]=1;
+        questions[qi][6]='Zbase=Vbase²/Sbase=(10 kV)²/(100 MVA)=1 Ω. The correct option is 1 Ω.';
+      }
+    }
+  }catch(e){}
+
+  /* Session answers fix: the old completion screen expected this array but the answer handler did not fill it. */
+  window.startPractice=function(){
+    selectedSubject='';practicePool=questions.slice();
+    practiceIndex=0;practiceAnswered=false;lastChoice=-1;
+    appState.sessionAnswers=[];currentView='practice';render();
+  };
+  window.startSubjectPractice=function(){
+    practicePool=questions.filter(function(q){return q[0]===selectedSubject});
+    if(!practicePool.length)practicePool=questions.slice();
+    practiceIndex=0;practiceAnswered=false;lastChoice=-1;
+    appState.sessionAnswers=[];currentView='practice';render();
+  };
+  window.startTopicPractice=function(){
+    var t=subj(selectedSubject).topics[selectedTopic];
+    practicePool=questions.filter(function(q){return q[0]===selectedSubject&&q[1]===t[0]});
+    if(!practicePool.length)practicePool=questions.filter(function(q){return q[0]===selectedSubject});
+    practiceIndex=0;practiceAnswered=false;lastChoice=-1;
+    appState.sessionAnswers=[];currentView='practice';render();
+  };
+  window.answerPractice=function(i){
+    if(practiceAnswered)return;
+    var q=practicePool[practiceIndex];
+    lastChoice=i;practiceAnswered=true;
+    appState.sessionAnswers[practiceIndex]=i;
+    appState.practiceTotal++;
+    appState.attempted[q[7]||q[3]]=true;
+    if(i===q[5]){
+      appState.practiceCorrect++;
+    }else{
+      var id=q[7]||q[3];
+      if(appState.mistakes.indexOf(id)<0)appState.mistakes.push(id);
+    }
+    saveState();render();
+  };
+
+  /* Robust persistence with iappyx + localStorage fallback. */
+  window.saveState=function(){
+    appState=normalizeState(appState);
+    var data=JSON.stringify(appState);
+    try{if(bridgeAvailable())iappyx.save(STORAGE_KEY,data);}catch(e){}
+    try{localStorage.setItem(STORAGE_KEY,data);}catch(e){}
+  };
+  window.onReady=function(){
+    appState=normalizeState(safeLoad());
+    render();
+  };
+
+  /* 180-minute mock timer, with direct DOM updates so it never creates a render recursion. */
+  function stopMockTimer(){
+    if(mockTimerId){clearInterval(mockTimerId);mockTimerId=null;}
+  }
+  function formatTime(sec){
+    sec=Math.max(0,sec|0);
+    var h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;
+    return (h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
+  }
+  function tickMock(){
+    if(!mockActive){stopMockTimer();return;}
+    mockTimeLeft--;
+    var el=document.getElementById('mockTimer');
+    if(el)el.textContent=formatTime(mockTimeLeft);
+    if(mockTimeLeft<=0){
+      stopMockTimer();
+      while(mockAnswers.length<mockPool.length)mockAnswers.push(null);
+      mockIndex=mockPool.length;mockActive=false;render();
+    }
+  }
+  window.startMock=function(){
+    stopMockTimer();
+    mockPool=questions.slice().sort(function(){return Math.random()-.5}).slice(0,15);
+    mockIndex=0;mockAnswers=[];mockActive=true;mockRecorded=false;mockTimeLeft=MOCK_SECONDS;
+    currentView='mock';render();
+    mockTimerId=setInterval(tickMock,1000);
+  };
+  window.answerMock=function(i){
+    if(!mockActive||mockIndex>=mockPool.length)return;
+    mockAnswers[mockIndex]=i;
+    if(i!==mockPool[mockIndex][5]){
+      var id=mockPool[mockIndex][7]||mockPool[mockIndex][3];
+      if(appState.mistakes.indexOf(id)<0)appState.mistakes.push(id);
+    }
+    saveState();mockIndex++;
+    if(mockIndex>=mockPool.length){mockActive=false;stopMockTimer();}
+    render();
+  };
+  window.mockView=function(){
+    if(mockIndex>=mockPool.length){
+      stopMockTimer();
+      var correct=mockAnswers.filter(function(a,i){return a===mockPool[i][5]}).length;
+      var score=mockPool.length?Math.round(correct/mockPool.length*100):0;
+      if(!mockRecorded){
+        appState.mockScores.push({date:new Date().toISOString().slice(0,10),score:score,correct:correct,total:mockPool.length});
+        if(appState.mockScores.length>20)appState.mockScores.shift();
+        saveState();mockRecorded=true;
+      }
+      return '<div class="page"><div class="hero"><h1>Mock Test Finished 🏆</h1><p>Score: '+correct+'/'+mockPool.length+' ('+score+'%).</p><p class="small">Time used: '+formatTime(MOCK_SECONDS-mockTimeLeft)+' / 03:00:00</p></div><div class="statgrid"><div class="stat"><strong>'+correct+'</strong><small>Correct</small></div><div class="stat"><strong>'+mockPool.length+'</strong><small>Total</small></div><div class="stat"><strong>'+score+'%</strong><small>Score</small></div></div><div class="section-title">Review</div>'+mockPool.map(function(q,i){var a=mockAnswers[i];return '<div class="card"><span class="tag '+q[2].toLowerCase()+'">'+esc(q[2])+'</span><p><b>Q'+(i+1)+'. '+esc(q[3])+'</b></p><p class="small">Your answer: '+(a==null?'Not answered':String.fromCharCode(65+a))+' • Correct: '+String.fromCharCode(65+q[5])+' • '+esc(q[6])+'</p></div>';}).join('')+'<button class="btn" onclick="startMock()">New Mock</button><button class="btn secondary" onclick="goHome()">Home</button></div>';
+    }
+    var q=mockPool[mockIndex],pct=Math.round(mockIndex/mockPool.length*100);
+    return '<div class="page"><div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><div class="small">Full Mock • Question '+(mockIndex+1)+'/'+mockPool.length+'</div><span id="mockTimer" class="tag">'+formatTime(mockTimeLeft)+'</span></div><div class="progressbar"><div class="progressfill" style="width:'+pct+'%"></div></div><div style="margin-top:9px"><span class="tag '+q[2].toLowerCase()+'">'+q[2]+'</span> <span class="tag">'+esc(q[0])+'</span></div><h2 style="font-size:18px;line-height:1.45;margin:14px 0">'+esc(q[3])+'</h2>'+q[4].map(function(o,i){return '<button class="option" onclick="answerMock('+i+')">'+String.fromCharCode(65+i)+'. '+esc(o)+'</button>';}).join('')+'</div><div class="notice">⏱️ 180-minute mock timer. The timer continues without re-rendering the page every second.</div></div>';
+  };
+
+  /* Add a small safety/status card and creator credit without removing existing content. */
+  var oldHomeView=window.homeView;
+  window.homeView=function(){
+    var html=oldHomeView();
+    html=html.replace('<div class="section-title">Quick Start</div>','<div class="notice"><b>GATE EE • Master Build</b><br>Existing content preserved. Stability layer active. Your progress is saved locally when supported.</div><div class="section-title">Quick Start</div>');
+    html=html.replace('</div></div>\';\n}', '</div></div>\';\n}');
+    return html;
+  };
+
+  /* Product identity: keep GateVolt as the internal project name, but present the requested GATE EE name. */
+  document.title='GATE EE';
+  window.header=function(){
+    if(currentView==='home')return '<div class="header"><div><div class="logo">GATE <span>EE</span></div><div class="subtitle">GATE 2026 Electrical Engineering • GateVolt</div></div><button class="iconbtn" onclick="showProgress()">📊</button></div>';
+    return '<div class="header"><div class="topback"><button class="backbtn" onclick="goBack()">‹</button><div><div class="logo">GATE <span>EE</span></div><div class="subtitle">GATE 2026 Electrical Engineering • GateVolt</div></div></div></div>';
+  };
+
+  /* Formula bookmarks use the formula's real array index, so filtering/searching cannot change which formula is starred. */
+  window.formulaRows=function(arr){
+    if(!arr.length)return '<div class="empty">No formulas found.</div>';
+    return arr.map(function(f){
+      var idx=formulas.indexOf(f),key='f_'+idx,star=!!appState.bookmarks[key];
+      return '<div class="card"><button class="star" onclick="toggleBookmark(\''+key+'\')">'+(star?'⭐':'☆')+'</button><span class="tag">'+esc(f[0])+'</span><h3 style="font-size:14px;margin:8px 0">'+esc(f[1])+'</h3><div class="formula">'+esc(f[2])+'</div></div>';
+    }).join('');
+  };
+
+  /* Prevent accidental double initialization when both bridge and browser load callbacks fire. */
+  if(document.readyState==='complete' || document.readyState==='interactive'){
+    setTimeout(function(){window._initBridge();},0);
+  }else{
+    window.addEventListener('DOMContentLoaded',function(){setTimeout(function(){window._initBridge();},0);});
+  }
+})();
+
+/* ============================================================
+   GATEVOLT ULTIMATE UPGRADE — additive layer
+   Preserves all existing content and gatevolt_state keys.
+   Adds: enhanced practice controls, syllabus hub, formula tools,
+   mock controls, analytics dashboard, AI study coach, gamification,
+   and optional cloud sync/backup.
+   ============================================================ */
+(function(){
+  var GV={
+    version:'2.0.0',
+    XP_PER_CORRECT:10,
+    XP_PER_TOPIC:25,
+    XP_PER_SYLLABUS:5,
+    XP_PER_MOCK:50
+  };
+  function state(){
+    appState=appState&&typeof appState==='object'?appState:{};
+    appState.gamification=appState.gamification&&typeof appState.gamification==='object'?appState.gamification:{};
+    var g=appState.gamification;
+    g.xp=Number(g.xp)||0; g.level=Number(g.level)||1; g.streak=Number(g.streak)||0;
+    g.lastActive=g.lastActive||''; g.sessions=Number(g.sessions)||0;
+    g.badges=Array.isArray(g.badges)?g.badges:[];
+    appState.practiceHistory=Array.isArray(appState.practiceHistory)?appState.practiceHistory:[];
+    appState.mockScores=Array.isArray(appState.mockScores)?appState.mockScores:[];
+    appState.sync=appState.sync&&typeof appState.sync==='object'?appState.sync:{};
+    return appState;
+  }
+  function today(){return new Date().toISOString().slice(0,10)}
+  function daysBetween(a,b){var x=new Date(a+'T00:00:00Z'),y=new Date(b+'T00:00:00Z');return Math.round((y-x)/86400000)}
+  function touch(){
+    state(); var d=today(),g=appState.gamification;
+    if(g.lastActive!==d){ if(g.lastActive && daysBetween(g.lastActive,d)===1) g.streak++; else if(g.lastActive!==d) g.streak=1; g.lastActive=d; }
+  }
+  function award(n,reason){
+    state(); touch(); var g=appState.gamification; g.xp+=Math.max(0,n||0); g.level=Math.max(1,Math.floor(g.xp/100)+1);
+    badges(); saveState();
+  }
+  function badges(){
+    state(); var g=appState.gamification, b=g.badges;
+    function add(id){if(b.indexOf(id)<0)b.push(id)}
+    if(appState.practiceTotal>=1)add('first_question');
+    if(appState.practiceTotal>=25)add('25_questions');
+    if(appState.practiceTotal>=100)add('100_questions');
+    if((appState.practiceCorrect||0)>=25)add('25_correct');
+    if((appState.mockScores||[]).length>=1)add('first_mock');
+    if((appState.mockScores||[]).length>=5)add('5_mocks');
+    if(g.streak>=7)add('7_day_streak');
+    if(syllabusDoneCount && syllabusDoneCount()>=25)add('25_syllabus');
+  }
+  function esc2(x){return typeof esc==='function'?esc(x):String(x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function badgeName(id){return ({'first_question':'First Question','25_questions':'25 Questions','100_questions':'100 Questions','25_correct':'25 Correct','first_mock':'First Mock','5_mocks':'5 Mocks','7_day_streak':'7-Day Streak','25_syllabus':'25 Syllabus Units'})[id]||id}
+  function xpProgress(){var g=state().gamification,base=(g.level-1)*100;return Math.round((g.xp-base)/100*100)}
+
+  /* Upgrade persistence wrapper: never deletes old keys. */
+  var oldSave=window.saveState;
+  window.saveState=function(){state();try{badges()}catch(e){};if(oldSave)oldSave();else{try{localStorage.setItem('gatevolt_state',JSON.stringify(appState))}catch(e){}}};
+
+  /* Gamification hooks — additive, no question/data replacement. */
+  var oldAnswerPractice=window.answerPractice;
+  window.answerPractice=function(i){
+    var q=practicePool[practiceIndex],was=practiceAnswered;
+    if(oldAnswerPractice)oldAnswerPractice(i);
+    if(!was && q){award(i===q[5]?GV.XP_PER_CORRECT:2,'practice');}
+  };
+  var oldMarkTopic=window.markTopic;
+  window.markTopic=function(k){var was=!!appState.completed[k];if(oldMarkTopic)oldMarkTopic(k);if(!was && appState.completed[k])award(GV.XP_PER_TOPIC,'topic');};
+  var oldMarkSyllabus=window.markSyllabusUnit;
+  window.markSyllabusUnit=function(id){var was=!!((appState.syllabusCompleted||{})[id]);if(oldMarkSyllabus)oldMarkSyllabus(id);if(!was && ((appState.syllabusCompleted||{})[id]))award(GV.XP_PER_SYLLABUS,'syllabus');};
+  var oldAnswerMock=window.answerMock;
+  window.answerMock=function(i){var idx=mockIndex,q=mockPool[idx];if(oldAnswerMock)oldAnswerMock(i);if(q)award(i===q[5]?GV.XP_PER_CORRECT:2,'mock');};
+
+  /* Enhanced practice selector without changing the existing question bank. */
+  window.startPracticeMode=function(mode){
+    var base=questions.slice(); mode=mode||'all';
+    if(mode==='weak') base=base.filter(function(q){return (appState.mistakes||[]).indexOf(q[7]||q[3])>=0});
+    if(mode==='bookmarks') base=base.filter(function(q){return !!appState.bookmarks['q_'+(q[7]||q[3])]});
+    if(mode==='random') base.sort(function(){return Math.random()-.5});
+    if(!base.length)base=questions.slice();
+    practicePool=base;practiceIndex=0;practiceAnswered=false;lastChoice=-1;appState.sessionAnswers=[];currentView='practice';render();
+  };
+
+  /* Rich dashboard / gamification view. */
+  window.showUpgradeDashboard=function(){currentView='upgrade';render();};
+  window.upgradeDashboardView=function(){
+    state();touch();badges();var g=appState.gamification;
+    var done=doneTopics(),total=totalTopics(),acc=accuracy();
+    var top=subjects.map(function(s){return {s:s,p:subjectProgress(s.id)}}).sort(function(a,b){return b.p-a.p}).slice(0,4);
+    var weak=subjects.map(function(s){return {s:s,p:subjectProgress(s.id)}}).sort(function(a,b){return a.p-b.p}).slice(0,4);
+    var html='<div class="page"><div class="hero"><span class="tag">GATEVOLT 2.0</span><h1>Study Dashboard 🚀</h1><p>Your original GateVolt progress remains intact. This dashboard adds XP, streaks, badges, analytics and smarter study controls.</p><div class="progressbar"><div class="progressfill" style="width:'+xpProgress()+'%"></div></div><p class="small">Level '+g.level+' • '+g.xp+' XP • '+g.streak+' day streak</p></div>';
+    html+='<div class="statgrid"><div class="stat"><strong>'+acc+'%</strong><small>Accuracy</small></div><div class="stat"><strong>'+appState.practiceTotal+'</strong><small>Questions</small></div><div class="stat"><strong>'+done+'/'+total+'</strong><small>Topics</small></div></div>';
+    html+='<div class="section-title">Practice Engine 🎯</div><div class="grid">'+tile('🎯','All Questions','Full question bank','startPracticeMode(\'all\')')+tile('🧠','Weak Areas','Mistakes first','startPracticeMode(\'weak\')')+tile('🔀','Random','Shuffle practice','startPracticeMode(\'random\')')+tile('⭐','Bookmarked','Saved questions','startPracticeMode(\'bookmarks\')')+'</div>';
+    html+='<div class="section-title">Gamification 🏆</div><div class="card"><b>Level '+g.level+'</b><p class="small">'+g.xp+' XP total • '+g.streak+' day streak</p><p style="margin-top:10px">'+(g.badges.length?g.badges.map(function(id){return '<span class="tag" style="margin:3px">🏅 '+esc2(badgeName(id))+'</span>'}).join(' '):'No badges yet — answer questions to earn your first one.')+'</p></div>';
+    html+='<div class="section-title">Strong Areas</div>'+top.map(function(x){return '<div class="card"><b>'+x.s.icon+' '+esc2(x.s.name)+'</b><span class="badge">'+x.p+'%</span></div>'}).join('');
+    html+='<div class="section-title">Focus Next</div>'+weak.map(function(x){return '<div class="card"><b>'+x.s.icon+' '+esc2(x.s.name)+'</b><span class="badge">'+x.p+'%</span><p class="small">Prioritize practice and revision here.</p></div>'}).join('');
+    html+='<div class="section-title">Mock Performance</div>'+((appState.mockScores||[]).length?appState.mockScores.slice().reverse().slice(0,8).map(function(m){return '<div class="card"><b>'+esc2(m.date)+'</b><span class="badge">'+m.score+'%</span><p class="small">'+m.correct+'/'+m.total+' correct</p></div>'}).join(''):'<div class="empty">No mock results yet.</div>');
+    html+='<button class="btn" onclick="showProgress()">Open detailed Progress</button><button class="btn secondary" onclick="showCloudSync()">☁️ Cloud Sync & Backup</button></div>';
+    return html;
+  };
+
+  /* Cloud sync: secure-by-default local export/import plus optional REST endpoint.
+     No secret is embedded. A user-supplied HTTPS endpoint can store the JSON state. */
+  window.showCloudSync=function(){currentView='cloud';render();};
+  window.cloudView=function(){
+    state();var c=appState.sync||{};
+    return '<div class="page"><div class="hero"><span class="tag">DATA SAFE</span><h1>Cloud Sync ☁️</h1><p>All existing local progress stays on-device. You can export a backup anytime, restore it later, or connect an HTTPS JSON sync endpoint you control.</p></div>'+
+      '<div class="card"><h3>Local backup</h3><p class="small">Recommended before major app updates. This exports the complete GateVolt state, including old progress keys.</p><button class="btn" onclick="exportGateVoltState()">⬇️ Export Backup</button><button class="btn secondary" onclick="document.getElementById(\'restoreFile\').click()">⬆️ Restore Backup</button><input id="restoreFile" type="file" accept="application/json,.json" style="display:none" onchange="restoreGateVoltState(this.files[0])"></div>'+
+      '<div class="card"><h3>Optional remote sync</h3><p class="small">For true cross-device sync, enter an HTTPS endpoint that accepts GET and PUT JSON for your user. GateVolt does not ship a hard-coded third-party account or secret.</p><input id="syncEndpoint" class="search" value="'+esc2(c.endpoint||'')+'" placeholder="https://your-server.example/gatevolt/state"><input id="syncToken" class="search" value="'+esc2(c.token||'')+'" placeholder="Optional access token" type="password"><button class="btn" onclick="saveSyncSettings()">Save Sync Settings</button><button class="btn secondary" onclick="pushCloudState()">☁️ Push Local → Cloud</button><button class="btn secondary" onclick="pullCloudState()">☁️ Pull Cloud → Local</button><p id="syncStatus" class="small" style="margin-top:10px">'+esc2(c.lastStatus||'Not synced yet.')+'</p></div>'+
+      '<div class="notice"><b>Important:</b> Cloud sync requires a server you control or trust. The app remains fully usable offline without it.</div><button class="btn secondary" onclick="goHome()">Back to Home</button></div>';
+  };
+  window.exportGateVoltState=function(){state();var blob=new Blob([JSON.stringify({format:'gatevolt-backup',version:GV.version,state:appState},null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='GateVolt-backup-'+today()+'.json';a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},1000);};
+  window.restoreGateVoltState=function(file){if(!file)return;var r=new FileReader();r.onload=function(){try{var obj=JSON.parse(r.result),incoming=obj&&obj.state?obj.state:obj;if(!incoming||typeof incoming!=='object')throw Error('Invalid');var old=appState||{};appState=Object.assign({},old,incoming);appState.completed=Object.assign({},old.completed||{},incoming.completed||{});appState.attempted=Object.assign({},old.attempted||{},incoming.attempted||{});appState.bookmarks=Object.assign({},old.bookmarks||{},incoming.bookmarks||{});saveState();alert('GateVolt backup restored without removing existing keys.');render();}catch(e){alert('Backup could not be restored. Please choose a GateVolt JSON backup.');}};r.readAsText(file);};
+  window.saveSyncSettings=function(){state();appState.sync.endpoint=(document.getElementById('syncEndpoint')||{}).value||'';appState.sync.token=(document.getElementById('syncToken')||{}).value||'';appState.sync.lastStatus='Settings saved locally.';saveState();render();};
+  function syncFetch(url,opts){return fetch(url,opts)}
+  window.pushCloudState=function(){state();var c=appState.sync||{},url=c.endpoint;if(!url){alert('Add an HTTPS sync endpoint first.');return;}var headers={'Content-Type':'application/json'};if(c.token)headers.Authorization='Bearer '+c.token;syncFetch(url,{method:'PUT',headers:headers,body:JSON.stringify({app:'GateVolt',version:GV.version,state:appState})}).then(function(r){if(!r.ok)throw Error('HTTP '+r.status);appState.sync.lastStatus='Uploaded '+new Date().toLocaleString();saveState();render();}).catch(function(e){alert('Cloud upload failed: '+e.message);});};
+  window.pullCloudState=function(){state();var c=appState.sync||{},url=c.endpoint;if(!url){alert('Add an HTTPS sync endpoint first.');return;}var headers={};if(c.token)headers.Authorization='Bearer '+c.token;syncFetch(url,{headers:headers}).then(function(r){if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(function(obj){var incoming=obj&&obj.state?obj.state:obj;if(!incoming||typeof incoming!=='object')throw Error('Invalid state');var old=appState;appState=Object.assign({},old,incoming);appState.completed=Object.assign({},old.completed||{},incoming.completed||{});appState.attempted=Object.assign({},old.attempted||{},incoming.attempted||{});appState.bookmarks=Object.assign({},old.bookmarks||{},incoming.bookmarks||{});appState.sync=Object.assign({},old.sync||{},incoming.sync||{});appState.sync.lastStatus='Downloaded '+new Date().toLocaleString();saveState();render();}).catch(function(e){alert('Cloud download failed: '+e.message);});};
+
+  /* Make all requested upgrade areas first-class views. */
+  var oldViewContent=window.viewContent;
+  window.viewContent=function(){
+    if(currentView==='upgrade')return upgradeDashboardView();
+    if(currentView==='cloud')return cloudView();
+    return oldViewContent();
+  };
+  var oldHome=window.homeView;
+  window.homeView=function(){
+    var html=oldHome();
+    var needle='<div class="section-title">Quick Start</div>';
+    var add='<div class="card" style="border:1px solid rgba(79,195,247,.22)"><span class="tag">UPGRADE</span><h3 style="margin:8px 0">GateVolt Study System 2.0</h3><p class="small">Practice engine • Complete syllabus • Formula Book • Mock Tests • Progress • AI Teacher • XP & badges • Cloud backup</p><button class="btn" onclick="showUpgradeDashboard()">Open Study Dashboard 🚀</button></div>';
+    return html.replace(needle,add+needle);
+  };
+  var oldGoBack=window.goBack;
+  window.goBack=function(){if(currentView==='upgrade'||currentView==='cloud'){currentView='home';render();return;}oldGoBack();};
+
+  /* Upgrade navigation from the existing Progress icon without removing it. */
+  var oldHeader=window.header;
+  window.header=function(){
+    var h=oldHeader();
+    if(currentView==='home')h=h.replace('onclick="showProgress()"','onclick="showUpgradeDashboard()" title="Study dashboard"');
+    return h;
+  };
+
+  /* Initialize additive state safely after the existing app has loaded. */
+  var oldOnReady=window.onReady;
+  window.onReady=function(){if(oldOnReady)oldOnReady();state();touch();badges();saveState();};
+  try{state();badges();}catch(e){}
+})();
+
+</script></body></html>
