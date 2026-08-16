@@ -2,55 +2,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b0e17">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,viewport-fit=cover"
+>
+
+<meta
+  name="theme-color"
+  content="#0b0e17"
+>
+
 <title>GateVolt — GATE EE 2026</title>
 
 <style>
-*{box-sizing:border-box}
-html,body{
-  margin:0;padding:0;background:#090c14;color:#eef2ff;
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
-}
-body{padding-bottom:86px}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
 
-.app{max-width:900px;margin:auto;padding:16px}
+/* =========================================================
+   GATEVOLT — COMPLETE GATE EE 2026
+   Old + New Combined Version
+========================================================= */
+
+*{
+  box-sizing:border-box
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  background:#090c14;
+  color:#eef2ff;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif
+}
+
+body{
+  padding-bottom:86px
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit
+}
+
+button{
+  cursor:pointer
+}
+
+a{
+  color:#5dc2ff
+}
+
+.app{
+  max-width:900px;
+  margin:auto;
+  padding:16px
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .top{
-  position:sticky;top:0;z-index:20;
+  position:sticky;
+  top:0;
+  z-index:20;
   background:rgba(9,12,20,.94);
   backdrop-filter:blur(14px);
   padding:10px 4px 14px;
   border-bottom:1px solid #242a40
 }
 
-.brand{font-size:28px;font-weight:900;letter-spacing:-1px}
-.brand b{color:#42b7ff}
-.sub{color:#98a2c2;font-size:13px;margin-top:3px}
+.brand{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:-1px
+}
+
+.brand b{
+  color:#42b7ff
+}
+
+.sub{
+  color:#98a2c2;
+  font-size:13px;
+  margin-top:3px
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
-  margin-top:16px;padding:22px;border-radius:22px;
-  background:linear-gradient(145deg,#172d4f,#0f1426);
+  margin-top:16px;
+  padding:22px;
+  border-radius:22px;
+  background:
+    linear-gradient(
+      145deg,
+      #172d4f,
+      #0f1426
+    );
   border:1px solid #28456d;
   box-shadow:0 12px 35px #0004
 }
 
-.hero h1{font-size:32px;margin:0 0 8px}
-.hero p{color:#aab5d2;line-height:1.55}
+.hero h1{
+  font-size:32px;
+  margin:0 0 8px
+}
+
+.hero p{
+  color:#aab5d2;
+  line-height:1.55
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .btn{
-  border:0;border-radius:12px;padding:12px 16px;
-  background:#2388e8;color:white;font-weight:800;
+  border:0;
+  border-radius:12px;
+  padding:12px 16px;
+  background:#2388e8;
+  color:white;
+  font-weight:800;
   margin:3px 2px
 }
-.btn.secondary{background:#20263a}
-.btn.green{background:#1a9d72}
-.btn.red{background:#a93650}
-.btn.gold{background:#9b761b}
-.btn:disabled{opacity:.5;cursor:not-allowed}
+
+.btn.secondary{
+  background:#20263a
+}
+
+.btn.green{
+  background:#1a9d72
+}
+
+.btn.red{
+  background:#a93650
+}
+
+.btn.gold{
+  background:#9b761b
+}
+
+.btn.purple{
+  background:#6d48a8
+}
+
+.btn:disabled{
+  opacity:.5;
+  cursor:not-allowed
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
 
 .grid{
   display:grid;
@@ -64,6 +184,11 @@ button{cursor:pointer}
   gap:10px
 }
 
+
+/* =========================================================
+   CARDS
+========================================================= */
+
 .card{
   background:#111526;
   border:1px solid #252c47;
@@ -72,19 +197,48 @@ button{cursor:pointer}
   margin-top:12px
 }
 
-.stat{text-align:center;padding:15px}
+.stat{
+  text-align:center;
+  padding:15px
+}
+
 .stat strong{
   font-size:25px;
   color:#42b7ff;
   display:block
 }
-.stat span{font-size:12px;color:#929cba}
 
-h2{margin:22px 0 10px;font-size:21px}
-h3{margin:0 0 7px}
+.stat span{
+  font-size:12px;
+  color:#929cba
+}
 
-.muted{color:#929cba}
-.small{font-size:12px}
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+h2{
+  margin:22px 0 10px;
+  font-size:21px
+}
+
+h3{
+  margin:0 0 7px
+}
+
+.muted{
+  color:#929cba
+}
+
+.small{
+  font-size:12px
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
 
 .progress{
   height:8px;
@@ -101,6 +255,11 @@ h3{margin:0 0 7px}
   border-radius:99px
 }
 
+
+/* =========================================================
+   BADGES
+========================================================= */
+
 .badge{
   display:inline-block;
   padding:5px 9px;
@@ -111,10 +270,40 @@ h3{margin:0 0 7px}
   font-weight:800
 }
 
-.badge.easy{background:#153528;color:#6be3ad}
-.badge.medium{background:#44351b;color:#ffd46a}
-.badge.hard{background:#401d2a;color:#ff8ca8}
-.badge.pyq{background:#29204a;color:#c4a5ff}
+.badge.easy{
+  background:#153528;
+  color:#6be3ad
+}
+
+.badge.medium{
+  background:#44351b;
+  color:#ffd46a
+}
+
+.badge.hard{
+  background:#401d2a;
+  color:#ff8ca8
+}
+
+.badge.pyq{
+  background:#29204a;
+  color:#c4a5ff
+}
+
+.badge.nat{
+  background:#17372f;
+  color:#6be3ad
+}
+
+.badge.msq{
+  background:#392b52;
+  color:#d3b5ff
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
 
 .search{
   width:100%;
@@ -125,6 +314,11 @@ h3{margin:0 0 7px}
   color:white;
   outline:none
 }
+
+
+/* =========================================================
+   SYLLABUS
+========================================================= */
 
 .subject{
   padding:16px;
@@ -141,7 +335,10 @@ h3{margin:0 0 7px}
   align-items:center
 }
 
-.subjectTitle{font-size:18px;font-weight:900}
+.subjectTitle{
+  font-size:18px;
+  font-weight:900
+}
 
 .topic{
   padding:13px;
@@ -157,7 +354,9 @@ h3{margin:0 0 7px}
   gap:8px
 }
 
-.topic button{margin-top:9px}
+.topic button{
+  margin-top:9px
+}
 
 .chip{
   display:inline-block;
@@ -168,6 +367,11 @@ h3{margin:0 0 7px}
   font-size:10px;
   font-weight:800
 }
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .nav{
   position:fixed;
@@ -202,10 +406,27 @@ h3{margin:0 0 7px}
   margin-bottom:2px
 }
 
-.nav button.active{color:#4ab8ff}
+.nav button.active{
+  color:#4ab8ff
+}
 
-.page{display:none}
-.page.active{display:block}
+
+/* =========================================================
+   PAGES
+========================================================= */
+
+.page{
+  display:none
+}
+
+.page.active{
+  display:block
+}
+
+
+/* =========================================================
+   LIST
+========================================================= */
 
 .list button{
   width:100%;
@@ -217,6 +438,11 @@ h3{margin:0 0 7px}
   padding:14px;
   margin:5px 0
 }
+
+
+/* =========================================================
+   ANSWERS
+========================================================= */
 
 .answer{
   margin-top:12px;
@@ -249,6 +475,11 @@ h3{margin:0 0 7px}
   background:#2b1420
 }
 
+
+/* =========================================================
+   MODAL
+========================================================= */
+
 .modal{
   position:fixed;
   inset:0;
@@ -259,7 +490,9 @@ h3{margin:0 0 7px}
   justify-content:center
 }
 
-.modal.show{display:flex}
+.modal.show{
+  display:flex
+}
 
 .sheet{
   width:min(900px,100%);
@@ -281,6 +514,11 @@ h3{margin:0 0 7px}
   height:34px
 }
 
+
+/* =========================================================
+   FORMULA
+========================================================= */
+
 .formula{
   background:#080b13;
   border:1px solid #303750;
@@ -291,6 +529,11 @@ h3{margin:0 0 7px}
   color:#8ed4ff;
   overflow:auto
 }
+
+
+/* =========================================================
+   REFERENCES
+========================================================= */
 
 .ref{
   padding:11px;
@@ -315,6 +558,11 @@ h3{margin:0 0 7px}
   color:#7f89a4
 }
 
+
+/* =========================================================
+   TIMER
+========================================================= */
+
 .timer{
   position:sticky;
   top:72px;
@@ -334,6 +582,11 @@ h3{margin:0 0 7px}
   color:#ff708e;
   border-color:#9b3048
 }
+
+
+/* =========================================================
+   MOCK
+========================================================= */
 
 .mockQuestion{
   border:1px solid #2a314b;
@@ -420,24 +673,112 @@ select{
   font-weight:900
 }
 
-@media(max-width:520px){
-  .grid3{grid-template-columns:repeat(3,1fr)}
-  .hero h1{font-size:28px}
-  .app{padding:12px}
-  .nav button{font-size:8px}
-  .nav button b{font-size:17px}
-  .mockSetup{grid-template-columns:1fr}
+
+/* =========================================================
+   QUESTION PALETTE
+========================================================= */
+
+.palette{
+  display:grid;
+  grid-template-columns:
+    repeat(auto-fill,minmax(42px,1fr));
+  gap:7px;
+  margin-top:10px
 }
+
+.palette button{
+  border:0;
+  border-radius:9px;
+  padding:9px 4px;
+  color:white;
+  font-weight:900;
+  background:#242a3c
+}
+
+.palette button.answered{
+  background:#1a9d72
+}
+
+.palette button.review{
+  background:#9b761b
+}
+
+.palette button.current{
+  background:#2388e8
+}
+
+
+/* =========================================================
+   MOCK SECTION
+========================================================= */
+
+.sectionHeader{
+  margin-top:18px;
+  padding:10px 12px;
+  background:#182039;
+  border:1px solid #303a5c;
+  border-radius:12px;
+  color:#72c5ff;
+  font-weight:900
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:520px){
+
+  .grid3{
+    grid-template-columns:repeat(3,1fr)
+  }
+
+  .hero h1{
+    font-size:28px
+  }
+
+  .app{
+    padding:12px
+  }
+
+  .nav button{
+    font-size:8px
+  }
+
+  .nav button b{
+    font-size:17px
+  }
+
+  .mockSetup{
+    grid-template-columns:1fr
+  }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
 <div class="app">
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header class="top">
-  <div class="brand">GATE <b>EE</b></div>
-  <div class="sub">GATE 2026 Electrical Engineering • GateVolt</div>
+
+  <div class="brand">
+    GATE <b>EE</b>
+  </div>
+
+  <div class="sub">
+    GATE 2026 Electrical Engineering • GateVolt
+  </div>
+
 </header>
 
 
@@ -445,72 +786,119 @@ select{
      HOME
 ===================================================== -->
 
-<section id="home" class="page active">
+<section
+  id="home"
+  class="page active"
+>
 
   <div class="hero">
-    <span class="badge">GATE 2026 • EE</span>
 
-    <h1>Prepare smarter. Crack GATE. 🚀</h1>
+    <span class="badge">
+      GATE 2026 • EE
+    </span>
+
+    <h1>
+      Prepare smarter. Crack GATE. 🚀
+    </h1>
 
     <p>
-      Complete syllabus learning, formulas, practice, PYQs,
-      mock tests, notes, modules, references and progress tracking.
+      Complete syllabus learning, formulas,
+      practice, PYQs, full GATE-pattern mocks,
+      notes, modules, references and progress tracking.
     </p>
 
-    <button class="btn" onclick="go('syllabus')">
+    <button
+      class="btn"
+      onclick="go('syllabus')"
+    >
       ▶ Start Smart Study
     </button>
+
+    <button
+      class="btn secondary"
+      onclick="go('mock')"
+    >
+      🎯 Full GATE Mock
+    </button>
+
   </div>
+
 
   <div class="grid3">
 
     <div class="card stat">
-      <strong id="homeTopics">0</strong>
+      <strong id="homeTopics">
+        0
+      </strong>
       <span>Topics</span>
     </div>
 
     <div class="card stat">
-      <strong id="homeDone">0%</strong>
+      <strong id="homeDone">
+        0%
+      </strong>
       <span>Completed</span>
     </div>
 
     <div class="card stat">
-      <strong id="homeAccuracy">0%</strong>
+      <strong id="homeAccuracy">
+        0%
+      </strong>
       <span>Accuracy</span>
     </div>
 
   </div>
 
-  <div class="card">
-    <h3>🎯 What should I study?</h3>
 
-    <p id="recommendation" class="muted">
+  <div class="card">
+
+    <h3>
+      🎯 What should I study?
+    </h3>
+
+    <p
+      id="recommendation"
+      class="muted"
+    >
       Loading recommendation...
     </p>
 
-    <button class="btn secondary" onclick="go('syllabus')">
+    <button
+      class="btn secondary"
+      onclick="go('syllabus')"
+    >
       Open Syllabus
     </button>
+
   </div>
+
 
   <div class="card">
 
-    <h3>📊 Your Preparation</h3>
+    <h3>
+      📊 Your Preparation
+    </h3>
 
     <div class="grid3">
 
       <div class="stat">
-        <strong id="homePYQ">0</strong>
+        <strong id="homePYQ">
+          0
+        </strong>
         <span>PYQ Solved</span>
       </div>
 
       <div class="stat">
-        <strong id="homeMocks">0</strong>
+        <strong id="homeMocks">
+          0
+        </strong>
         <span>Mocks</span>
       </div>
 
       <div class="stat">
-        <strong id="homeBest">0%</strong>
+        <strong id="homeBest">
+          0%
+        </strong>
         <span>Best Mock</span>
       </div>
 
@@ -518,29 +906,40 @@ select{
 
   </div>
 
+
   <div class="card">
 
-    <h3>📚 GateVolt Study System</h3>
+    <h3>
+      📚 GateVolt Study System
+    </h3>
 
     <p class="muted">
-      Learn → Formula → Practice → PYQ → Mock → Revision → Track progress.
+      Learn → Formula → Practice → PYQ →
+      Full Mock → Review → Revision → Track progress.
     </p>
 
-    <button class="btn secondary" onclick="go('resources')">
+    <button
+      class="btn secondary"
+      onclick="go('resources')"
+    >
       📚 Notes & Modules
     </button>
 
-    <button class="btn secondary" onclick="go('mock')">
+    <button
+      class="btn secondary"
+      onclick="go('mock')"
+    >
       🎯 Mock Tests
     </button>
 
   </div>
 
+
   <div class="notice">
 
     <b>💾 Progress is saved locally.</b><br>
 
-    Your completed topics, practice attempts,
+    Completed topics, practice attempts,
     bookmarks and mock history remain on this device.
 
   </div>
@@ -552,9 +951,14 @@ select{
      SYLLABUS
 ===================================================== -->
 
-<section id="syllabus" class="page">
+<section
+  id="syllabus"
+  class="page"
+>
 
-  <h2>📚 Complete GATE EE Syllabus</h2>
+  <h2>
+    📚 Complete GATE EE Syllabus
+  </h2>
 
   <input
     id="search"
@@ -566,17 +970,23 @@ select{
   <div class="grid3">
 
     <div class="card stat">
-      <strong id="totalSubjects">0</strong>
+      <strong id="totalSubjects">
+        0
+      </strong>
       <span>Subjects</span>
     </div>
 
     <div class="card stat">
-      <strong id="totalTopics">0</strong>
+      <strong id="totalTopics">
+        0
+      </strong>
       <span>Learning Units</span>
     </div>
 
     <div class="card stat">
-      <strong id="syllabusPct">0%</strong>
+      <strong id="syllabusPct">
+        0%
+      </strong>
       <span>Mastery</span>
     </div>
 
@@ -591,48 +1001,46 @@ select{
      PRACTICE
 ===================================================== -->
 
-<section id="practice" class="page">
+<section
+  id="practice"
+  class="page"
+>
 
-  <h2>🧠 Practice</h2>
-
-  <div class="card">
-
-    <h3>Smart Practice Engine</h3>
-
-    <p class="muted">
-      Questions are shuffled and previously attempted questions
-      are avoided until the available question pool is exhausted.
-    </p>
-
-    <div class="grid">
-
-      <button class="btn" onclick="startPractice(false)">
-        ▶ Start Smart Practice
-      </button>
-
-      <button class="btn secondary" onclick="resetPracticeHistory()">
-        🔄 Reset Practice Rotation
-      </button>
-
-    </div>
-
-  </div>
+  <h2>
+    🧠 Practice
+  </h2>
 
   <div class="card">
 
-    <h3>Practice Rules</h3>
+    <h3>
+      Smart Practice Engine
+    </h3>
 
     <p class="muted">
-      • Questions vary between sessions.<br>
-      • Same question is not intentionally repeated immediately.<br>
-      • Difficulty is mixed.<br>
-      • Correct answers and explanations appear after answering.<br>
-      • Practice statistics are stored locally.
+      Questions are shuffled and previously attempted
+      questions are avoided until the question pool
+      is exhausted.
     </p>
+
+    <button
+      class="btn"
+      onclick="startPractice(false)"
+    >
+      ▶ Start Smart Practice
+    </button>
+
+    <button
+      class="btn secondary"
+      onclick="resetPracticeHistory()"
+    >
+      🔄 Reset Rotation
+    </button>
 
   </div>
 
-  <div id="practiceBox"></div>
+  <div
+    id="practiceBox"
+  ></div>
 
 </section>
 
@@ -641,47 +1049,75 @@ select{
      PYQ
 ===================================================== -->
 
-<section id="pyq" class="page">
+<section
+  id="pyq"
+  class="page"
+>
 
-  <h2>📝 GATE PYQ Centre</h2>
+  <h2>
+    📝 GATE PYQ Centre
+  </h2>
 
   <div class="card">
 
-    <h3>Previous Year Questions + Solutions</h3>
+    <h3>
+      Previous Year Questions + Solutions
+    </h3>
 
     <p class="muted">
-      Solve PYQs topic-wise and review the explanation immediately.
-      Your PYQ attempts are tracked separately.
+      Solve verified PYQs separately from
+      GateVolt original practice questions.
     </p>
 
-    <button class="btn" onclick="startPYQ()">
+    <button
+      class="btn"
+      onclick="startPYQ()"
+    >
       ▶ Start PYQ Practice
     </button>
 
-    <button class="btn secondary" onclick="renderPYQList()">
+    <button
+      class="btn secondary"
+      onclick="renderPYQList()"
+    >
       📋 Browse PYQs
     </button>
 
+    <button
+      class="btn purple"
+      onclick="renderPYQFilters()"
+    >
+      🔎 Filter PYQs
+    </button>
+
   </div>
+
 
   <div class="grid3">
 
     <div class="card stat">
-      <strong id="pyqCount">0</strong>
+      <strong id="pyqCount">
+        0
+      </strong>
       <span>PYQs Available</span>
     </div>
 
     <div class="card stat">
-      <strong id="pyqSolved">0</strong>
+      <strong id="pyqSolved">
+        0
+      </strong>
       <span>Solved</span>
     </div>
 
     <div class="card stat">
-      <strong id="pyqAccuracy">0%</strong>
+      <strong id="pyqAccuracy">
+        0%
+      </strong>
       <span>Accuracy</span>
     </div>
 
   </div>
+
 
   <div id="pyqBox"></div>
 
@@ -692,68 +1128,126 @@ select{
      MOCK
 ===================================================== -->
 
-<section id="mock" class="page">
+<section
+  id="mock"
+  class="page"
+>
 
-  <h2>🎯 GATE Mock Tests</h2>
+  <h2>
+    🎯 GATE Mock Tests
+  </h2>
+
 
   <div class="card">
 
-    <h3>Choose Your Mock</h3>
+    <h3>
+      Choose Your Mock
+    </h3>
 
     <div class="mockSetup">
 
       <div>
-        <label class="muted small">Test duration</label>
+
+        <label class="muted small">
+          Test type
+        </label>
 
         <select id="mockDuration">
-          <option value="60">60 Minutes — Mini GATE</option>
-          <option value="180">180 Minutes — Full GATE Pattern</option>
+
+          <option value="180">
+            180 Minutes — FULL GATE PATTERN
+          </option>
+
+          <option value="60">
+            60 Minutes — Mini Mock
+          </option>
+
         </select>
+
       </div>
 
+
       <div>
-        <label class="muted small">Difficulty</label>
+
+        <label class="muted small">
+          Difficulty
+        </label>
 
         <select id="mockDifficulty">
-          <option value="mixed">Mixed</option>
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
+
+          <option value="mixed">
+            Mixed
+          </option>
+
+          <option value="easy">
+            Easy
+          </option>
+
+          <option value="medium">
+            Medium
+          </option>
+
+          <option value="hard">
+            Hard
+          </option>
+
         </select>
+
       </div>
 
     </div>
 
+
     <br>
 
-    <button class="btn" onclick="beginMock()">
+
+    <button
+      class="btn"
+      onclick="beginMock()"
+    >
       🚀 Start Mock Test
     </button>
 
   </div>
 
+
   <div class="card">
 
-    <h3>🔥 Mock Test Features</h3>
+    <h3>
+      🔥 Full GATE Pattern
+    </h3>
 
     <p class="muted">
-      • 60-minute and 3-hour modes<br>
-      • Easy / Medium / Hard / Mixed<br>
-      • PYQ + new questions<br>
-      • Countdown timer<br>
-      • Question navigation<br>
-      • Final score and accuracy<br>
-      • Complete answer review<br>
-      • Mock history and best score
+
+      <b>65 Questions</b><br>
+      <b>100 Marks</b><br>
+      <b>180 Minutes</b><br><br>
+
+      MCQ • MSQ • NAT<br>
+      1-mark and 2-mark questions<br>
+      MCQ negative marking<br>
+      Question palette<br>
+      Mark for review<br>
+      Clear response<br>
+      Auto-submit<br>
+      Detailed score<br>
+      Negative-mark analysis<br>
+      Persistent mock history<br>
+      Full answer review
+
     </p>
 
   </div>
 
+
   <div id="mockBox"></div>
+
 
   <div class="card">
 
-    <h3>📊 Mock History</h3>
+    <h3>
+      📊 Mock History
+    </h3>
 
     <div id="mockHistory"></div>
 
@@ -766,9 +1260,14 @@ select{
      FORMULA
 ===================================================== -->
 
-<section id="formula" class="page">
+<section
+  id="formula"
+  class="page"
+>
 
-  <h2>Σ Formula Book</h2>
+  <h2>
+    Σ Formula Book
+  </h2>
 
   <input
     id="formulaSearch"
@@ -783,16 +1282,23 @@ select{
 
 
 <!-- =====================================================
-     AI
+     AI TEACHER
 ===================================================== -->
 
-<section id="ai" class="page">
+<section
+  id="ai"
+  class="page"
+>
 
-  <h2>🤖 AI Teacher</h2>
+  <h2>
+    🤖 AI Teacher
+  </h2>
 
   <div class="card">
 
-    <h3>Ask GateVolt</h3>
+    <h3>
+      Ask GateVolt
+    </h3>
 
     <p class="muted">
       Ask for a concept explanation, formula meaning,
@@ -808,7 +1314,10 @@ select{
 
     <br><br>
 
-    <button class="btn" onclick="askAI()">
+    <button
+      class="btn"
+      onclick="askAI()"
+    >
       Explain
     </button>
 
@@ -816,36 +1325,46 @@ select{
 
   </div>
 
+
   <div class="card">
 
-    <h3>📖 Recommended References</h3>
+    <h3>
+      📖 Recommended References
+    </h3>
 
     <div class="ref">
-      Engineering Mathematics — B.S. Grewal / standard GATE mathematics material
+      Engineering Mathematics —
+      B.S. Grewal / standard GATE mathematics material
     </div>
 
     <div class="ref">
-      Electric Circuits — Alexander & Sadiku
+      Electric Circuits —
+      Alexander & Sadiku
     </div>
 
     <div class="ref">
-      Electrical Machines — P.S. Bimbhra
+      Electrical Machines —
+      P.S. Bimbhra
     </div>
 
     <div class="ref">
-      Power Systems — C.L. Wadhwa
+      Power Systems —
+      C.L. Wadhwa
     </div>
 
     <div class="ref">
-      Control Systems — Nagrath & Gopal
+      Control Systems —
+      Nagrath & Gopal
     </div>
 
     <div class="ref">
-      Signals & Systems — Oppenheim / GATE-oriented notes
+      Signals & Systems —
+      Oppenheim / GATE-oriented notes
     </div>
 
     <div class="ref">
-      Power Electronics — P.S. Bimbhra
+      Power Electronics —
+      P.S. Bimbhra
     </div>
 
   </div>
@@ -854,125 +1373,56 @@ select{
 
 
 <!-- =====================================================
-     NOTES / MODULES / RESOURCES
+     RESOURCES
 ===================================================== -->
 
-<section id="resources" class="page">
+<section
+  id="resources"
+  class="page"
+>
 
-  <h2>📚 Notes & Modules</h2>
+  <h2>
+    📚 Notes & Modules
+  </h2>
+
 
   <div class="hero">
 
-    <span class="badge">YOUR STUDY LIBRARY</span>
+    <span class="badge">
+      YOUR STUDY LIBRARY
+    </span>
 
-    <h1>Notes • Modules • References</h1>
+    <h1>
+      Notes • Modules • References
+    </h1>
 
     <p>
-      Keep your GATE notes and modules in one place.
-      The Drive folder can be used as the main storage location,
-      while GateVolt provides the study interface.
+      Keep your GATE notes and modules
+      in one place.
     </p>
 
     <a
       href="https://drive.google.com/drive/folders/1866EN_eVnJ5Dlx3gmhnRjd_zvr8rOz3R"
       target="_blank"
       rel="noopener"
-      style="text-decoration:none"
     >
+
       <button class="btn">
         ☁ Open Google Drive Notes
       </button>
+
     </a>
 
   </div>
 
+
   <div class="card">
 
-    <h3>📂 Recommended Module Structure</h3>
+    <h3>
+      📂 Recommended Module Structure
+    </h3>
 
-    <p class="muted">
-      Keep your Drive organized like this:
-    </p>
-
-    <div class="moduleCard">
-      <b>01 — Engineering Mathematics</b>
-      <p class="muted small">
-        Notes • Formula sheets • Assignments • PYQs
-      </p>
-    </div>
-
-    <div class="moduleCard">
-      <b>02 — Electric Circuits</b>
-      <p class="muted small">
-        Notes • Network problems • PYQs
-      </p>
-    </div>
-
-    <div class="moduleCard">
-      <b>03 — Electromagnetic Fields</b>
-      <p class="muted small">
-        Notes • Derivations • Problems
-      </p>
-    </div>
-
-    <div class="moduleCard">
-      <b>04 — Signals & Systems</b>
-      <p class="muted small">
-        Notes • Transforms • Sampling • PYQs
-      </p>
-    </div>
-
-    <div class="moduleCard">
-      <b>05 — Electrical Machines</b>
-      <p class="muted small">
-        Transformers • DC machines • Induction • Synchronous
-      </p>
-    </div>
-
-    <div class="moduleCard">
-      <b>06 — Power Systems</b>
-      <p class="muted small">
-        Transmission • Load flow • Faults • Protection • Stability
-      </p>
-    </div>
-
-    <div class="moduleCard">
-      <b>07 — Control Systems</b>
-      <p class="muted small">
-        Stability • Bode • Root locus • State space
-      </p>
-    </div>
-
-    <div class="moduleCard">
-      <b>08 — Measurements</b>
-      <p class="muted small">
-        Bridges • Instruments • Errors • Oscilloscopes
-      </p>
-    </div>
-
-    <div class="moduleCard">
-      <b>09 — Analog & Digital Electronics</b>
-      <p class="muted small">
-        Diodes • Op-amps • Logic • ADC/DAC
-      </p>
-    </div>
-
-    <div class="moduleCard">
-      <b>10 — Power Electronics</b>
-      <p class="muted small">
-        Converters • Inverters • Thyristors • PWM
-      </p>
-    </div>
-
-  </div>
-
-  <div class="notice">
-
-    <b>💡 Important:</b>
-
-    The Drive folder is the storage/reference location.
-    Actual PDFs can be opened from Drive without making the
-    entire PDF database part of the HTML file.
+    <div id="moduleList"></div>
 
   </div>
 
@@ -982,77 +1432,85 @@ select{
 
 
 <!-- =====================================================
-     BOTTOM NAV
+     NAV
 ===================================================== -->
 
 <nav class="nav">
 
-<div class="navInner">
+  <div class="navInner">
 
-  <button
-    onclick="go('home')"
-    data-page="home"
-    class="active"
-  >
-    <b>⌂</b>Home
-  </button>
+    <button
+      onclick="go('home')"
+      data-page="home"
+      class="active"
+    >
+      <b>⌂</b>
+      Home
+    </button>
 
-  <button
-    onclick="go('syllabus')"
-    data-page="syllabus"
-  >
-    <b>☷</b>Syllabus
-  </button>
+    <button
+      onclick="go('syllabus')"
+      data-page="syllabus"
+    >
+      <b>☷</b>
+      Syllabus
+    </button>
 
-  <button
-    onclick="go('practice')"
-    data-page="practice"
-  >
-    <b>✓</b>Practice
-  </button>
+    <button
+      onclick="go('practice')"
+      data-page="practice"
+    >
+      <b>✓</b>
+      Practice
+    </button>
 
-  <button
-    onclick="go('pyq')"
-    data-page="pyq"
-  >
-    <b>Q</b>PYQ
-  </button>
+    <button
+      onclick="go('pyq')"
+      data-page="pyq"
+    >
+      <b>Q</b>
+      PYQ
+    </button>
 
-  <button
-    onclick="go('mock')"
-    data-page="mock"
-  >
-    <b>♟</b>Mock
-  </button>
+    <button
+      onclick="go('mock')"
+      data-page="mock"
+    >
+      <b>♟</b>
+      Mock
+    </button>
 
-  <button
-    onclick="go('formula')"
-    data-page="formula"
-  >
-    <b>Σ</b>Formula
-  </button>
+    <button
+      onclick="go('formula')"
+      data-page="formula"
+    >
+      <b>Σ</b>
+      Formula
+    </button>
 
-  <button
-    onclick="go('resources')"
-    data-page="resources"
-  >
-    <b>📚</b>Notes
-  </button>
+    <button
+      onclick="go('resources')"
+      data-page="resources"
+    >
+      <b>📚</b>
+      Notes
+    </button>
 
-  <button
-    onclick="go('ai')"
-    data-page="ai"
-  >
-    <b>AI</b>AI
-  </button>
+    <button
+      onclick="go('ai')"
+      data-page="ai"
+    >
+      <b>AI</b>
+      AI
+    </button>
 
-</div>
+  </div>
 
 </nav>
 
 
 <!-- =====================================================
-     TOPIC MODAL
+     MODAL
 ===================================================== -->
 
 <div
@@ -1078,6 +1536,7 @@ select{
 
 
 <script>
+
 "use strict";
 
 
@@ -1085,21 +1544,45 @@ select{
    STATE
 ========================================================= */
 
-const KEY="gatevolt_ee_2026_v4";
+const KEY =
+  "gatevolt_ee_2026_v6";
 
-let state=JSON.parse(localStorage.getItem(KEY)||"{}");
 
-state.completed=state.completed||{};
-state.visited=state.visited||{};
-state.bookmarks=state.bookmarks||{};
-state.correct=state.correct||0;
-state.attempted=state.attempted||0;
+let state =
+  JSON.parse(
+    localStorage.getItem(KEY) || "{}"
+  );
 
-state.practiceSeen=state.practiceSeen||{};
-state.pyqSeen=state.pyqSeen||{};
-state.pyqAttempted=state.pyqAttempted||0;
-state.pyqCorrect=state.pyqCorrect||0;
-state.mockHistory=state.mockHistory||[];
+
+state.completed =
+  state.completed || {};
+
+state.visited =
+  state.visited || {};
+
+state.bookmarks =
+  state.bookmarks || {};
+
+state.correct =
+  state.correct || 0;
+
+state.attempted =
+  state.attempted || 0;
+
+state.practiceSeen =
+  state.practiceSeen || {};
+
+state.pyqSeen =
+  state.pyqSeen || {};
+
+state.pyqAttempted =
+  state.pyqAttempted || 0;
+
+state.pyqCorrect =
+  state.pyqCorrect || 0;
+
+state.mockHistory =
+  state.mockHistory || [];
 
 
 /* =========================================================
@@ -1119,10 +1602,10 @@ function save(){
 
 
 /* =========================================================
-   OFFICIAL GATE EE SYLLABUS
+   SYLLABUS
 ========================================================= */
 
-const subjects=[
+const subjects = [
 
 {
 name:"General Aptitude",
@@ -1195,7 +1678,6 @@ topics:[
 "Taylor series",
 "Laurent series",
 "Residue theorem",
-"Solution integrals",
 "Sampling theorems",
 "Conditional probability",
 "Mean, median and mode",
@@ -1481,51 +1963,120 @@ topics:[
 
 
 /* =========================================================
+   MODULES
+========================================================= */
+
+const modules = [
+
+[
+"01",
+"Engineering Mathematics",
+"Notes • Formula sheets • Assignments • PYQs"
+],
+
+[
+"02",
+"Electric Circuits",
+"Notes • Network problems • PYQs"
+],
+
+[
+"03",
+"Electromagnetic Fields",
+"Notes • Derivations • Problems"
+],
+
+[
+"04",
+"Signals & Systems",
+"Notes • Transforms • Sampling • PYQs"
+],
+
+[
+"05",
+"Electrical Machines",
+"Transformers • DC • Induction • Synchronous"
+],
+
+[
+"06",
+"Power Systems",
+"Transmission • Load flow • Faults • Protection"
+],
+
+[
+"07",
+"Control Systems",
+"Stability • Bode • Root locus • State space"
+],
+
+[
+"08",
+"Measurements",
+"Bridges • Instruments • Errors • Oscilloscopes"
+],
+
+[
+"09",
+"Analog & Digital Electronics",
+"Diodes • Op-amps • Logic • ADC/DAC"
+],
+
+[
+"10",
+"Power Electronics",
+"Converters • Inverters • Thyristors • PWM"
+]
+
+];
+
+
+/* =========================================================
    FORMULAS
 ========================================================= */
 
-const formulas=[
+const formulas = [
 
-["Matrix Algebra","det(A−λI)=0","Characteristic equation used to find eigenvalues."],
-["Eigenvectors","Av=λv","For a non-zero vector v."],
-["KCL","ΣI=0","Algebraic sum of currents at a node is zero."],
-["KVL","ΣV=0","Algebraic sum of voltages around a closed loop."],
-["Ohm Law","V=IR","Voltage equals current multiplied by resistance."],
-["Capacitor","i=C dv/dt","Capacitor current-voltage relation."],
-["Inductor","v=L di/dt","Inductor voltage-current relation."],
-["Thevenin","Vth=Voc, Rth=Voc/Isc","Equivalent voltage source and resistance."],
-["Norton","In=Isc, Rn=Rth","Equivalent current source and resistance."],
-["Maximum Power","RL=Rth","Maximum power condition for resistive DC networks."],
-["AC Power","S=P+jQ","Complex apparent power."],
+["Matrix Algebra","det(A−λI)=0","Characteristic equation."],
+["Eigenvectors","Av=λv","Eigenvector relation."],
+["KCL","ΣI=0","Algebraic sum of currents at a node."],
+["KVL","ΣV=0","Algebraic sum of voltages around a loop."],
+["Ohm Law","V=IR","Voltage-current-resistance relation."],
+["Capacitor","i=C dv/dt","Capacitor relation."],
+["Inductor","v=L di/dt","Inductor relation."],
+["Thevenin","Vth=Voc, Rth=Voc/Isc","Thevenin equivalent."],
+["Norton","In=Isc, Rn=Rth","Norton equivalent."],
+["Maximum Power","RL=Rth","Maximum power condition."],
+["AC Power","S=P+jQ","Complex power."],
 ["Real Power","P=VIcosφ","Average real power."],
 ["Reactive Power","Q=VIsinφ","Reactive power."],
-["Power Factor","pf=P/S=cosφ","Ratio of real to apparent power."],
-["Resonance","ω0=1/√(LC)","Ideal LC resonance frequency."],
-["Three Phase","P=√3 VL IL cosφ","Balanced three-phase real power."],
+["Power Factor","pf=P/S=cosφ","Power factor."],
+["Resonance","ω0=1/√LC","Ideal LC resonance."],
+["Three Phase","P=√3VLILcosφ","Balanced three-phase power."],
 ["Coulomb Law","F=(1/4πε)q1q2/r²","Electrostatic force."],
-["Electric Field","E=F/q","Force per unit charge."],
-["Gauss Law","∮E·dA=Qenc/ε","Electric flux through closed surface."],
-["Capacitance","C=Q/V","Charge stored per unit voltage."],
-["Biot-Savart","dB=μ/(4π)·I dl×r̂/r²","Magnetic field due to current element."],
+["Electric Field","E=F/q","Electric field intensity."],
+["Gauss Law","∮E·dA=Qenc/ε","Electric flux relation."],
+["Capacitance","C=Q/V","Capacitance."],
+["Biot-Savart","dB=μ/(4π)·I dl×r̂/r²","Magnetic field."],
 ["Faraday Law","e=−N dΦ/dt","Induced emf."],
-["Lorentz Force","F=q(E+v×B)","Force on a charged particle."],
-["Transformer EMF","E=4.44fNΦm","RMS induced emf."],
+["Lorentz Force","F=q(E+v×B)","Force on charge."],
+["Transformer EMF","E=4.44fNΦm","Transformer induced emf."],
 ["Transformer Regulation","%VR=(VNL−VFL)/VFL×100","Voltage regulation."],
 ["Transformer Efficiency","η=Pout/Pin×100%","Efficiency."],
-["Synchronous Speed","Ns=120f/P","Speed in rpm."],
+["Synchronous Speed","Ns=120f/P","Synchronous speed."],
 ["Slip","s=(Ns−N)/Ns","Induction motor slip."],
-["DC Machine EMF","E=PΦZN/(60A)","Generated/back EMF."],
+["DC Machine EMF","E=PΦZN/(60A)","Generated/back emf."],
 ["DC Motor Speed","N∝(V−IaRa)/Φ","Approximate speed relation."],
-["Closed Loop","T(s)=G(s)/(1+G(s)H(s))","Negative-feedback transfer function."],
-["Routh","First-column sign changes=RHP poles","Routh stability criterion."],
+["Closed Loop","T(s)=G(s)/(1+G(s)H(s))","Negative feedback."],
+["Routh","First-column sign changes=RHP poles","Routh stability."],
 ["Bode Magnitude","20log10|G(jω)|","Magnitude in dB."],
-["Sampling","fs≥2fm","Nyquist sampling condition."],
+["Sampling","fs≥2fm","Nyquist condition."],
 ["RMS","Xrms=√[(1/T)∫x²(t)dt]","RMS value."],
 ["Average","Xavg=(1/T)∫x(t)dt","Average value."],
-["Buck","Vo=DVs","Ideal buck converter."],
-["Boost","Vo=Vs/(1−D)","Ideal boost converter."],
-["Buck-Boost","Vo=−D/(1−D)Vs","Ideal inverting buck-boost."],
-["ADC Resolution","Δ=VFS/2^N","Ideal ADC step size."]
+["Buck","Vo=DVs","Ideal buck."],
+["Boost","Vo=Vs/(1−D)","Ideal boost."],
+["Buck-Boost","Vo=−D/(1−D)Vs","Ideal buck-boost."],
+["ADC Resolution","Δ=VFS/2^N","Ideal ADC resolution."]
 ];
 
 
@@ -1533,31 +2084,7 @@ const formulas=[
    CONCEPT MAP
 ========================================================= */
 
-const conceptMap={
-
-"Matrix Algebra":{
-why:"Matrices provide a compact way to represent and solve simultaneous equations and electrical-network models.",
-formula:"A⁻¹A=I | det(A)=0 → singular matrix",
-ref:"B.S. Grewal — Higher Engineering Mathematics"
-},
-
-"Systems of linear equations":{
-why:"Linear equations describe many circuit and engineering relationships.",
-formula:"AX=B | unique solution when det(A)≠0",
-ref:"GATE Engineering Mathematics notes / B.S. Grewal"
-},
-
-"Eigenvalues":{
-why:"Eigenvalues describe special scaling factors associated with a matrix transformation.",
-formula:"det(A−λI)=0",
-ref:"B.S. Grewal — Higher Engineering Mathematics"
-},
-
-"Eigenvectors":{
-why:"An eigenvector keeps its direction under a matrix transformation and is scaled by its eigenvalue.",
-formula:"Av=λv, v≠0",
-ref:"B.S. Grewal — Higher Engineering Mathematics"
-},
+const conceptMap = {
 
 "KCL":{
 why:"At a node, charge conservation means incoming and outgoing currents balance.",
@@ -1572,19 +2099,19 @@ ref:"Alexander & Sadiku — Fundamentals of Electric Circuits"
 },
 
 "Thevenin theorem":{
-why:"A linear two-terminal network can be reduced to one voltage source and one series resistance/impedance.",
+why:"A linear two-terminal network can be replaced by one equivalent voltage source and series resistance.",
 formula:"Vth=Voc, Rth=Vth/Isc",
 ref:"Alexander & Sadiku — Fundamentals of Electric Circuits"
 },
 
 "Fourier series":{
-why:"Periodic signals can be represented as sums of sinusoids.",
+why:"A periodic signal can be represented using a sum of sinusoidal components.",
 formula:"x(t)=a0+Σ[an cos(nω0t)+bn sin(nω0t)]",
 ref:"Oppenheim — Signals and Systems"
 },
 
 "Sampling theorem":{
-why:"A band-limited signal can be reconstructed when the sampling frequency is at least twice its highest frequency.",
+why:"A band-limited signal can be reconstructed when the sampling frequency is at least twice the highest frequency.",
 formula:"fs≥2fm",
 ref:"Oppenheim — Signals and Systems"
 },
@@ -1592,7 +2119,7 @@ ref:"Oppenheim — Signals and Systems"
 "Laplace transform":{
 why:"The Laplace transform converts differential equations into algebraic equations in the s-domain.",
 formula:"L{dx/dt}=sX(s)−x(0−)",
-ref:"Oppenheim / standard GATE Signals references"
+ref:"Standard GATE Signals & Systems references"
 },
 
 "Transformer":{
@@ -1602,19 +2129,19 @@ ref:"P.S. Bimbhra — Electrical Machinery"
 },
 
 "Slip":{
-why:"Slip measures the speed difference between the rotating field and induction-motor rotor.",
+why:"Slip measures the difference between synchronous speed and rotor speed.",
 formula:"s=(Ns−N)/Ns",
 ref:"P.S. Bimbhra — Electrical Machinery"
 },
 
 "Synchronous Speed":{
-why:"The rotating magnetic field speed is determined by supply frequency and number of poles.",
+why:"The rotating magnetic field speed depends on supply frequency and number of poles.",
 formula:"Ns=120f/P rpm",
 ref:"P.S. Bimbhra — Electrical Machinery"
 },
 
 "Power factor":{
-why:"Power factor indicates how effectively apparent AC power is converted into real power.",
+why:"Power factor indicates the ratio of real power to apparent power.",
 formula:"pf=P/S=cosφ",
 ref:"C.L. Wadhwa — Electrical Power Systems"
 },
@@ -1626,7 +2153,7 @@ ref:"Nagrath & Gopal — Control Systems"
 },
 
 "Routh-Hurwitz stability":{
-why:"Routh's method determines the number of right-half-plane poles without directly solving the characteristic polynomial.",
+why:"Routh's method determines the number of right-half-plane roots without solving the polynomial directly.",
 formula:"Sign changes in first column = RHP roots",
 ref:"Nagrath & Gopal — Control Systems"
 },
@@ -1638,19 +2165,19 @@ ref:"Nagrath & Gopal — Control Systems"
 },
 
 "Operational amplifier characteristics":{
-why:"An ideal op-amp has very high open-loop gain, infinite input resistance and approximately zero output resistance.",
+why:"An ideal op-amp has very high open-loop gain and input resistance with approximately zero output resistance.",
 formula:"V+=V− under negative feedback",
 ref:"Standard GATE Analog Electronics references"
 },
 
 "Buck converter":{
-why:"A buck converter steps DC voltage down using controlled switching.",
+why:"A buck converter steps a DC voltage down through controlled switching.",
 formula:"Vo=DVs",
 ref:"P.S. Bimbhra — Power Electronics"
 },
 
 "Boost converter":{
-why:"A boost converter raises DC voltage above its input value.",
+why:"A boost converter increases DC voltage above the input value.",
 formula:"Vo=Vs/(1−D)",
 ref:"P.S. Bimbhra — Power Electronics"
 }
@@ -1664,24 +2191,31 @@ ref:"P.S. Bimbhra — Power Electronics"
 
 function allTopics(){
 
-  let a=[];
+  const a=[];
 
-  subjects.forEach((s,si)=>{
+  subjects.forEach(
+    (s,si)=>{
 
-    s.topics.forEach((t,ti)=>{
+      s.topics.forEach(
+        (t,ti)=>{
 
-      a.push({
-        subject:s.name,
-        icon:s.icon,
-        topic:t,
-        si,
-        ti,
-        id:si+"_"+ti
-      });
+          a.push({
 
-    });
+            subject:s.name,
+            icon:s.icon,
+            topic:t,
+            si,
+            ti,
+            id:
+              si+"_"+ti
 
-  });
+          });
+
+        }
+      );
+
+    }
+  );
 
   return a;
 
@@ -1690,21 +2224,35 @@ function allTopics(){
 
 function esc(s){
 
-  return String(s).replace(/[&<>"']/g,m=>({
+  return String(s).replace(
+    /[&<>"']/g,
+    m=>({
 
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#39;"
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#39;"
 
-  }[m]));
+    }[m])
+  );
 
 }
 
 
 function normalize(s){
+
   return String(s).toLowerCase();
+
+}
+
+
+function randomShuffle(arr){
+
+  return [...arr].sort(
+    ()=>Math.random()-0.5
+  );
+
 }
 
 
@@ -1713,18 +2261,38 @@ function findConcept(topic){
   if(conceptMap[topic])
     return conceptMap[topic];
 
-  const key=Object.keys(conceptMap).find(k=>
-    normalize(topic).includes(normalize(k)) ||
-    normalize(k).includes(normalize(topic))
-  );
+
+  const key =
+    Object.keys(
+      conceptMap
+    ).find(
+      k=>
+        normalize(topic)
+          .includes(
+            normalize(k)
+          ) ||
+        normalize(k)
+          .includes(
+            normalize(topic)
+          )
+    );
+
 
   if(key)
     return conceptMap[key];
 
+
   return {
-    why:"This is an official GATE EE learning unit. Study the definition, governing equations, assumptions, diagrams and typical numerical applications.",
-    formula:"Use the governing equations and standard relationships for this topic.",
-    ref:"GATE EE 2026 syllabus + standard GATE preparation references"
+
+    why:
+      "This is a GATE EE learning unit. Study the definition, governing equations, assumptions, diagrams and typical numerical applications.",
+
+    formula:
+      "Use the governing equations and standard relationships for this topic.",
+
+    ref:
+      "GATE EE syllabus + standard GATE preparation references"
+
   };
 
 }
@@ -1736,25 +2304,48 @@ function findConcept(topic){
 
 function go(page){
 
-  document.querySelectorAll(".page")
-    .forEach(x=>x.classList.remove("active"));
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      x=>x.classList.remove("active")
+    );
 
-  document.getElementById(page)
-    .classList.add("active");
 
-  document.querySelectorAll(".nav button")
-    .forEach(x=>{
-      x.classList.toggle(
-        "active",
-        x.dataset.page===page
-      );
-    });
+  const target =
+    document.getElementById(page);
 
-  if(page==="home")renderStats();
-  if(page==="syllabus")renderSyllabus();
-  if(page==="formula")renderFormulas();
-  if(page==="pyq")renderPYQStats();
-  if(page==="mock")renderMockHistory();
+
+  if(target)
+    target.classList.add("active");
+
+
+  document
+    .querySelectorAll(".nav button")
+    .forEach(
+      x=>{
+        x.classList.toggle(
+          "active",
+          x.dataset.page===page
+        );
+      }
+    );
+
+
+  if(page==="home")
+    renderStats();
+
+  if(page==="syllabus")
+    renderSyllabus();
+
+  if(page==="formula")
+    renderFormulas();
+
+  if(page==="pyq")
+    renderPYQStats();
+
+  if(page==="mock")
+    renderMockHistory();
+
 
   window.scrollTo({
     top:0,
@@ -1770,62 +2361,129 @@ function go(page){
 
 function renderStats(){
 
-  const topics=allTopics();
+  const topics =
+    allTopics();
 
-  const done=topics.filter(
-    t=>state.completed[t.id]
-  ).length;
 
-  const pct=topics.length
-    ?Math.round(done/topics.length*100)
-    :0;
-
-  const acc=state.attempted
-    ?Math.round(state.correct/state.attempted*100)
-    :0;
-
-  document.getElementById("homeTopics").textContent=topics.length;
-  document.getElementById("homeDone").textContent=pct+"%";
-  document.getElementById("homeAccuracy").textContent=acc+"%";
-
-  document.getElementById("totalSubjects").textContent=subjects.length;
-  document.getElementById("totalTopics").textContent=topics.length;
-  document.getElementById("syllabusPct").textContent=pct+"%";
-
-  const weak=subjects.find(s=>{
-
-    const arr=allTopics()
-      .filter(t=>t.subject===s.name);
-
-    const d=arr.filter(
+  const done =
+    topics.filter(
       t=>state.completed[t.id]
     ).length;
 
-    return d<arr.length;
 
-  });
+  const pct =
+    topics.length
+    ?Math.round(
+      done/topics.length*100
+    )
+    :0;
 
-  document.getElementById("recommendation").textContent=
+
+  const acc =
+    state.attempted
+    ?Math.round(
+      state.correct/
+      state.attempted*100
+    )
+    :0;
+
+
+  document.getElementById(
+    "homeTopics"
+  ).textContent =
+    topics.length;
+
+
+  document.getElementById(
+    "homeDone"
+  ).textContent =
+    pct+"%";
+
+
+  document.getElementById(
+    "homeAccuracy"
+  ).textContent =
+    acc+"%";
+
+
+  document.getElementById(
+    "totalSubjects"
+  ).textContent =
+    subjects.length;
+
+
+  document.getElementById(
+    "totalTopics"
+  ).textContent =
+    topics.length;
+
+
+  document.getElementById(
+    "syllabusPct"
+  ).textContent =
+    pct+"%";
+
+
+  const weak =
+    subjects.find(
+      s=>{
+
+        const arr =
+          allTopics().filter(
+            t=>t.subject===s.name
+          );
+
+
+        const d =
+          arr.filter(
+            t=>state.completed[t.id]
+          ).length;
+
+
+        return d<arr.length;
+
+      }
+    );
+
+
+  document.getElementById(
+    "recommendation"
+  ).textContent =
 
     weak
-    ? "Priority: "+weak.name+
+    ?"Priority: "+weak.name+
       " — "+weak.topics[0]+
       ". Build the concept before increasing difficulty."
-    : "Excellent. Continue revision and mixed practice.";
 
-  document.getElementById("homePYQ").textContent=
+    :"Excellent. Continue revision and mixed practice.";
+
+
+  document.getElementById(
+    "homePYQ"
+  ).textContent =
     state.pyqAttempted||0;
 
-  document.getElementById("homeMocks").textContent=
+
+  document.getElementById(
+    "homeMocks"
+  ).textContent =
     state.mockHistory.length;
+
 
   let best=0;
 
-  state.mockHistory.forEach(x=>{
-    if(x.accuracy>best)best=x.accuracy;
-  });
 
-  document.getElementById("homeBest").textContent=
+  state.mockHistory.forEach(
+    x=>{
+      if(x.accuracy>best)
+        best=x.accuracy;
+    }
+  );
+
+
+  document.getElementById(
+    "homeBest"
+  ).textContent =
     best+"%";
 
 }
@@ -1837,116 +2495,198 @@ function renderStats(){
 
 function renderSyllabus(){
 
-  const box=document.getElementById("syllabusList");
+  const box =
+    document.getElementById(
+      "syllabusList"
+    );
 
-  const q=normalize(
-    document.getElementById("search").value||""
-  );
+
+  const q =
+    normalize(
+      document.getElementById(
+        "search"
+      ).value||""
+    );
+
 
   let html="";
 
-  subjects.forEach((s,si)=>{
 
-    const topics=s.topics.filter(t=>
-      !q ||
-      normalize(s.name).includes(q) ||
-      normalize(t).includes(q)
-    );
+  subjects.forEach(
+    (s,si)=>{
 
-    if(!topics.length)return;
+      const topics =
+        s.topics.filter(
+          t=>
+            !q ||
+            normalize(s.name)
+              .includes(q) ||
+            normalize(t)
+              .includes(q)
+        );
 
-    const all=s.topics.length;
 
-    const done=s.topics.filter(
-      (t,ti)=>state.completed[si+"_"+ti]
-    ).length;
+      if(!topics.length)
+        return;
 
-    const pct=Math.round(done/all*100);
 
-    html+=`
+      const all =
+        s.topics.length;
 
-      <div class="subject">
 
-        <div class="subjectTop">
+      const done =
+        s.topics.filter(
+          (t,ti)=>
+            state.completed[
+              si+"_"+ti
+            ]
+        ).length;
 
-          <div>
 
-            <div class="subjectTitle">
-              ${s.icon} ${esc(s.name)}
+      const pct =
+        Math.round(
+          done/all*100
+        );
+
+
+      html += `
+
+        <div class="subject">
+
+          <div class="subjectTop">
+
+            <div>
+
+              <div class="subjectTitle">
+                ${s.icon}
+                ${esc(s.name)}
+              </div>
+
+              <div class="muted small">
+                ${done}/${all}
+                learning units completed
+              </div>
+
             </div>
 
-            <div class="muted small">
-              ${done}/${all} learning units completed
-            </div>
-
-          </div>
-
-          <span class="badge">
-            ${pct}%
-          </span>
-
-        </div>
-
-        <div class="progress">
-          <i style="width:${pct}%"></i>
-        </div>
-
-    `;
-
-    topics.forEach(topic=>{
-
-      const ti=s.topics.indexOf(topic);
-      const id=si+"_"+ti;
-      const completed=!!state.completed[id];
-
-      html+=`
-
-        <div class="topic">
-
-          <div class="topicTop">
-
-            <b>
-              ${completed?"✅ ":""}
-              ${esc(topic)}
-            </b>
-
-            <span class="chip">
-              ${completed?"MASTERED":"0%"}
+            <span class="badge">
+              ${pct}%
             </span>
 
           </div>
 
-          <div class="muted small">
-            Learn • Formula • Reference • Practice • Revision
+
+          <div class="progress">
+            <i
+              style="width:${pct}%"
+            ></i>
           </div>
-
-          <button
-            class="btn secondary"
-            onclick="openTopic(${si},${ti})"
-          >
-            Learn Topic
-          </button>
-
-          <button
-            class="btn ${completed?"green":"secondary"}"
-            onclick="toggleComplete('${id}')"
-          >
-            ${completed?"✓ Completed":"Mark Complete"}
-          </button>
-
-        </div>
 
       `;
 
-    });
 
-    html+="</div>";
+      topics.forEach(
+        topic=>{
 
-  });
+          const ti =
+            s.topics.indexOf(
+              topic
+            );
 
-  box.innerHTML=
+
+          const id =
+            si+"_"+ti;
+
+
+          const completed =
+            !!state.completed[id];
+
+
+          html += `
+
+            <div class="topic">
+
+              <div class="topicTop">
+
+                <b>
+                  ${
+                    completed
+                    ?"✅ "
+                    :""
+                  }
+
+                  ${esc(topic)}
+                </b>
+
+                <span class="chip">
+                  ${
+                    completed
+                    ?"MASTERED"
+                    :"0%"
+                  }
+                </span>
+
+              </div>
+
+
+              <div class="muted small">
+                Learn • Formula •
+                Reference • Practice • Revision
+              </div>
+
+
+              <button
+                class="btn secondary"
+                onclick="
+                  openTopic(
+                    ${si},
+                    ${ti}
+                  )
+                "
+              >
+                Learn Topic
+              </button>
+
+
+              <button
+                class="btn ${
+                  completed
+                  ?"green"
+                  :"secondary"
+                }"
+                onclick="
+                  toggleComplete('${id}')
+                "
+              >
+                ${
+                  completed
+                  ?"✓ Completed"
+                  :"Mark Complete"
+                }
+              </button>
+
+            </div>
+
+          `;
+
+        }
+      );
+
+
+      html += "</div>";
+
+    }
+  );
+
+
+  box.innerHTML =
     html ||
-    `<div class="empty">No matching topic found.</div>`;
+    `
+      <div class="empty">
+        No matching topic found.
+      </div>
+    `;
+
 
   renderStats();
 
@@ -1955,42 +2695,60 @@ function renderSyllabus(){
 
 function toggleComplete(id){
 
-  state.completed[id]=!state.completed[id];
+  state.completed[id] =
+    !state.completed[id];
 
   save();
+
   renderSyllabus();
 
 }
 
 
 /* =========================================================
-   TOPIC LEARNING
+   TOPIC MODAL
 ========================================================= */
 
 function openTopic(si,ti){
 
-  const s=subjects[si];
-  const topic=s.topics[ti];
-  const c=findConcept(topic);
-  const id=si+"_"+ti;
+  const s =
+    subjects[si];
+
+  const topic =
+    s.topics[ti];
+
+  const c =
+    findConcept(topic);
+
+  const id =
+    si+"_"+ti;
+
 
   state.visited[id]=true;
 
   save();
 
-  document.getElementById("modalContent").innerHTML=`
+
+  document.getElementById(
+    "modalContent"
+  ).innerHTML = `
 
     <span class="badge">
       ${esc(s.name)}
     </span>
 
+
     <h2>
-      ${s.icon} ${esc(topic)}
+      ${s.icon}
+      ${esc(topic)}
     </h2>
+
 
     <div class="card">
 
-      <h3>📖 Simple explanation</h3>
+      <h3>
+        📖 Simple explanation
+      </h3>
 
       <p
         class="muted"
@@ -2001,9 +2759,12 @@ function openTopic(si,ti){
 
     </div>
 
+
     <div class="card">
 
-      <h3>Σ Key formula</h3>
+      <h3>
+        Σ Key formula
+      </h3>
 
       <div class="formula">
         ${esc(c.formula)}
@@ -2011,9 +2772,12 @@ function openTopic(si,ti){
 
     </div>
 
+
     <div class="card">
 
-      <h3>📚 Reference</h3>
+      <h3>
+        📚 Reference
+      </h3>
 
       <div class="ref">
         ${esc(c.ref)}
@@ -2026,9 +2790,12 @@ function openTopic(si,ti){
 
     </div>
 
+
     <div class="card">
 
-      <h3>🧠 Study method</h3>
+      <h3>
+        🧠 Study method
+      </h3>
 
       <p class="muted">
 
@@ -2043,6 +2810,7 @@ function openTopic(si,ti){
 
     </div>
 
+
     <button
       class="btn green"
       onclick="
@@ -2051,14 +2819,18 @@ function openTopic(si,ti){
         renderSyllabus()
       "
     >
-      ${state.completed[id]
+      ${
+        state.completed[id]
         ?"Mark as not completed"
-        :"✓ Mark topic complete"}
+        :"✓ Mark topic complete"
+      }
     </button>
 
   `;
 
-  document.getElementById("modal")
+
+  document
+    .getElementById("modal")
     .classList.add("show");
 
 }
@@ -2066,294 +2838,1104 @@ function openTopic(si,ti){
 
 function closeModal(){
 
-  document.getElementById("modal")
+  document
+    .getElementById("modal")
     .classList.remove("show");
 
 }
 
 
 /* =========================================================
-   FORMULA BOOK
+   FORMULAS
 ========================================================= */
 
 function renderFormulas(){
 
-  const q=normalize(
-    document.getElementById("formulaSearch").value||""
-  );
-
-  const box=document.getElementById("formulaList");
-
-  const rows=formulas.filter(f=>
-    !q ||
+  const q =
     normalize(
-      f[0]+" "+f[1]+" "+f[2]
-    ).includes(q)
-  );
+      document.getElementById(
+        "formulaSearch"
+      ).value||""
+    );
 
-  box.innerHTML=rows.map(f=>`
 
-    <div class="card">
+  const box =
+    document.getElementById(
+      "formulaList"
+    );
 
-      <span class="badge">
-        ${esc(f[0])}
-      </span>
 
-      <div class="formula">
-        ${esc(f[1])}
+  const rows =
+    formulas.filter(
+      f=>
+        !q ||
+        normalize(
+          f[0]+" "+f[1]+" "+f[2]
+        ).includes(q)
+    );
+
+
+  box.innerHTML =
+    rows.map(
+      f=>`
+
+        <div class="card">
+
+          <span class="badge">
+            ${esc(f[0])}
+          </span>
+
+          <div class="formula">
+            ${esc(f[1])}
+          </div>
+
+          <div class="muted small">
+            ${esc(f[2])}
+          </div>
+
+        </div>
+
+      `
+    ).join("") ||
+
+    `
+      <div class="empty">
+        No formula found.
       </div>
-
-      <div class="muted small">
-        ${esc(f[2])}
-      </div>
-
-    </div>
-
-  `).join("") ||
-
-  `<div class="empty">
-    No formula found.
-  </div>`;
+    `;
 
 }
 
 
 /* =========================================================
    QUESTION BANK
+   ---------------------------------------------------------
+   IMPORTANT:
+   These are GateVolt original practice questions unless
+   explicitly labelled PYQ.
+
+   Verified PYQs belong in PYQ_BANK.
 ========================================================= */
 
-/*
-   IMPORTANT:
-   The question bank below contains the existing built-in
-   questions plus additional original practice questions.
+const questions = [
 
-   Your actual PYQ papers can later be inserted into
-   PYQ_BANK without changing the rest of the engine.
-*/
-
-
-const questions=[
+/* -------------------------------
+   GENERAL APTITUDE
+-------------------------------- */
 
 {
-id:"q001",
+id:"ga001",
 type:"new",
-s:"Electric Circuits",
+section:"GA",
+s:"General Aptitude",
+topic:"Percentages",
 difficulty:"easy",
-q:"For a resistive circuit, maximum power is transferred to the load when:",
-o:["RL=0","RL=Rth","RL=2Rth","RL→∞"],
+qt:"MCQ",
+marks:1,
+q:"A quantity increases from 80 to 100. The percentage increase is:",
+o:["20%","25%","30%","40%"],
 a:1,
-e:"Maximum power transfer for a DC resistive network occurs when the load resistance equals the Thevenin resistance."
+e:"Increase = 20. Percentage increase = 20/80 × 100 = 25%."
 },
 
 {
-id:"q002",
+id:"ga002",
 type:"new",
-s:"Electrical Machines",
+section:"GA",
+s:"General Aptitude",
+topic:"Ratio",
 difficulty:"easy",
-q:"The synchronous speed of a 4-pole, 50 Hz machine is:",
-o:["750 rpm","1000 rpm","1500 rpm","3000 rpm"],
-a:2,
-e:"Ns=120f/P=120×50/4=1500 rpm."
-},
-
-{
-id:"q003",
-type:"new",
-s:"Signals and Systems",
-difficulty:"easy",
-q:"The minimum sampling frequency for a band-limited signal with highest frequency fm is:",
-o:["fm","2fm","fm/2","4fm"],
-a:1,
-e:"Nyquist condition: fs ≥ 2fm."
-},
-
-{
-id:"q004",
-type:"new",
-s:"Power Systems",
-difficulty:"easy",
-q:"Per-unit quantity is defined as:",
-o:["Actual/base","Base/actual","Actual×base","Actual−base"],
+qt:"MCQ",
+marks:1,
+q:"If A:B = 2:3 and B:C = 4:5, then A:C is:",
+o:["8:15","2:5","4:15","8:5"],
 a:0,
-e:"Per-unit value = actual quantity divided by selected base quantity."
+e:"A:B = 8:12 and B:C = 12:15, hence A:C = 8:15."
 },
 
 {
-id:"q005",
+id:"ga003",
 type:"new",
-s:"Control Systems",
+section:"GA",
+s:"General Aptitude",
+topic:"Probability",
 difficulty:"medium",
-q:"For negative feedback with forward transfer G and feedback H, the closed-loop transfer function is:",
-o:["G/(1−GH)","G/(1+GH)","GH/(1+G)","1/GH"],
-a:1,
-e:"For standard negative feedback, T(s)=G(s)/(1+G(s)H(s))."
+qt:"MCQ",
+marks:1,
+q:"The probability of obtaining a head when a fair coin is tossed once is:",
+o:["0","1/4","1/2","1"],
+a:2,
+e:"A fair coin has two equally likely outcomes. P(H)=1/2."
 },
 
 {
-id:"q006",
+id:"ga004",
 type:"new",
-s:"Power Electronics",
+section:"GA",
+s:"General Aptitude",
+topic:"Series",
 difficulty:"easy",
-q:"For an ideal buck converter operating in CCM, the output voltage is:",
-o:["Vs/(1−D)","DVs","Vs/D","−DVs"],
-a:1,
-e:"For an ideal buck converter, Vo=DVs."
+qt:"MCQ",
+marks:1,
+q:"The next term in the sequence 2, 4, 8, 16, ... is:",
+o:["20","24","32","36"],
+a:2,
+e:"Each term is multiplied by 2."
 },
 
 {
-id:"q007",
+id:"ga005",
 type:"new",
-s:"Electromagnetic Fields",
+section:"GA",
+s:"General Aptitude",
+topic:"Averages",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"The average of 10, 20 and 30 is:",
+o:["10","15","20","30"],
+a:2,
+e:"Average = (10+20+30)/3 = 20."
+},
+
+{
+id:"ga006",
+type:"new",
+section:"GA",
+s:"General Aptitude",
+topic:"Logic",
+difficulty:"medium",
+qt:"MSQ",
+marks:2,
+q:"Which of the following are prime numbers?",
+o:["2","9","11","15"],
+a:[0,2],
+e:"2 and 11 are prime."
+},
+
+{
+id:"ga007",
+type:"new",
+section:"GA",
+s:"General Aptitude",
+topic:"Geometry",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"The sum of the interior angles of a triangle is:",
+o:["90°","180°","270°","360°"],
+a:1,
+e:"The interior angles of a triangle sum to 180°."
+},
+
+{
+id:"ga008",
+type:"new",
+section:"GA",
+s:"General Aptitude",
+topic:"Data Interpretation",
 difficulty:"easy",
-q:"Gauss law relates electric flux through a closed surface to:",
-o:["Resistance","Enclosed charge","Inductance","Current only"],
-a:1,
-e:"Gauss law: ∮E·dA=Qenc/ε."
+qt:"MCQ",
+marks:1,
+q:"If a value is doubled, its new value is what fraction of the original value?",
+o:["1/2","1","2","4"],
+a:2,
+e:"The new value is 2 times the original."
 },
 
 {
-id:"q008",
+id:"ga009",
 type:"new",
-s:"Analog and Digital Electronics",
-difficulty:"easy",
-q:"The ideal closed-loop gain of an inverting op-amp is:",
-o:["Rf/Rin","−Rf/Rin","1+Rf/Rin","−Rin/Rf"],
-a:1,
-e:"For the ideal inverting amplifier, Av=−Rf/Rin."
+section:"GA",
+s:"General Aptitude",
+topic:"Numerical Reasoning",
+difficulty:"medium",
+qt:"NAT",
+marks:1,
+q:"What is 15% of 200?",
+min:29.99,
+max:30.01,
+e:"0.15 × 200 = 30."
 },
 
 {
-id:"q009",
+id:"ga010",
 type:"new",
+section:"GA",
+s:"General Aptitude",
+topic:"Logarithms",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"log10(100) is:",
+o:["1","2","10","100"],
+a:1,
+e:"10² = 100, therefore log10(100)=2."
+},
+
+
+/* -------------------------------
+   ENGINEERING MATHEMATICS
+-------------------------------- */
+
+{
+id:"m001",
+type:"new",
+section:"MATHEMATICS",
 s:"Engineering Mathematics",
+topic:"Matrix Algebra",
 difficulty:"easy",
-q:"The characteristic equation used to find eigenvalues of A is:",
+qt:"MCQ",
+marks:1,
+q:"A square matrix is singular if:",
+o:["det(A)=1","det(A)=0","trace(A)=1","A=I"],
+a:1,
+e:"A square matrix is singular when its determinant is zero."
+},
+
+{
+id:"m002",
+type:"new",
+section:"MATHEMATICS",
+s:"Engineering Mathematics",
+topic:"Eigenvalues",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"The characteristic equation for eigenvalues of A is:",
 o:["det(A+λI)=0","det(A−λI)=0","det(A)=λ","Aλ=0"],
 a:1,
 e:"Eigenvalues satisfy det(A−λI)=0."
 },
 
 {
-id:"q010",
+id:"m003",
 type:"new",
-s:"Electrical and Electronic Measurements",
+section:"MATHEMATICS",
+s:"Engineering Mathematics",
+topic:"Probability",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"The probability of an event that is certain is:",
+o:["0","0.25","0.5","1"],
+a:3,
+e:"A certain event has probability 1."
+},
+
+{
+id:"m004",
+type:"new",
+section:"MATHEMATICS",
+s:"Engineering Mathematics",
+topic:"Calculus",
+difficulty:"medium",
+qt:"MCQ",
+marks:2,
+q:"The derivative of x² with respect to x is:",
+o:["x","2x","x²","2"],
+a:1,
+e:"d(x²)/dx = 2x."
+},
+
+{
+id:"m005",
+type:"new",
+section:"MATHEMATICS",
+s:"Engineering Mathematics",
+topic:"Complex Variables",
+difficulty:"hard",
+qt:"MCQ",
+marks:2,
+q:"For an analytic function, the Cauchy-Riemann equations must be satisfied.",
+o:["True","False","Only for real functions","Only for constants"],
+a:0,
+e:"The Cauchy-Riemann equations are necessary under the usual differentiability conditions for analyticity."
+},
+
+{
+id:"m006",
+type:"new",
+section:"MATHEMATICS",
+s:"Engineering Mathematics",
+topic:"Differential Equations",
+difficulty:"medium",
+qt:"NAT",
+marks:1,
+q:"The order of d²y/dx² + dy/dx + y = 0 is:",
+min:1.99,
+max:2.01,
+e:"The highest derivative is second order."
+},
+
+{
+id:"m007",
+type:"new",
+section:"MATHEMATICS",
+s:"Engineering Mathematics",
+topic:"Statistics",
 difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"The arithmetic mean of 4, 6 and 8 is:",
+o:["4","5","6","8"],
+a:2,
+e:"Mean = 18/3 = 6."
+},
+
+{
+id:"m008",
+type:"new",
+section:"MATHEMATICS",
+s:"Engineering Mathematics",
+topic:"Fourier Series",
+difficulty:"medium",
+qt:"MCQ",
+marks:2,
+q:"A Fourier series is primarily used to represent:",
+o:["Only DC signals","Periodic signals","Only random signals","Only constants"],
+a:1,
+e:"Fourier series represents periodic functions as sums of harmonically related sinusoids."
+},
+
+
+/* -------------------------------
+   ELECTRIC CIRCUITS
+-------------------------------- */
+
+{
+id:"e001",
+type:"new",
+section:"EE",
+s:"Electric Circuits",
+topic:"Maximum Power Transfer",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"Maximum power is transferred to a resistive load when:",
+o:["RL=0","RL=Rth","RL=2Rth","RL→∞"],
+a:1,
+e:"Maximum power transfer occurs when RL=Rth."
+},
+
+{
+id:"e002",
+type:"new",
+section:"EE",
+s:"Electric Circuits",
+topic:"KCL",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"Kirchhoff's Current Law is based primarily on conservation of:",
+o:["Energy","Charge","Momentum","Flux"],
+a:1,
+e:"KCL follows from conservation of electric charge."
+},
+
+{
+id:"e003",
+type:"new",
+section:"EE",
+s:"Electric Circuits",
+topic:"KVL",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"The algebraic sum of voltages around a closed loop is:",
+o:["1","−1","0","Infinite"],
+a:2,
+e:"KVL gives ΣV=0."
+},
+
+{
+id:"e004",
+type:"new",
+section:"EE",
+s:"Electric Circuits",
+topic:"Capacitor",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"An initially uncharged capacitor connected to a DC source through a resistor has vC(0+) equal to:",
+o:["Source voltage","Zero","Infinite","Half the source voltage"],
+a:1,
+e:"Capacitor voltage cannot change instantaneously. Initially it is zero."
+},
+
+{
+id:"e005",
+type:"new",
+section:"EE",
+s:"Electric Circuits",
+topic:"AC Power",
+difficulty:"medium",
+qt:"MCQ",
+marks:2,
+q:"For a purely resistive AC load, the power factor is:",
+o:["0","0.5","1","−1"],
+a:2,
+e:"Voltage and current are in phase, so cosφ=1."
+},
+
+{
+id:"e006",
+type:"new",
+section:"EE",
+s:"Electric Circuits",
+topic:"Resonance",
+difficulty:"medium",
+qt:"NAT",
+marks:1,
+q:"For an ideal LC circuit with L=1 H and C=1 F, ω0 in rad/s is approximately:",
+min:0.99,
+max:1.01,
+e:"ω0=1/sqrt(LC)=1 rad/s."
+},
+
+
+/* -------------------------------
+   EM FIELDS
+-------------------------------- */
+
+{
+id:"em001",
+type:"new",
+section:"EE",
+s:"Electromagnetic Fields",
+topic:"Gauss Law",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"Gauss law relates electric flux through a closed surface to:",
+o:["Resistance","Enclosed charge","Inductance","Current only"],
+a:1,
+e:"∮E·dA=Qenc/ε."
+},
+
+{
+id:"em002",
+type:"new",
+section:"EE",
+s:"Electromagnetic Fields",
+topic:"Coulomb Law",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"The electrostatic force between two point charges varies inversely with:",
+o:["r","r²","r³","√r"],
+a:1,
+e:"Coulomb force varies as 1/r²."
+},
+
+{
+id:"em003",
+type:"new",
+section:"EE",
+s:"Electromagnetic Fields",
+topic:"Divergence",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"The divergence of a vector field is:",
+o:["Scalar","Vector","Matrix","Tensor only"],
+a:0,
+e:"Divergence produces a scalar quantity."
+},
+
+{
+id:"em004",
+type:"new",
+section:"EE",
+s:"Electromagnetic Fields",
+topic:"Faraday Law",
+difficulty:"medium",
+qt:"MCQ",
+marks:2,
+q:"Faraday's law relates induced emf to the rate of change of:",
+o:["Resistance","Magnetic flux linkage","Electric charge only","Power"],
+a:1,
+e:"e = −N dΦ/dt."
+},
+
+{
+id:"em005",
+type:"new",
+section:"EE",
+s:"Electromagnetic Fields",
+topic:"Lorentz Force",
+difficulty:"hard",
+qt:"MSQ",
+marks:2,
+q:"Which quantities appear in the Lorentz force equation?",
+o:["Electric field","Magnetic field","Particle velocity","Only resistance"],
+a:[0,1,2],
+e:"F=q(E+v×B)."
+},
+
+
+/* -------------------------------
+   SIGNALS
+-------------------------------- */
+
+{
+id:"ss001",
+type:"new",
+section:"EE",
+s:"Signals and Systems",
+topic:"Sampling",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"The minimum theoretical sampling frequency for maximum frequency fm is:",
+o:["fm/2","fm","2fm","4fm"],
+a:2,
+e:"Nyquist criterion requires fs≥2fm."
+},
+
+{
+id:"ss002",
+type:"new",
+section:"EE",
+s:"Signals and Systems",
+topic:"Fourier Transform",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"Fourier transform primarily reveals:",
+o:["Frequency content","Only time duration","Resistance","Temperature"],
+a:0,
+e:"Fourier transform maps a signal to the frequency domain."
+},
+
+{
+id:"ss003",
+type:"new",
+section:"EE",
+s:"Signals and Systems",
+topic:"RMS",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"RMS value is related to the square root of the:",
+o:["Mean square","Mean absolute value","Peak value only","Average"],
+a:0,
+e:"RMS is the square root of the mean of the squared waveform."
+},
+
+{
+id:"ss004",
+type:"new",
+section:"EE",
+s:"Signals and Systems",
+topic:"Laplace Transform",
+difficulty:"medium",
+qt:"MCQ",
+marks:2,
+q:"The Laplace transform is useful because differentiation in time can become multiplication by:",
+o:["1/s","s","s² only","0"],
+a:1,
+e:"L{dx/dt}=sX(s)−x(0−)."
+},
+
+
+/* -------------------------------
+   MACHINES
+-------------------------------- */
+
+{
+id:"ma001",
+type:"new",
+section:"EE",
+s:"Electrical Machines",
+topic:"Synchronous Speed",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"The synchronous speed of a 4-pole, 50 Hz machine is:",
+o:["750 rpm","1000 rpm","1500 rpm","3000 rpm"],
+a:2,
+e:"Ns=120f/P=1500 rpm."
+},
+
+{
+id:"ma002",
+type:"new",
+section:"EE",
+s:"Electrical Machines",
+topic:"Slip",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"The slip of an induction motor at standstill is:",
+o:["0","0.5","1","∞"],
+a:2,
+e:"At standstill N=0, so s=1."
+},
+
+{
+id:"ma003",
+type:"new",
+section:"EE",
+s:"Electrical Machines",
+topic:"Transformer",
+difficulty:"medium",
+qt:"MCQ",
+marks:2,
+q:"The ideal transformer voltage ratio is equal to the ratio of:",
+o:["Resistances","Turns","Currents only","Powers"],
+a:1,
+e:"V1/V2=N1/N2 for an ideal transformer."
+},
+
+{
+id:"ma004",
+type:"new",
+section:"EE",
+s:"Electrical Machines",
+topic:"DC Machine",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"The generated emf of a DC machine is proportional to:",
+o:["ΦN","1/(ΦN)","Only resistance","Only current"],
+a:0,
+e:"E=PΦZN/(60A), so E is proportional to flux and speed."
+},
+
+{
+id:"ma005",
+type:"new",
+section:"EE",
+s:"Electrical Machines",
+topic:"Induction Motor",
+difficulty:"medium",
+qt:"NAT",
+marks:1,
+q:"A 4-pole, 50 Hz induction motor has synchronous speed of ____ rpm.",
+min:1499.9,
+max:1500.1,
+e:"Ns=120×50/4=1500 rpm."
+},
+
+{
+id:"ma006",
+type:"new",
+section:"EE",
+s:"Electrical Machines",
+topic:"Transformer",
+difficulty:"hard",
+qt:"MSQ",
+marks:2,
+q:"Which tests are commonly used to determine transformer equivalent-circuit parameters?",
+o:["Open-circuit test","Short-circuit test","Blocked-rotor test","No-load test"],
+a:[0,1,3],
+e:"Open-circuit/no-load and short-circuit tests are used for transformer parameters."
+},
+
+
+/* -------------------------------
+   POWER SYSTEMS
+-------------------------------- */
+
+{
+id:"ps001",
+type:"new",
+section:"EE",
+s:"Power Systems",
+topic:"Per Unit",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"Per-unit value is:",
+o:["Actual/base","Base/actual","Actual×base","Actual−base"],
+a:0,
+e:"Per-unit = actual quantity / base quantity."
+},
+
+{
+id:"ps002",
+type:"new",
+section:"EE",
+s:"Power Systems",
+topic:"Three Phase",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"Balanced three-phase currents have a phasor sum equal to:",
+o:["1","Zero","√3","Infinity"],
+a:1,
+e:"IA+IB+IC=0 in a balanced three-phase system."
+},
+
+{
+id:"ps003",
+type:"new",
+section:"EE",
+s:"Power Systems",
+topic:"Load Flow",
+difficulty:"medium",
+qt:"MCQ",
+marks:2,
+q:"Newton-Raphson load flow is known for:",
+o:["Quadratic convergence near the solution","No convergence ever","Only DC circuits","No iterations"],
+a:0,
+e:"Newton-Raphson generally has fast, approximately quadratic convergence near the solution."
+},
+
+{
+id:"ps004",
+type:"new",
+section:"EE",
+s:"Power Systems",
+topic:"Faults",
+difficulty:"hard",
+qt:"MSQ",
+marks:2,
+q:"Which are types of unsymmetrical faults?",
+o:["LG","LL","LLG","Three-phase fault"],
+a:[0,1,2],
+e:"LG, LL and LLG faults are unsymmetrical."
+},
+
+{
+id:"ps005",
+type:"new",
+section:"EE",
+s:"Power Systems",
+topic:"Power Factor",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"For a purely resistive load, power factor is:",
+o:["0","0.5","1","−1"],
+a:2,
+e:"Voltage and current are in phase."
+},
+
+
+/* -------------------------------
+   CONTROL
+-------------------------------- */
+
+{
+id:"c001",
+type:"new",
+section:"EE",
+s:"Control Systems",
+topic:"Transfer Function",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"The transfer function is defined as Y(s)/X(s) under:",
+o:["Infinite initial conditions","Zero initial conditions","Random conditions","Only steady state"],
+a:1,
+e:"Transfer function is defined for zero initial conditions."
+},
+
+{
+id:"c002",
+type:"new",
+section:"EE",
+s:"Control Systems",
+topic:"Feedback",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"For negative feedback, the closed-loop transfer function is:",
+o:["G/(1−GH)","G/(1+GH)","GH/(1+G)","1/GH"],
+a:1,
+e:"T=G/(1+GH)."
+},
+
+{
+id:"c003",
+type:"new",
+section:"EE",
+s:"Control Systems",
+topic:"Routh",
+difficulty:"medium",
+qt:"MCQ",
+marks:2,
+q:"The number of sign changes in the first column of a Routh array gives the number of:",
+o:["LHP roots","RHP roots","Zeros only","Poles at origin only"],
+a:1,
+e:"Sign changes correspond to roots in the right-half s-plane."
+},
+
+{
+id:"c004",
+type:"new",
+section:"EE",
+s:"Control Systems",
+topic:"Bode",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"Magnitude in dB is:",
+o:["10log|G|","20log|G|","G²","log/G"],
+a:1,
+e:"Magnitude(dB)=20log10|G(jω)|."
+},
+
+{
+id:"c005",
+type:"new",
+section:"EE",
+s:"Control Systems",
+topic:"PID",
+difficulty:"medium",
+qt:"MSQ",
+marks:2,
+q:"A PID controller contains which actions?",
+o:["Proportional","Integral","Derivative","Only feedback"],
+a:[0,1,2],
+e:"PID = proportional + integral + derivative."
+},
+
+
+/* -------------------------------
+   MEASUREMENTS
+-------------------------------- */
+
+{
+id:"me001",
+type:"new",
+section:"EE",
+s:"Electrical and Electronic Measurements",
+topic:"DVM",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
 q:"A digital voltmeter primarily measures:",
 o:["Voltage","Torque","Flux","Speed"],
 a:0,
-e:"A digital voltmeter is designed for electrical potential difference measurement."
+e:"A digital voltmeter measures electrical potential difference."
 },
 
-/* NEW ORIGINAL QUESTIONS */
-
 {
-id:"q011",
+id:"me002",
 type:"new",
-s:"Electric Circuits",
+section:"EE",
+s:"Electrical and Electronic Measurements",
+topic:"Errors",
 difficulty:"medium",
-q:"A capacitor initially uncharged is connected to a DC source through a resistor. At t=0+, the capacitor voltage is:",
-o:["Equal to source voltage","Zero","Infinite","Equal to resistor voltage"],
+qt:"MCQ",
+marks:1,
+q:"The difference between measured value and true value is called:",
+o:["Sensitivity","Error","Resolution","Bandwidth"],
 a:1,
-e:"Capacitor voltage cannot change instantaneously. Since it is initially uncharged, vC(0+)=0."
+e:"Measurement error is the difference between measured and true values."
 },
 
 {
-id:"q012",
+id:"me003",
 type:"new",
-s:"Electrical Machines",
+section:"EE",
+s:"Electrical and Electronic Measurements",
+topic:"Power Measurement",
 difficulty:"medium",
-q:"If the supply frequency of an induction motor is increased while the number of poles remains constant, synchronous speed:",
-o:["Decreases","Increases","Becomes zero","Remains unchanged"],
-a:1,
-e:"Ns=120f/P, so synchronous speed increases directly with frequency."
+qt:"MCQ",
+marks:2,
+q:"An electrodynamometer wattmeter can be used for:",
+o:["AC only","DC only","Both AC and DC","Neither"],
+a:2,
+e:"The electrodynamometer principle works for both AC and DC."
 },
 
-{
-id:"q013",
-type:"new",
-s:"Power Systems",
-difficulty:"medium",
-q:"In a balanced three-phase system, the sum of the three phase currents is:",
-o:["Maximum","Zero","Infinite","Equal to line voltage"],
-a:1,
-e:"For a balanced three-phase system, IA+IB+IC=0."
-},
+
+/* -------------------------------
+   ANALOG / DIGITAL
+-------------------------------- */
 
 {
-id:"q014",
+id:"ad001",
 type:"new",
-s:"Control Systems",
-difficulty:"hard",
-q:"Increasing derivative action in a PID controller generally tends to:",
-o:["Increase damping","Eliminate all steady-state error alone","Reduce system order","Remove feedback"],
-a:0,
-e:"Derivative action responds to the rate of change of error and generally improves damping/transient response. It does not by itself eliminate steady-state error."
-},
-
-{
-id:"q015",
-type:"new",
-s:"Power Electronics",
-difficulty:"hard",
-q:"For an ideal boost converter in CCM, if duty ratio D increases, the magnitude of output voltage:",
-o:["Decreases","Increases","Always becomes zero","Remains exactly constant"],
-a:1,
-e:"Vo=Vs/(1−D). Increasing D increases the ideal output magnitude."
-},
-
-{
-id:"q016",
-type:"new",
-s:"Engineering Mathematics",
-difficulty:"hard",
-q:"If a square matrix has an eigenvalue λ=0, the matrix must be:",
-o:["Orthogonal","Singular","Identity","Positive definite"],
-a:1,
-e:"If 0 is an eigenvalue, det(A−0I)=det(A)=0, hence A is singular."
-},
-
-{
-id:"q017",
-type:"new",
-s:"Signals and Systems",
-difficulty:"medium",
-q:"The Fourier transform is primarily useful for analysing:",
-o:["Frequency content of signals","Only DC circuits","Mechanical torque only","Battery capacity"],
-a:0,
-e:"Fourier analysis represents a signal in the frequency domain and reveals its spectral content."
-},
-
-{
-id:"q018",
-type:"new",
-s:"Electromagnetic Fields",
-difficulty:"hard",
-q:"The divergence of a vector field at a point is a:",
-o:["Scalar quantity","Vector quantity","Matrix only","Complex impedance"],
-a:0,
-e:"Divergence produces a scalar field and measures net outward flux density per unit volume."
-},
-
-{
-id:"q019",
-type:"new",
+section:"EE",
 s:"Analog and Digital Electronics",
+topic:"Op-Amp",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"The ideal inverting op-amp gain is:",
+o:["Rf/Rin","−Rf/Rin","1+Rf/Rin","−Rin/Rf"],
+a:1,
+e:"Av=−Rf/Rin."
+},
+
+{
+id:"ad002",
+type:"new",
+section:"EE",
+s:"Analog and Digital Electronics",
+topic:"Op-Amp",
 difficulty:"medium",
-q:"For an ideal non-inverting op-amp, closed-loop voltage gain is:",
+qt:"MCQ",
+marks:1,
+q:"The ideal non-inverting op-amp gain is:",
 o:["−Rf/R1","1+Rf/R1","Rf/R1","1−Rf/R1"],
 a:1,
-e:"For the standard ideal non-inverting configuration, Av=1+Rf/R1."
+e:"Av=1+Rf/R1."
 },
 
 {
-id:"q020",
+id:"ad003",
 type:"new",
-s:"Electrical Machines",
-difficulty:"hard",
-q:"At standstill, the slip of an induction motor is:",
-o:["0","0.5","1","∞"],
+section:"EE",
+s:"Analog and Digital Electronics",
+topic:"Logic",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"An AND gate gives output 1 when:",
+o:["At least one input is 1","All inputs are 1","All inputs are 0","Inputs differ"],
+a:1,
+e:"AND output is 1 only when every input is 1."
+},
+
+{
+id:"ad004",
+type:"new",
+section:"EE",
+s:"Analog and Digital Electronics",
+topic:"ADC",
+difficulty:"medium",
+qt:"MCQ",
+marks:2,
+q:"For an ideal N-bit ADC, the number of quantization levels is:",
+o:["N","2N","2^N","N²"],
 a:2,
-e:"At standstill N=0, so s=(Ns−0)/Ns=1."
+e:"An N-bit ADC has 2^N levels."
+},
+
+
+/* -------------------------------
+   POWER ELECTRONICS
+-------------------------------- */
+
+{
+id:"pe001",
+type:"new",
+section:"EE",
+s:"Power Electronics",
+topic:"Buck Converter",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"For an ideal buck converter in CCM:",
+o:["Vo=DVs","Vo=Vs/(1−D)","Vo=Vs/D","Vo=−DVs"],
+a:0,
+e:"Vo=DVs."
+},
+
+{
+id:"pe002",
+type:"new",
+section:"EE",
+s:"Power Electronics",
+topic:"Boost Converter",
+difficulty:"easy",
+qt:"MCQ",
+marks:1,
+q:"For an ideal boost converter in CCM:",
+o:["Vo=DVs","Vo=Vs/(1−D)","Vo=VsD","Vo=−Vs"],
+a:1,
+e:"Vo=Vs/(1−D)."
+},
+
+{
+id:"pe003",
+type:"new",
+section:"EE",
+s:"Power Electronics",
+topic:"Boost Converter",
+difficulty:"medium",
+qt:"NAT",
+marks:1,
+q:"For an ideal boost converter with Vs=10 V and D=0.5, Vo is ____ V.",
+min:19.99,
+max:20.01,
+e:"Vo=10/(1−0.5)=20 V."
+},
+
+{
+id:"pe004",
+type:"new",
+section:"EE",
+s:"Power Electronics",
+topic:"MOSFET",
+difficulty:"medium",
+qt:"MSQ",
+marks:2,
+q:"Which are desirable characteristics of a power semiconductor switch?",
+o:["Fast switching","Low conduction loss","Controllable operation","Very high on-state resistance"],
+a:[0,1,2],
+e:"Fast switching, low conduction loss and controllability are desirable."
+},
+
+
+/* -------------------------------
+   EXTRA EE QUESTIONS
+-------------------------------- */
+
+{
+id:"x001",
+type:"new",
+section:"EE",
+s:"Electric Circuits",
+topic:"Thevenin",
+difficulty:"medium",
+qt:"MCQ",
+marks:2,
+q:"The Thevenin voltage of a linear two-terminal network is equal to its:",
+o:["Short-circuit voltage","Open-circuit voltage","Rated voltage only","Current"],
+a:1,
+e:"Vth=Voc."
+},
+
+{
+id:"x002",
+type:"new",
+section:"EE",
+s:"Electrical Machines",
+topic:"Induction Motor",
+difficulty:"hard",
+qt:"MCQ",
+marks:2,
+q:"Increasing the supply frequency of an induction motor while keeping poles fixed causes synchronous speed to:",
+o:["Decrease","Increase","Remain zero","Become independent of frequency"],
+a:1,
+e:"Ns=120f/P."
+},
+
+{
+id:"x003",
+type:"new",
+section:"EE",
+s:"Control Systems",
+topic:"Derivative Control",
+difficulty:"hard",
+qt:"MCQ",
+marks:2,
+q:"Increasing derivative action in a PID controller generally tends to:",
+o:["Increase damping","Eliminate all steady-state error","Remove feedback","Reduce system order"],
+a:0,
+e:"Derivative action generally improves damping and transient response."
+},
+
+{
+id:"x004",
+type:"new",
+section:"EE",
+s:"Engineering Applications",
+topic:"Energy",
+difficulty:"medium",
+qt:"MCQ",
+marks:1,
+q:"Electrical energy is commonly measured commercially in:",
+o:["Watt","Volt","kWh","Ampere"],
+a:2,
+e:"Electrical energy consumption is commonly measured in kilowatt-hours."
 }
 
 ];
@@ -2361,26 +3943,26 @@ e:"At standstill N=0, so s=(Ns−0)/Ns=1."
 
 /* =========================================================
    PYQ BANK
+   ---------------------------------------------------------
+   Only put questions here that are verified as PYQs.
+   The current sample entries are explicitly marked
+   as workspace items, not claimed as official PYQs.
 ========================================================= */
 
-/*
-   These are the built-in PYQ workspace entries.
-
-   Replace/add entries here when you provide the actual
-   year-wise PYQ papers and official solutions.
-
-   Do NOT label a question as an official PYQ unless its
-   exact source/year is verified.
-*/
-
-const PYQ_BANK=[
+const PYQ_BANK = [
 
 {
-id:"pyq001",
-year:"PYQ Practice",
+id:"pyq_workspace_001",
+type:"pyq",
+verified:false,
+year:"Workspace",
 source:"GATE EE PYQ workspace",
+section:"EE",
 s:"Electrical Machines",
+topic:"Synchronous Speed",
 difficulty:"medium",
+qt:"MCQ",
+marks:1,
 q:"The synchronous speed of a 4-pole, 50 Hz machine is:",
 o:["750 rpm","1000 rpm","1500 rpm","3000 rpm"],
 a:2,
@@ -2389,11 +3971,17 @@ solution:"Ns = 120×50/4 = 1500 rpm."
 },
 
 {
-id:"pyq002",
-year:"PYQ Practice",
+id:"pyq_workspace_002",
+type:"pyq",
+verified:false,
+year:"Workspace",
 source:"GATE EE PYQ workspace",
+section:"EE",
 s:"Signals and Systems",
+topic:"Sampling",
 difficulty:"easy",
+qt:"MCQ",
+marks:1,
 q:"A band-limited signal with maximum frequency fm requires a sampling frequency of at least:",
 o:["fm/2","fm","2fm","4fm"],
 a:2,
@@ -2402,29 +3990,41 @@ solution:"Minimum theoretical sampling frequency = 2fm."
 },
 
 {
-id:"pyq003",
-year:"PYQ Practice",
+id:"pyq_workspace_003",
+type:"pyq",
+verified:false,
+year:"Workspace",
 source:"GATE EE PYQ workspace",
+section:"EE",
 s:"Control Systems",
+topic:"Feedback",
 difficulty:"medium",
+qt:"MCQ",
+marks:1,
 q:"For negative feedback, the closed-loop transfer function is:",
 o:["G/(1−GH)","G/(1+GH)","GH/(1+G)","1/(GH)"],
 a:1,
-e:"Standard negative-feedback form is G/(1+GH).",
+e:"Standard negative feedback is G/(1+GH).",
 solution:"T(s)=G(s)/(1+G(s)H(s))."
 },
 
 {
-id:"pyq004",
-year:"PYQ Practice",
+id:"pyq_workspace_004",
+type:"pyq",
+verified:false,
+year:"Workspace",
 source:"GATE EE PYQ workspace",
+section:"EE",
 s:"Power Electronics",
+topic:"Buck Converter",
 difficulty:"easy",
+qt:"MCQ",
+marks:1,
 q:"For an ideal buck converter in continuous conduction mode:",
 o:["Vo=DVs","Vo=Vs/(1−D)","Vo=Vs/D","Vo=−DVs"],
 a:0,
 e:"Ideal buck converter relation is Vo=DVs.",
-solution:"Substitute the given duty ratio into Vo=DVs."
+solution:"Vo=DVs."
 }
 
 ];
@@ -2434,27 +4034,21 @@ solution:"Substitute the given duty ratio into Vo=DVs."
    QUESTION ROTATION
 ========================================================= */
 
-function randomShuffle(arr){
+function getFreshQuestions(
+  bank,
+  count,
+  seenKey
+){
 
-  return [...arr].sort(
-    ()=>Math.random()-0.5
-  );
+  let available =
+    bank.filter(
+      q=>!state[seenKey][q.id]
+    );
 
-}
 
-
-function getFreshQuestions(bank,count,seenKey){
-
-  let available=bank.filter(
-    q=>!state[seenKey][q.id]
-  );
-
-  /*
-     If every question has been used,
-     reset the rotation automatically.
-  */
-
-  if(available.length<count){
+  if(
+    available.length<count
+  ){
 
     state[seenKey]={};
 
@@ -2462,18 +4056,32 @@ function getFreshQuestions(bank,count,seenKey){
 
   }
 
-  available=randomShuffle(available);
 
-  const selected=available.slice(
-    0,
-    Math.min(count,available.length)
+  available =
+    randomShuffle(
+      available
+    );
+
+
+  const selected =
+    available.slice(
+      0,
+      Math.min(
+        count,
+        available.length
+      )
+    );
+
+
+  selected.forEach(
+    q=>{
+      state[seenKey][q.id]=true;
+    }
   );
 
-  selected.forEach(q=>{
-    state[seenKey][q.id]=true;
-  });
 
   save();
+
 
   return selected;
 
@@ -2487,7 +4095,7 @@ function resetPracticeHistory(){
   save();
 
   alert(
-    "Practice rotation has been reset. Questions can now appear again."
+    "Practice rotation reset."
   );
 
 }
@@ -2500,7 +4108,7 @@ function resetPYQHistory(){
   save();
 
   alert(
-    "PYQ rotation has been reset."
+    "PYQ rotation reset."
   );
 
 }
@@ -2511,45 +4119,56 @@ function resetPYQHistory(){
 ========================================================= */
 
 let currentPracticeIndex=0;
+
 let practiceQuestions=[];
+
 let practiceTarget="practiceBox";
+
 let practiceIsPYQ=false;
 
 
-function startPractice(isPYQ=false){
+function startPractice(
+  isPYQ=false
+){
 
-  practiceIsPYQ=isPYQ;
+  practiceIsPYQ =
+    isPYQ;
 
-  practiceTarget=
+
+  practiceTarget =
     isPYQ
     ?"pyqBox"
     :"practiceBox";
 
-  if(isPYQ){
 
-    practiceQuestions=
-      getFreshQuestions(
-        PYQ_BANK,
-        Math.min(10,PYQ_BANK.length),
-        "pyqSeen"
-      );
+  practiceQuestions =
+    getFreshQuestions(
+      isPYQ
+      ?PYQ_BANK
+      :questions,
+      isPYQ
+      ?Math.min(10,PYQ_BANK.length)
+      :Math.min(10,questions.length),
+      isPYQ
+      ?"pyqSeen"
+      :"practiceSeen"
+    );
 
-  }else{
-
-    practiceQuestions=
-      getFreshQuestions(
-        questions,
-        Math.min(10,questions.length),
-        "practiceSeen"
-      );
-
-  }
 
   currentPracticeIndex=0;
 
-  document.getElementById(practiceTarget).innerHTML="";
 
-  go(isPYQ?"pyq":"practice");
+  document.getElementById(
+    practiceTarget
+  ).innerHTML="";
+
+
+  go(
+    isPYQ
+    ?"pyq"
+    :"practice"
+  );
+
 
   renderPracticeQuestion();
 
@@ -2565,25 +4184,37 @@ function startPYQ(){
 
 function renderPracticeQuestion(){
 
-  const box=
-    document.getElementById(practiceTarget);
+  const box =
+    document.getElementById(
+      practiceTarget
+    );
 
-  if(currentPracticeIndex>=practiceQuestions.length){
 
-    box.innerHTML=`
+  if(
+    currentPracticeIndex >=
+    practiceQuestions.length
+  ){
+
+    box.innerHTML = `
 
       <div class="card">
 
-        <h2>🎉 Practice Complete</h2>
+        <h2>
+          🎉 Practice Complete
+        </h2>
 
         <p class="muted">
-          Great work. Start another session for a
-          different question rotation.
+          Great work. Start another session
+          for a fresh rotation.
         </p>
 
         <button
           class="btn"
-          onclick="startPractice(${practiceIsPYQ})"
+          onclick="
+            startPractice(
+              ${practiceIsPYQ}
+            )
+          "
         >
           🔄 New Session
         </button>
@@ -2598,12 +4229,18 @@ function renderPracticeQuestion(){
 
   }
 
-  const q=
-    practiceQuestions[currentPracticeIndex];
 
-  const difficulty=q.difficulty||"medium";
+  const q =
+    practiceQuestions[
+      currentPracticeIndex
+    ];
 
-  box.innerHTML=`
+
+  const difficulty =
+    q.difficulty||"medium";
+
+
+  box.innerHTML = `
 
     <div class="card">
 
@@ -2617,51 +4254,56 @@ function renderPracticeQuestion(){
           ${difficulty.toUpperCase()}
         </span>
 
+        <span class="badge">
+          ${esc(q.qt||"MCQ")}
+        </span>
+
         ${
           q.type==="pyq"
           ?'<span class="badge pyq">PYQ</span>'
-          :""
+          :'<span class="badge">ORIGINAL</span>'
         }
 
       </div>
 
+
       <div class="questionNumber">
-        Question ${currentPracticeIndex+1}
-        of ${practiceQuestions.length}
+        Question
+        ${currentPracticeIndex+1}
+        of
+        ${practiceQuestions.length}
       </div>
+
 
       <h3>
         ${esc(q.q)}
       </h3>
 
+
       <div id="practiceOptions">
 
-        ${q.o.map((o,i)=>`
-
-          <button
-            class="option"
-            onclick="answerPractice(${i})"
-          >
-            ${String.fromCharCode(65+i)}.
-            ${esc(o)}
-          </button>
-
-        `).join("")}
+        ${renderPracticeOptions(q)}
 
       </div>
+
 
       <div class="questionActions">
 
         <button
           class="btn secondary"
-          onclick="toggleBookmark('${esc(q.id)}')"
+          onclick="
+            toggleBookmark('${esc(q.id)}')
+          "
         >
-          ${state.bookmarks[q.id]
+          ${
+            state.bookmarks[q.id]
             ?"🔖 Bookmarked"
-            :"🔖 Bookmark"}
+            :"🔖 Bookmark"
+          }
         </button>
 
       </div>
+
 
       <div id="practiceAnswer"></div>
 
@@ -2672,71 +4314,151 @@ function renderPracticeQuestion(){
 }
 
 
-function answerPractice(choice){
+function renderPracticeOptions(q){
 
-  const q=
-    practiceQuestions[currentPracticeIndex];
+  if(q.qt==="NAT"){
 
-  const buttons=
-    document.querySelectorAll(
-      "#practiceOptions .option"
-    );
+    return `
 
-  buttons.forEach((b,i)=>{
+      <input
+        id="practiceNAT"
+        class="search"
+        type="number"
+        step="any"
+        placeholder="Enter numerical answer"
+      >
 
-    b.disabled=true;
+      <button
+        class="btn"
+        onclick="answerPracticeNAT()"
+      >
+        Submit Answer
+      </button>
 
-    if(i===q.a)
-      b.classList.add("correct");
+    `;
 
-    if(i===choice && i!==q.a)
-      b.classList.add("wrong");
+  }
 
-  });
+
+  if(q.qt==="MSQ"){
+
+    return q.o.map(
+      (o,i)=>`
+
+        <label
+          style="
+            display:block;
+            padding:11px;
+            margin:7px 0;
+            background:#151a2b;
+            border:1px solid #303750;
+            border-radius:10px;
+          "
+        >
+
+          <input
+            type="checkbox"
+            value="${i}"
+            class="practiceMSQ"
+          >
+
+          ${String.fromCharCode(65+i)}.
+          ${esc(o)}
+
+        </label>
+
+      `
+    ).join("")+
+
+    `
+
+      <button
+        class="btn"
+        onclick="answerPracticeMSQ()"
+      >
+        Submit Answer
+      </button>
+
+    `;
+
+  }
+
+
+  return q.o.map(
+    (o,i)=>`
+
+      <button
+        class="option"
+        onclick="
+          answerPractice(${i})
+        "
+      >
+        ${String.fromCharCode(65+i)}.
+        ${esc(o)}
+      </button>
+
+    `
+  ).join("");
+
+}
+
+
+function finishPracticeAnswer(
+  q,
+  correct,
+  explanation,
+  solution=""
+){
 
   state.attempted++;
 
-  if(choice===q.a)
+
+  if(correct)
     state.correct++;
+
 
   if(practiceIsPYQ){
 
     state.pyqAttempted++;
 
-    if(choice===q.a)
+    if(correct)
       state.pyqCorrect++;
 
   }
 
+
   save();
+
 
   document.getElementById(
     "practiceAnswer"
-  ).innerHTML=`
+  ).innerHTML = `
 
     <div class="answer">
 
       <b>
         ${
-          choice===q.a
+          correct
           ?"✅ Correct!"
           :"❌ Incorrect"
         }
       </b>
 
       <p>
-        ${esc(q.e)}
+        ${esc(explanation)}
       </p>
 
+
       ${
-        q.solution
+        solution
         ?`
           <div class="formula">
-            ${esc(q.solution)}
+            ${esc(solution)}
           </div>
         `
         :""
       }
+
 
       <button
         class="btn"
@@ -2755,13 +4477,132 @@ function answerPractice(choice){
 }
 
 
+function answerPractice(choice){
+
+  const q =
+    practiceQuestions[
+      currentPracticeIndex
+    ];
+
+
+  const buttons =
+    document.querySelectorAll(
+      "#practiceOptions .option"
+    );
+
+
+  buttons.forEach(
+    (b,i)=>{
+
+      b.disabled=true;
+
+      if(i===q.a)
+        b.classList.add(
+          "correct"
+        );
+
+      if(
+        i===choice &&
+        i!==q.a
+      )
+        b.classList.add(
+          "wrong"
+        );
+
+    }
+  );
+
+
+  finishPracticeAnswer(
+    q,
+    choice===q.a,
+    q.e,
+    q.solution||""
+  );
+
+}
+
+
+function answerPracticeMSQ(){
+
+  const q =
+    practiceQuestions[
+      currentPracticeIndex
+    ];
+
+
+  const selected =
+    [
+      ...document.querySelectorAll(
+        ".practiceMSQ:checked"
+      )
+    ]
+    .map(
+      x=>Number(x.value)
+    )
+    .sort();
+
+
+  const correctAnswer =
+    [...q.a]
+      .map(Number)
+      .sort();
+
+
+  const correct =
+    JSON.stringify(selected)===
+    JSON.stringify(correctAnswer);
+
+
+  finishPracticeAnswer(
+    q,
+    correct,
+    q.e,
+    q.solution||""
+  );
+
+}
+
+
+function answerPracticeNAT(){
+
+  const q =
+    practiceQuestions[
+      currentPracticeIndex
+    ];
+
+
+  const value =
+    Number(
+      document.getElementById(
+        "practiceNAT"
+      ).value
+    );
+
+
+  const correct =
+    Number.isFinite(value) &&
+    value>=Number(q.min) &&
+    value<=Number(q.max);
+
+
+  finishPracticeAnswer(
+    q,
+    correct,
+    q.e,
+    q.solution||""
+  );
+
+}
+
+
 /* =========================================================
-   BOOKMARKS
+   BOOKMARK
 ========================================================= */
 
 function toggleBookmark(id){
 
-  state.bookmarks[id]=
+  state.bookmarks[id] =
     !state.bookmarks[id];
 
   save();
@@ -2781,46 +4622,78 @@ function toggleBookmark(id){
 
 function renderPYQList(){
 
-  const box=
-    document.getElementById("pyqBox");
+  const box =
+    document.getElementById(
+      "pyqBox"
+    );
 
-  box.innerHTML=`
+
+  box.innerHTML = `
 
     <div class="card">
 
-      <h3>📋 Available PYQ Workspace</h3>
+      <h3>
+        📋 PYQ Database
+      </h3>
 
       <p class="muted">
-        Browse the questions currently loaded into GateVolt.
+        Verified PYQs and workspace entries
+        are kept clearly separated.
       </p>
 
-      ${PYQ_BANK.map((q,i)=>`
 
-        <button
-          class="list"
-          onclick="showPYQ(${i})"
-        >
+      ${PYQ_BANK.map(
+        (q,i)=>`
 
-          <span class="badge pyq">
-            ${esc(q.year)}
-          </span>
+          <button
+            class="list"
+            onclick="
+              showPYQ(${i})
+            "
+          >
 
-          <br>
+            <span
+              class="badge ${
+                q.verified
+                ?"pyq"
+                :""
+              }"
+            >
+              ${
+                q.verified
+                ?"VERIFIED PYQ"
+                :"WORKSPACE"
+              }
+            </span>
 
-          <b>${i+1}. ${esc(q.q)}</b>
+            <br>
 
-          <div class="muted small">
-            ${esc(q.s)}
-            • ${esc(q.difficulty)}
-          </div>
+            <b>
+              ${i+1}.
+              ${esc(q.q)}
+            </b>
 
-        </button>
+            <div class="muted small">
 
-      `).join("")}
+              ${esc(q.year)}
+              •
+              ${esc(q.s)}
+              •
+              ${esc(q.topic)}
+
+            </div>
+
+          </button>
+
+        `
+      ).join("")}
+
 
       <button
         class="btn secondary"
-        onclick="resetPYQHistory()"
+        onclick="
+          resetPYQHistory()
+        "
       >
         🔄 Reset PYQ Rotation
       </button>
@@ -2832,45 +4705,97 @@ function renderPYQList(){
 }
 
 
-function showPYQ(index){
+/* =========================================================
+   PYQ FILTER
+========================================================= */
 
-  const q=PYQ_BANK[index];
+function renderPYQFilters(){
 
-  document.getElementById("pyqBox").innerHTML=`
+  const box =
+    document.getElementById(
+      "pyqBox"
+    );
+
+
+  const subjects =
+    [
+      ...new Set(
+        PYQ_BANK.map(
+          q=>q.s
+        )
+      )
+    ];
+
+
+  const years =
+    [
+      ...new Set(
+        PYQ_BANK.map(
+          q=>q.year
+        )
+      )
+    ];
+
+
+  box.innerHTML = `
 
     <div class="card">
 
-      <div class="questionMeta">
+      <h3>
+        🔎 Filter PYQs
+      </h3>
 
-        <span class="badge pyq">
-          ${esc(q.year)}
-        </span>
 
-        <span class="badge">
-          ${esc(q.s)}
-        </span>
+      <select id="pyqSubjectFilter">
 
-        <span class="badge ${q.difficulty}">
-          ${q.difficulty.toUpperCase()}
-        </span>
+        <option value="">
+          All Subjects
+        </option>
 
-      </div>
+        ${
+          subjects.map(
+            s=>
+              `<option value="${esc(s)}">
+                ${esc(s)}
+              </option>`
+          ).join("")
+        }
 
-      <h3>${esc(q.q)}</h3>
+      </select>
 
-      ${q.o.map((o,i)=>`
 
-        <button
-          class="option"
-          onclick="showPYQAnswer(${index},${i})"
-        >
-          ${String.fromCharCode(65+i)}.
-          ${esc(o)}
-        </button>
+      <br><br>
 
-      `).join("")}
 
-      <div id="singlePYQAnswer"></div>
+      <select id="pyqYearFilter">
+
+        <option value="">
+          All Years
+        </option>
+
+        ${
+          years.map(
+            y=>
+              `<option value="${esc(y)}">
+                ${esc(y)}
+              </option>`
+          ).join("")
+        }
+
+      </select>
+
+
+      <br><br>
+
+
+      <button
+        class="btn"
+        onclick="
+          applyPYQFilters()
+        "
+      >
+        Apply Filters
+      </button>
 
     </div>
 
@@ -2879,46 +4804,310 @@ function showPYQ(index){
 }
 
 
-function showPYQAnswer(index,choice){
+function applyPYQFilters(){
 
-  const q=PYQ_BANK[index];
+  const subject =
+    document.getElementById(
+      "pyqSubjectFilter"
+    ).value;
 
-  const buttons=
+
+  const year =
+    document.getElementById(
+      "pyqYearFilter"
+    ).value;
+
+
+  const rows =
+    PYQ_BANK.filter(
+      q=>
+        (!subject ||
+          q.s===subject) &&
+        (!year ||
+          String(q.year)===String(year))
+    );
+
+
+  const box =
+    document.getElementById(
+      "pyqBox"
+    );
+
+
+  box.innerHTML = `
+
+    <div class="card">
+
+      <h3>
+        Filter Results
+      </h3>
+
+      ${
+        rows.length
+        ?rows.map(
+          q=>`
+
+            <div class="historyRow">
+
+              <span class="badge pyq">
+                ${esc(q.year)}
+              </span>
+
+              <b>
+                ${esc(q.q)}
+              </b>
+
+              <div class="muted small">
+                ${esc(q.s)}
+                •
+                ${esc(q.topic)}
+              </div>
+
+            </div>
+
+          `
+        ).join("")
+        :`
+          <div class="empty">
+            No PYQs match the selected filters.
+          </div>
+        `
+      }
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   SHOW SINGLE PYQ
+========================================================= */
+
+function showPYQ(index){
+
+  const q =
+    PYQ_BANK[index];
+
+
+  document.getElementById(
+    "pyqBox"
+  ).innerHTML = `
+
+    <div class="card">
+
+      <div class="questionMeta">
+
+        <span class="badge pyq">
+          ${
+            q.verified
+            ?"VERIFIED PYQ"
+            :"WORKSPACE"
+          }
+        </span>
+
+        <span class="badge">
+          ${esc(q.year)}
+        </span>
+
+        <span class="badge">
+          ${esc(q.s)}
+        </span>
+
+        <span class="badge">
+          ${esc(q.topic)}
+        </span>
+
+      </div>
+
+
+      <h3>
+        ${esc(q.q)}
+      </h3>
+
+
+      ${
+        q.qt==="NAT"
+
+        ?`
+
+          <input
+            id="singlePYQNAT"
+            class="search"
+            type="number"
+            step="any"
+          >
+
+          <button
+            class="btn"
+            onclick="
+              showPYQAnswer(
+                ${index},
+                null
+              )
+            "
+          >
+            Submit
+          </button>
+
+        `
+
+        :
+
+        q.o.map(
+          (o,i)=>`
+
+            <button
+              class="option"
+              onclick="
+                showPYQAnswer(
+                  ${index},
+                  ${i}
+                )
+              "
+            >
+              ${String.fromCharCode(65+i)}.
+              ${esc(o)}
+            </button>
+
+          `
+        ).join("")
+
+      }
+
+
+      <div
+        id="singlePYQAnswer"
+      ></div>
+
+    </div>
+
+  `;
+
+}
+
+
+function showPYQAnswer(
+  index,
+  choice
+){
+
+  const q =
+    PYQ_BANK[index];
+
+
+  let correct=false;
+
+
+  if(q.qt==="NAT"){
+
+    const value =
+      Number(
+        document.getElementById(
+          "singlePYQNAT"
+        ).value
+      );
+
+
+    correct =
+      Number.isFinite(value) &&
+      value>=q.min &&
+      value<=q.max;
+
+  }
+
+
+  else if(q.qt==="MSQ"){
+
+    correct=false;
+
+  }
+
+
+  else{
+
+    correct =
+      Number(choice)===
+      Number(q.a);
+
+  }
+
+
+  const buttons =
     document.querySelectorAll(
       "#pyqBox .option"
     );
 
-  buttons.forEach((b,i)=>{
 
-    b.disabled=true;
+  buttons.forEach(
+    (b,i)=>{
 
-    if(i===q.a)
-      b.classList.add("correct");
+      b.disabled=true;
 
-    if(i===choice && i!==q.a)
-      b.classList.add("wrong");
+      if(i===q.a)
+        b.classList.add(
+          "correct"
+        );
 
-  });
+      if(
+        i===choice &&
+        i!==q.a
+      )
+        b.classList.add(
+          "wrong"
+        );
+
+    }
+  );
+
+
+  state.pyqAttempted++;
+
+
+  if(correct)
+    state.pyqCorrect++;
+
+
+  state.attempted++;
+
+
+  if(correct)
+    state.correct++;
+
+
+  save();
+
 
   document.getElementById(
     "singlePYQAnswer"
-  ).innerHTML=`
+  ).innerHTML = `
 
     <div class="answer">
 
       <b>
         ${
-          choice===q.a
+          correct
           ?"✅ Correct!"
           :"❌ Incorrect"
         }
       </b>
 
-      <p>${esc(q.e)}</p>
 
-      <div class="formula">
-        ${esc(q.solution)}
-      </div>
+      <p>
+        ${esc(q.e)}
+      </p>
+
+
+      ${
+        q.solution
+        ?`
+          <div class="formula">
+            ${esc(q.solution)}
+          </div>
+        `
+        :""
+      }
 
     </div>
 
@@ -2935,176 +5124,745 @@ function renderPYQStats(){
 
   document.getElementById(
     "pyqCount"
-  ).textContent=PYQ_BANK.length;
+  ).textContent =
+    PYQ_BANK.length;
+
 
   document.getElementById(
     "pyqSolved"
-  ).textContent=state.pyqAttempted||0;
+  ).textContent =
+    state.pyqAttempted||0;
 
-  const acc=
+
+  const acc =
     state.pyqAttempted
     ?Math.round(
-      state.pyqCorrect/state.pyqAttempted*100
+      state.pyqCorrect/
+      state.pyqAttempted*100
     )
     :0;
 
+
   document.getElementById(
     "pyqAccuracy"
-  ).textContent=acc+"%";
+  ).textContent =
+    acc+"%";
 
 }
 
 
 /* =========================================================
-   MOCK TEST ENGINE
+   MOCK ENGINE
 ========================================================= */
 
 let activeMock=null;
+
 let mockTimer=null;
+
 let mockAnswers={};
 
+let mockMarked={};
+
+let mockCurrentQuestion=0;
+
+
+/* =========================================================
+   MOCK HELPERS
+========================================================= */
+
+function questionMarks(q){
+
+  return Number(
+    q.marks||1
+  );
+
+}
+
+
+function questionType(q){
+
+  return q.qt||"MCQ";
+
+}
+
+
+function isAnswered(
+  q,
+  index
+){
+
+  const value =
+    mockAnswers[index];
+
+
+  if(
+    value===undefined ||
+    value===null ||
+    value===""
+  )
+    return false;
+
+
+  if(
+    Array.isArray(value) &&
+    value.length===0
+  )
+    return false;
+
+
+  return true;
+
+}
+
+
+function calculatePaperMarks(){
+
+  if(!activeMock)
+    return 0;
+
+
+  return activeMock.questions.reduce(
+    (sum,q)=>
+      sum+questionMarks(q),
+    0
+  );
+
+}
+
+
+/* =========================================================
+   MOCK PAPER BUILDER
+========================================================= */
+
+function buildFullGatePaper(){
+
+  /*
+    A full mock must contain exactly
+    65 loaded questions.
+
+    The current database is intentionally
+    prevented from pretending otherwise.
+  */
+
+  if(questions.length<65){
+
+    alert(
+      "Full GATE Mock needs at least 65 questions in the question bank. " +
+      "Current bank: "+questions.length+
+      ". Add more original/PYQ questions before starting."
+    );
+
+    return null;
+
+  }
+
+
+  const ga =
+    questions.filter(
+      q=>q.section==="GA"
+    );
+
+
+  const maths =
+    questions.filter(
+      q=>q.section==="MATHEMATICS"
+    );
+
+
+  const ee =
+    questions.filter(
+      q=>q.section==="EE"
+    );
+
+
+  /*
+    Prefer section-aware selection.
+    Since the question bank can grow later,
+    this automatically becomes stronger.
+  */
+
+  let selected=[];
+
+
+  selected.push(
+    ...randomShuffle(ga)
+      .slice(0,10)
+  );
+
+
+  const remaining1 =
+    questions.filter(
+      q=>!selected.includes(q)
+    );
+
+
+  selected.push(
+    ...randomShuffle(
+      remaining1
+    ).slice(
+      0,
+      65-selected.length
+    )
+  );
+
+
+  return selected.slice(0,65);
+
+}
+
+
+function buildMiniPaper(){
+
+  return randomShuffle(
+    questions
+  ).slice(
+    0,
+    Math.min(
+      25,
+      questions.length
+    )
+  );
+
+}
+
+
+/* =========================================================
+   BEGIN MOCK
+========================================================= */
 
 function beginMock(){
 
-  const minutes=
+  const minutes =
     Number(
       document.getElementById(
         "mockDuration"
       ).value
     );
 
-  const difficulty=
+
+  const difficulty =
     document.getElementById(
       "mockDifficulty"
     ).value;
 
-  let pool=
-    [...questions];
 
-  if(difficulty!=="mixed"){
+  let paper;
 
-    const filtered=
-      pool.filter(
-        q=>q.difficulty===difficulty
-      );
 
-    if(filtered.length>=5)
-      pool=filtered;
+  if(minutes===180){
+
+    paper =
+      buildFullGatePaper();
+
+
+    if(!paper)
+      return;
 
   }
 
-  /*
-     Mix old built-in questions and
-     newer questions.
+  else{
 
-     In the full PYQ version, verified
-     PYQs can also be added to this pool.
-  */
+    paper =
+      buildMiniPaper();
 
-  pool=randomShuffle(pool);
+  }
 
-  const count=
-    minutes===180
-    ?Math.min(20,pool.length)
-    :Math.min(10,pool.length);
+
+  if(
+    difficulty!=="mixed"
+  ){
+
+    const filtered =
+      paper.filter(
+        q=>
+          q.difficulty===
+          difficulty
+      );
+
+
+    if(
+      minutes===180 &&
+      filtered.length>=65
+    ){
+
+      paper=filtered;
+
+    }
+
+
+    if(
+      minutes!==180 &&
+      filtered.length>=10
+    ){
+
+      paper=filtered;
+
+    }
+
+  }
+
+
+  if(
+    minutes===180 &&
+    paper.length!==65
+  ){
+
+    alert(
+      "Full GATE Mock must contain exactly 65 questions."
+    );
+
+    return;
+
+  }
+
 
   activeMock={
+
     duration:minutes,
+
     difficulty,
-    questions:pool.slice(0,count),
-    startedAt:Date.now()
+
+    questions:paper,
+
+    totalSeconds:
+      minutes*60,
+
+    startedAt:
+      Date.now()
+
   };
 
+
   mockAnswers={};
+
+  mockMarked={};
+
+  mockCurrentQuestion=0;
+
 
   renderActiveMock();
 
 }
 
 
+/* =========================================================
+   RENDER ACTIVE MOCK
+========================================================= */
+
 function renderActiveMock(){
 
-  const box=
-    document.getElementById("mockBox");
+  const box =
+    document.getElementById(
+      "mockBox"
+    );
 
-  if(!activeMock){
 
-    box.innerHTML=`
-      <div class="empty">
-        Select a mock above to begin.
-      </div>
-    `;
-
-    return;
-
-  }
-
-  box.innerHTML=`
+  box.innerHTML = `
 
     <div
       id="mockTimer"
       class="timer"
     >
-      ${formatTime(activeMock.duration*60)}
+      ${formatTime(
+        activeMock.totalSeconds
+      )}
     </div>
+
 
     <div class="card">
 
       <div class="questionMeta">
 
         <span class="badge">
-          ${activeMock.duration===180
-            ?"3 HOUR FULL MOCK"
-            :"60 MINUTE MOCK"}
+          ${
+            activeMock.duration===180
+            ?"FULL GATE MOCK"
+            :"MINI MOCK"
+          }
         </span>
 
-        <span class="badge ${
-          activeMock.difficulty
-        }">
-          ${activeMock.difficulty.toUpperCase()}
+        <span class="badge">
+          ${activeMock.questions.length}
+          Questions
+        </span>
+
+        <span class="badge">
+          ${calculatePaperMarks()}
+          Marks
         </span>
 
       </div>
 
-      <p class="muted small">
-        Questions:
-        ${activeMock.questions.length}
-        • PYQ/new mixed engine
-        • Submit when finished
-      </p>
+
+      <div class="grid3">
+
+        <div class="stat">
+
+          <strong id="mockAttempted">
+            0
+          </strong>
+
+          <span>
+            Answered
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong id="mockUnattempted">
+            ${activeMock.questions.length}
+          </strong>
+
+          <span>
+            Unanswered
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong id="mockMarked">
+            0
+          </strong>
+
+          <span>
+            Review
+          </span>
+
+        </div>
+
+      </div>
 
     </div>
 
-    <div id="mockQuestions"></div>
 
-    <button
-      class="btn green"
-      onclick="submitActiveMock(false)"
-    >
-      ✅ Submit Mock
-    </button>
+    <div class="card">
+
+      <h3>
+        Question Palette
+      </h3>
+
+      <div
+        id="mockPalette"
+        class="palette"
+      ></div>
+
+    </div>
+
+
+    <div
+      id="mockQuestions"
+    ></div>
+
+
+    <div class="card">
+
+      <button
+        class="btn secondary"
+        onclick="
+          previousMockQuestion()
+        "
+      >
+        ← Previous
+      </button>
+
+
+      <button
+        class="btn"
+        onclick="
+          nextMockQuestion()
+        "
+      >
+        Save & Next →
+      </button>
+
+
+      <button
+        class="btn gold"
+        onclick="
+          markMockForReview()
+        "
+      >
+        ⚑ Review
+      </button>
+
+
+      <button
+        class="btn secondary"
+        onclick="
+          clearMockResponse()
+        "
+      >
+        Clear
+      </button>
+
+
+      <br><br>
+
+
+      <button
+        class="btn green"
+        onclick="
+          submitActiveMock(false)
+        "
+      >
+        ✅ Submit Test
+      </button>
+
+    </div>
 
   `;
 
-  const qbox=
-    document.getElementById(
-      "mockQuestions"
-    );
 
-  qbox.innerHTML=
-    activeMock.questions.map(
-      (q,i)=>renderMockQuestion(q,i)
-    ).join("");
+  renderMockPalette();
+
+  renderCurrentMockQuestion();
 
   startMockTimer();
 
 }
 
 
-function renderMockQuestion(q,index){
+/* =========================================================
+   MOCK PALETTE
+========================================================= */
 
-  const selected=
+function renderMockPalette(){
+
+  const palette =
+    document.getElementById(
+      "mockPalette"
+    );
+
+
+  if(!palette)
+    return;
+
+
+  palette.innerHTML =
+    activeMock.questions.map(
+      (q,i)=>{
+
+        let cls="";
+
+
+        if(
+          isAnswered(q,i)
+        )
+          cls="answered";
+
+
+        if(
+          mockMarked[i]
+        )
+          cls="review";
+
+
+        if(
+          i===mockCurrentQuestion
+        )
+          cls="current";
+
+
+        return `
+
+          <button
+            class="${cls}"
+            onclick="
+              jumpMockQuestion(${i})
+            "
+          >
+            ${i+1}
+          </button>
+
+        `;
+
+      }
+    ).join("");
+
+}
+
+
+/* =========================================================
+   CURRENT MOCK QUESTION
+========================================================= */
+
+function renderCurrentMockQuestion(){
+
+  const qbox =
+    document.getElementById(
+      "mockQuestions"
+    );
+
+
+  if(!qbox)
+    return;
+
+
+  const q =
+    activeMock.questions[
+      mockCurrentQuestion
+    ];
+
+
+  if(!q)
+    return;
+
+
+  qbox.innerHTML =
+    renderMockQuestion(
+      q,
+      mockCurrentQuestion
+    );
+
+
+  updateMockCounters();
+
+  renderMockPalette();
+
+}
+
+
+/* =========================================================
+   RENDER MOCK QUESTION
+========================================================= */
+
+function renderMockQuestion(
+  q,
+  index
+){
+
+  const type =
+    questionType(q);
+
+
+  const selected =
     mockAnswers[index];
+
+
+  let answerHTML="";
+
+
+  /* MCQ */
+
+  if(type==="MCQ"){
+
+    answerHTML =
+      q.o.map(
+        (o,j)=>`
+
+          <button
+            class="option"
+            onclick="
+              selectMCQ(
+                ${index},
+                ${j}
+              )
+            "
+            style="
+              ${
+                selected===j
+                ?"border-color:#42b7ff;background:#162a40;"
+                :""
+              }
+            "
+          >
+
+            ${String.fromCharCode(65+j)}.
+            ${esc(o)}
+
+          </button>
+
+        `
+      ).join("");
+
+  }
+
+
+  /* MSQ */
+
+  else if(type==="MSQ"){
+
+    const values =
+      Array.isArray(selected)
+      ?selected
+      :[];
+
+
+    answerHTML =
+      q.o.map(
+        (o,j)=>`
+
+          <label
+            style="
+              display:block;
+              padding:12px;
+              margin:7px 0;
+              border:1px solid #303750;
+              border-radius:11px;
+              background:#151a2b;
+            "
+          >
+
+            <input
+              type="checkbox"
+              ${
+                values.includes(j)
+                ?"checked"
+                :""
+              }
+              onchange="
+                toggleMSQ(
+                  ${index},
+                  ${j}
+                )
+              "
+            >
+
+            ${String.fromCharCode(65+j)}.
+            ${esc(o)}
+
+          </label>
+
+        `
+      ).join("");
+
+  }
+
+
+  /* NAT */
+
+  else if(type==="NAT"){
+
+    answerHTML = `
+
+      <input
+        class="search"
+        type="number"
+        step="any"
+        placeholder="Enter numerical answer"
+        value="${
+          selected!==undefined
+          ?esc(selected)
+          :""
+        }"
+        oninput="
+          mockAnswers[${index}]=this.value;
+          updateMockCounters();
+        "
+      >
+
+      <div class="muted small">
+        Enter the numerical value only.
+      </div>
+
+    `;
+
+  }
+
 
   return `
 
@@ -3113,62 +5871,292 @@ function renderMockQuestion(q,index){
       <div class="questionMeta">
 
         <span class="badge">
-          ${esc(q.s)}
+          Q${index+1}
         </span>
 
-        <span class="badge ${
-          q.difficulty
-        }">
-          ${q.difficulty.toUpperCase()}
+        <span class="badge">
+          ${esc(q.section||"EE")}
         </span>
+
+        <span
+          class="badge ${
+            type==="NAT"
+            ?"nat"
+            :type==="MSQ"
+            ?"msq"
+            :""
+          }"
+        >
+          ${type}
+        </span>
+
+        <span class="badge">
+          ${questionMarks(q)} Mark
+        </span>
+
+        <span
+          class="badge ${
+            q.difficulty||"medium"
+          }"
+        >
+          ${
+            (
+              q.difficulty||
+              "medium"
+            ).toUpperCase()
+          }
+        </span>
+
+        ${
+          q.type==="pyq"
+          ?'<span class="badge pyq">PYQ</span>'
+          :'<span class="badge">ORIGINAL</span>'
+        }
 
       </div>
+
 
       <div class="questionNumber">
-        Question ${index+1}
+        Question
+        ${index+1}
+        of
+        ${activeMock.questions.length}
       </div>
+
 
       <h3>
         ${esc(q.q)}
       </h3>
 
-      ${q.o.map((o,j)=>`
 
-        <label
-          style="
-            display:block;
-            margin:9px 0;
-            padding:10px;
-            border:1px solid #303750;
-            border-radius:10px;
-            background:#151a2b;
-          "
-        >
+      ${answerHTML}
 
-          <input
-            type="radio"
-            name="mock_${index}"
-            value="${j}"
-            ${
-              selected===j
-              ?"checked"
-              :""
-            }
-            onchange="
-              mockAnswers[${index}]=Number(this.value)
-            "
-          >
 
-          ${String.fromCharCode(65+j)}.
-          ${esc(o)}
-
-        </label>
-
-      `).join("")}
+      ${
+        mockMarked[index]
+        ?`
+          <div class="notice">
+            ⚑ Marked for review
+          </div>
+        `
+        :""
+      }
 
     </div>
 
   `;
+
+}
+
+
+/* =========================================================
+   MOCK ANSWERS
+========================================================= */
+
+function selectMCQ(
+  index,
+  value
+){
+
+  mockAnswers[index]=value;
+
+  updateMockCounters();
+
+  renderCurrentMockQuestion();
+
+}
+
+
+function toggleMSQ(
+  index,
+  value
+){
+
+  let arr =
+    Array.isArray(
+      mockAnswers[index]
+    )
+    ?[
+      ...mockAnswers[index]
+    ]
+    :[];
+
+
+  if(
+    arr.includes(value)
+  ){
+
+    arr =
+      arr.filter(
+        x=>x!==value
+      );
+
+  }
+
+  else{
+
+    arr.push(value);
+
+  }
+
+
+  mockAnswers[index]=
+    arr.sort(
+      (a,b)=>a-b
+    );
+
+
+  updateMockCounters();
+
+  renderCurrentMockQuestion();
+
+}
+
+
+function clearMockResponse(){
+
+  delete mockAnswers[
+    mockCurrentQuestion
+  ];
+
+
+  renderCurrentMockQuestion();
+
+}
+
+
+/* =========================================================
+   MOCK NAVIGATION
+========================================================= */
+
+function nextMockQuestion(){
+
+  if(
+    mockCurrentQuestion <
+    activeMock.questions.length-1
+  ){
+
+    mockCurrentQuestion++;
+
+    renderCurrentMockQuestion();
+
+  }
+
+}
+
+
+function previousMockQuestion(){
+
+  if(
+    mockCurrentQuestion>0
+  ){
+
+    mockCurrentQuestion--;
+
+    renderCurrentMockQuestion();
+
+  }
+
+}
+
+
+function jumpMockQuestion(
+  index
+){
+
+  mockCurrentQuestion=index;
+
+  renderCurrentMockQuestion();
+
+}
+
+
+function markMockForReview(){
+
+  mockMarked[
+    mockCurrentQuestion
+  ] =
+    !mockMarked[
+      mockCurrentQuestion
+    ];
+
+
+  renderCurrentMockQuestion();
+
+}
+
+
+/* =========================================================
+   COUNTERS
+========================================================= */
+
+function updateMockCounters(){
+
+  if(!activeMock)
+    return;
+
+
+  let attempted=0;
+
+
+  activeMock.questions.forEach(
+    (q,i)=>{
+
+      if(
+        isAnswered(q,i)
+      )
+        attempted++;
+
+    }
+  );
+
+
+  const unanswered =
+    activeMock.questions.length -
+    attempted;
+
+
+  const marked =
+    Object.values(
+      mockMarked
+    ).filter(Boolean)
+    .length;
+
+
+  const a =
+    document.getElementById(
+      "mockAttempted"
+    );
+
+
+  const u =
+    document.getElementById(
+      "mockUnattempted"
+    );
+
+
+  const m =
+    document.getElementById(
+      "mockMarked"
+    );
+
+
+  if(a)
+    a.textContent=
+      attempted;
+
+
+  if(u)
+    u.textContent=
+      unanswered;
+
+
+  if(m)
+    m.textContent=
+      marked;
+
+
+  renderMockPalette();
 
 }
 
@@ -3179,75 +6167,302 @@ function renderMockQuestion(q,index){
 
 function startMockTimer(){
 
-  clearInterval(mockTimer);
+  clearInterval(
+    mockTimer
+  );
 
-  let remaining=
-    activeMock.duration*60;
 
-  const timer=
+  if(!activeMock)
+    return;
+
+
+  let remaining =
+    activeMock.totalSeconds;
+
+
+  const timer =
     document.getElementById(
       "mockTimer"
     );
 
-  mockTimer=setInterval(()=>{
 
-    remaining--;
+  mockTimer =
+    setInterval(
+      ()=>{
 
-    if(!activeMock){
-      clearInterval(mockTimer);
-      return;
-    }
+        remaining--;
 
-    timer.textContent=
-      formatTime(remaining);
 
-    if(remaining<=300)
-      timer.classList.add("danger");
+        if(!activeMock){
 
-    if(remaining<=0){
+          clearInterval(
+            mockTimer
+          );
 
-      clearInterval(mockTimer);
+          return;
 
-      submitActiveMock(true);
+        }
 
-    }
 
-  },1000);
+        activeMock.remainingSeconds =
+          remaining;
+
+
+        if(timer){
+
+          timer.textContent =
+            formatTime(
+              remaining
+            );
+
+        }
+
+
+        if(
+          remaining<=300 &&
+          timer
+        ){
+
+          timer.classList.add(
+            "danger"
+          );
+
+        }
+
+
+        if(
+          remaining<=0
+        ){
+
+          clearInterval(
+            mockTimer
+          );
+
+          submitActiveMock(
+            true
+          );
+
+        }
+
+      },
+      1000
+    );
 
 }
 
 
-function formatTime(seconds){
+/* =========================================================
+   FORMAT TIME
+========================================================= */
 
-  seconds=Math.max(
-    0,
-    Math.floor(seconds)
-  );
+function formatTime(
+  seconds
+){
 
-  const h=
-    Math.floor(seconds/3600);
+  seconds =
+    Math.max(
+      0,
+      Math.floor(seconds)
+    );
 
-  const m=
+
+  const h =
+    Math.floor(
+      seconds/3600
+    );
+
+
+  const m =
     Math.floor(
       (seconds%3600)/60
     );
 
-  const s=
+
+  const s =
     seconds%60;
+
 
   if(h>0){
 
-    return String(h).padStart(2,"0")
+    return (
+      String(h)
+        .padStart(2,"0")
       +":"
-      +String(m).padStart(2,"0")
+      +
+      String(m)
+        .padStart(2,"0")
       +":"
-      +String(s).padStart(2,"0");
+      +
+      String(s)
+        .padStart(2,"0")
+    );
 
   }
 
-  return String(m).padStart(2,"0")
+
+  return (
+    String(m)
+      .padStart(2,"0")
     +":"
-    +String(s).padStart(2,"0");
+    +
+    String(s)
+      .padStart(2,"0")
+  );
+
+}
+
+
+/* =========================================================
+   MOCK EVALUATION
+========================================================= */
+
+function evaluateMockQuestion(
+  q,
+  index
+){
+
+  const user =
+    mockAnswers[index];
+
+
+  if(
+    !isAnswered(q,index)
+  ){
+
+    return {
+
+      attempted:false,
+      marks:0,
+      correct:false
+
+    };
+
+  }
+
+
+  const type =
+    questionType(q);
+
+
+  const marks =
+    questionMarks(q);
+
+
+  /* MCQ */
+
+  if(type==="MCQ"){
+
+    const correct =
+      Number(user)===
+      Number(q.a);
+
+
+    return {
+
+      attempted:true,
+
+      marks:
+        correct
+        ?marks
+        :-(marks/3),
+
+      correct
+
+    };
+
+  }
+
+
+  /* MSQ */
+
+  if(type==="MSQ"){
+
+    const selected =
+      Array.isArray(user)
+      ?[
+        ...user
+      ].map(Number).sort()
+      :[];
+
+
+    const answer =
+      Array.isArray(q.a)
+      ?[
+        ...q.a
+      ].map(Number).sort()
+      :[];
+
+
+    const correct =
+      JSON.stringify(
+        selected
+      )===
+      JSON.stringify(
+        answer
+      );
+
+
+    return {
+
+      attempted:true,
+
+      marks:
+        correct
+        ?marks
+        :0,
+
+      correct
+
+    };
+
+  }
+
+
+  /* NAT */
+
+  if(type==="NAT"){
+
+    const value =
+      Number(user);
+
+
+    const min =
+      Number(q.min);
+
+
+    const max =
+      Number(q.max);
+
+
+    const correct =
+      Number.isFinite(value) &&
+      value>=min &&
+      value<=max;
+
+
+    return {
+
+      attempted:true,
+
+      marks:
+        correct
+        ?marks
+        :0,
+
+      correct
+
+    };
+
+  }
+
+
+  return {
+
+    attempted:false,
+    marks:0,
+    correct:false
+
+  };
 
 }
 
@@ -3256,127 +6471,306 @@ function formatTime(seconds){
    SUBMIT MOCK
 ========================================================= */
 
-function submitActiveMock(autoSubmit){
+function submitActiveMock(
+  autoSubmit
+){
 
   if(!activeMock)
     return;
 
-  clearInterval(mockTimer);
 
-  let score=0;
-  let attempted=0;
+  if(!autoSubmit){
 
-  activeMock.questions.forEach(
-    (q,i)=>{
+    const unanswered =
+      activeMock.questions.filter(
+        (q,i)=>
+          !isAnswered(q,i)
+      ).length;
 
-      if(
-        mockAnswers[i]!==undefined
-      ){
 
-        attempted++;
+    if(unanswered>0){
 
-        if(
-          mockAnswers[i]===q.a
-        )
-          score++;
+      const ok =
+        confirm(
+          unanswered+
+          " question(s) are unanswered. Submit anyway?"
+        );
 
-      }
+
+      if(!ok)
+        return;
 
     }
+
+  }
+
+
+  clearInterval(
+    mockTimer
   );
 
-  const total=
-    activeMock.questions.length;
 
-  const accuracy=
-    Math.round(
-      score/total*100
+  let rawScore=0;
+
+  let positiveMarks=0;
+
+  let negativeMarks=0;
+
+  let attempted=0;
+
+  let correct=0;
+
+
+  const review =
+    activeMock.questions.map(
+      (q,i)=>{
+
+        const result =
+          evaluateMockQuestion(
+            q,
+            i
+          );
+
+
+        if(
+          result.attempted
+        )
+          attempted++;
+
+
+        if(
+          result.correct
+        )
+          correct++;
+
+
+        if(
+          result.marks>0
+        )
+          positiveMarks +=
+            result.marks;
+
+
+        if(
+          result.marks<0
+        )
+          negativeMarks +=
+            Math.abs(
+              result.marks
+            );
+
+
+        rawScore +=
+          result.marks;
+
+
+        return {
+
+          id:q.id,
+
+          question:q.q,
+
+          type:
+            questionType(q),
+
+          marks:
+            questionMarks(q),
+
+          selected:
+            mockAnswers[i],
+
+          correctAnswer:
+            q.a,
+
+          result
+
+        };
+
+      }
     );
 
-  state.attempted+=attempted;
-  state.correct+=score;
 
-  state.mockHistory.unshift({
+  const totalMarks =
+    calculatePaperMarks();
 
-    date:new Date().toLocaleString(),
 
-    duration:activeMock.duration,
+  const percentage =
+    totalMarks
+    ?Math.max(
+      0,
+      Math.round(
+        rawScore/
+        totalMarks*
+        100
+      )
+    )
+    :0;
 
-    difficulty:activeMock.difficulty,
 
-    score,
+  state.attempted +=
+    attempted;
 
-    total,
+
+  state.correct +=
+    correct;
+
+
+  const resultData={
+
+    date:
+      new Date()
+        .toLocaleString(),
+
+    duration:
+      activeMock.duration,
+
+    difficulty:
+      activeMock.difficulty,
+
+    score:
+      Number(
+        rawScore.toFixed(2)
+      ),
+
+    total:
+      totalMarks,
 
     attempted,
 
-    accuracy
+    correct,
 
-  });
+    positiveMarks:
+      Number(
+        positiveMarks.toFixed(2)
+      ),
 
-  if(state.mockHistory.length>20)
-    state.mockHistory=
-      state.mockHistory.slice(0,20);
+    negativeMarks:
+      Number(
+        negativeMarks.toFixed(2)
+      ),
+
+    accuracy:
+      percentage,
+
+    questionCount:
+      activeMock.questions.length,
+
+    review
+
+  };
+
+
+  state.mockHistory.unshift(
+    resultData
+  );
+
+
+  if(
+    state.mockHistory.length>20
+  ){
+
+    state.mockHistory =
+      state.mockHistory.slice(
+        0,
+        20
+      );
+
+  }
+
 
   save();
 
+
   renderMockResult(
-    score,
-    total,
-    attempted,
-    accuracy,
+    resultData,
     autoSubmit
   );
+
 
   activeMock=null;
 
 }
 
 
+/* =========================================================
+   MOCK RESULT
+========================================================= */
+
 function renderMockResult(
-  score,
-  total,
-  attempted,
-  accuracy,
+  result,
   autoSubmit
 ){
 
-  const box=
+  const box =
     document.getElementById(
       "mockBox"
     );
 
-  box.innerHTML=`
+
+  box.innerHTML = `
 
     <div class="card">
 
       <h2>
         ${
           autoSubmit
-          ?"⏰ Time Over — Mock Submitted"
-          :"🎉 Mock Completed"
+          ?"⏰ Time Over"
+          :"🎉 Mock Submitted"
         }
       </h2>
 
+
       <div class="scoreBig">
-        ${score}/${total}
+        ${result.score}/${result.total}
       </div>
 
+
       <p class="muted">
-        Accuracy: ${accuracy}%<br>
-        Attempted: ${attempted}/${total}
+
+        Percentage:
+        <b>
+          ${result.accuracy}%
+        </b>
+
+        <br>
+
+        Attempted:
+        ${result.attempted}/
+        ${result.questionCount}
+
+        <br>
+
+        Correct:
+        ${result.correct}
+
+        <br>
+
+        Positive:
+        ${result.positiveMarks}
+
+        <br>
+
+        Negative:
+        ${result.negativeMarks}
+
       </p>
+
 
       <button
         class="btn"
-        onclick="showLastMockReview()"
+        onclick="
+          showLastMockReview()
+        "
       >
         📖 Review Answers
       </button>
 
+
       <button
         class="btn secondary"
-        onclick="beginMock()"
+        onclick="
+          beginMock()
+        "
       >
         🔄 Take Another Mock
       </button>
@@ -3385,19 +6779,21 @@ function renderMockResult(
 
   `;
 
+
   renderMockHistory();
 
 }
 
 
 /* =========================================================
-   LAST MOCK REVIEW
+   MOCK REVIEW
 ========================================================= */
 
 function showLastMockReview(){
 
-  const last=
+  const last =
     state.mockHistory[0];
+
 
   if(!last){
 
@@ -3409,43 +6805,169 @@ function showLastMockReview(){
 
   }
 
-  const box=
+
+  const box =
     document.getElementById(
       "mockBox"
     );
 
-  /*
-     The current review uses the latest
-     active question set if available.
-     For persistent history, the result
-     statistics remain stored.
-  */
 
-  box.innerHTML=`
+  box.innerHTML = `
 
     <div class="card">
 
-      <h2>📖 Mock Review</h2>
+      <h2>
+        📖 Detailed Mock Review
+      </h2>
 
-      <p class="muted">
-        Latest score:
-        <b>${last.score}/${last.total}</b>
-        • ${last.accuracy}%
-      </p>
 
-      <div class="notice">
+      <div class="grid3">
 
-        Mock review keeps your score,
-        accuracy, duration and attempt count
-        in local history.
+        <div class="stat">
+
+          <strong>
+            ${last.score}
+          </strong>
+
+          <span>
+            Score
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>
+            ${last.accuracy}%
+          </strong>
+
+          <span>
+            Percentage
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <strong>
+            ${last.correct}
+          </strong>
+
+          <span>
+            Correct
+          </span>
+
+        </div>
 
       </div>
 
+
+      ${
+        (last.review||[])
+          .map(
+            (r,i)=>`
+
+              <div
+                class="
+                  historyRow
+                  ${
+                    r.result.correct
+                    ?"reviewCorrect"
+                    :"reviewWrong"
+                  }
+                "
+              >
+
+                <b>
+                  Q${i+1}.
+                  ${esc(r.question)}
+                </b>
+
+
+                <div class="muted small">
+
+                  Type:
+                  ${esc(r.type)}
+
+                  •
+
+                  ${r.marks}
+                  mark
+
+                </div>
+
+
+                <p>
+
+                  Your answer:
+                  <b>
+
+                    ${
+                      Array.isArray(
+                        r.selected
+                      )
+
+                      ?r.selected
+                        .map(
+                          x=>
+                            String.fromCharCode(
+                              65+
+                              Number(x)
+                            )
+                        )
+                        .join(", ")
+
+                      :(
+                        r.selected===undefined
+                        ?"Not Attempted"
+                        :String(
+                          r.selected
+                        )
+                      )
+                    }
+
+                  </b>
+
+                </p>
+
+
+                <p>
+
+                  ${
+                    r.result.correct
+                    ?"✅ Correct"
+                    :"❌ Incorrect"
+                  }
+
+                </p>
+
+
+                <p class="muted small">
+
+                  Marks:
+                  ${
+                    r.result.marks
+                  }
+
+                </p>
+
+              </div>
+
+            `
+          )
+          .join("")
+      }
+
+
       <button
         class="btn"
-        onclick="go('mock')"
+        onclick="
+          go('mock')
+        "
       >
-        Back to Mock Centre
+        ← Back to Mock Centre
       </button>
 
     </div>
@@ -3461,54 +6983,204 @@ function showLastMockReview(){
 
 function renderMockHistory(){
 
-  const box=
+  const box =
     document.getElementById(
       "mockHistory"
     );
 
-  if(!state.mockHistory.length){
 
-    box.innerHTML=
-      `<div class="empty">
+  if(!box)
+    return;
+
+
+  if(
+    !state.mockHistory.length
+  ){
+
+    box.innerHTML = `
+      <div class="empty">
         No mock tests attempted yet.
-      </div>`;
+      </div>
+    `;
 
     return;
 
   }
 
-  box.innerHTML=
+
+  box.innerHTML =
     state.mockHistory.map(
       (m,i)=>`
 
         <div class="historyRow">
 
           <b>
+
             ${i+1}.
+
             ${
               m.duration===180
-              ?"3 Hour Mock"
-              :"60 Minute Mock"
+              ?"🎯 Full GATE Mock"
+              :"⚡ Mini Mock"
             }
+
           </b>
+
 
           <div class="muted small">
             ${esc(m.date)}
           </div>
 
+
           <div class="muted small">
-            Difficulty:
-            ${esc(m.difficulty)}
-            • Score:
-            ${m.score}/${m.total}
-            • Accuracy:
+
+            Score:
+            <b>
+              ${m.score}/${m.total}
+            </b>
+
+            •
+
             ${m.accuracy}%
+
+            •
+
+            Attempted:
+            ${m.attempted}/
+            ${m.questionCount}
+
           </div>
+
+
+          <div class="muted small">
+
+            Positive:
+            ${m.positiveMarks}
+
+            •
+
+            Negative:
+            ${m.negativeMarks}
+
+          </div>
+
+
+          <button
+            class="btn secondary"
+            onclick="
+              viewMockHistory(${i})
+            "
+          >
+            Review
+          </button>
 
         </div>
 
       `
     ).join("");
+
+}
+
+
+function viewMockHistory(index){
+
+  const item =
+    state.mockHistory[index];
+
+
+  if(!item)
+    return;
+
+
+  document.getElementById(
+    "mockBox"
+  ).innerHTML = `
+
+    <div class="card">
+
+      <h2>
+        Mock #${index+1}
+      </h2>
+
+
+      <p class="muted">
+
+        ${esc(item.date)}
+
+        <br>
+
+        Score:
+        ${item.score}/${item.total}
+
+        <br>
+
+        Accuracy:
+        ${item.accuracy}%
+
+        <br>
+
+        Attempted:
+        ${item.attempted}/
+        ${item.questionCount}
+
+      </p>
+
+
+      ${
+        (item.review||[])
+          .map(
+            (r,i)=>`
+
+              <div
+                class="
+                  historyRow
+                  ${
+                    r.result.correct
+                    ?"reviewCorrect"
+                    :"reviewWrong"
+                  }
+                "
+              >
+
+                <b>
+                  Q${i+1}.
+                  ${esc(r.question)}
+                </b>
+
+
+                <div class="muted small">
+
+                  ${esc(r.type)}
+
+                  •
+
+                  ${r.marks}
+                  mark
+
+                </div>
+
+
+                <p>
+
+                  Result:
+                  ${
+                    r.result.correct
+                    ?"✅ Correct"
+                    :"❌ Incorrect"
+                  }
+
+                </p>
+
+              </div>
+
+            `
+          )
+          .join("")
+      }
+
+    </div>
+
+  `;
 
 }
 
@@ -3519,60 +7191,20 @@ function renderMockHistory(){
 
 function askAI(){
 
-  const input=
+  const input =
     document.getElementById(
       "aiInput"
     ).value.trim();
+
 
   if(!input){
 
     document.getElementById(
       "aiAnswer"
-    ).innerHTML=
-      `<div class="answer">
-        Ask me something first.
-      </div>`;
-
-    return;
-
-  }
-
-  const found=
-    allTopics().find(t=>
-      normalize(input)
-        .includes(
-          normalize(t.topic)
-        )
-    );
-
-  if(found){
-
-    const c=
-      findConcept(found.topic);
-
-    document.getElementById(
-      "aiAnswer"
-    ).innerHTML=`
+    ).innerHTML = `
 
       <div class="answer">
-
-        <b>
-          ${esc(found.topic)}
-        </b>
-
-        <p>
-          ${esc(c.why)}
-        </p>
-
-        <div class="formula">
-          ${esc(c.formula)}
-        </div>
-
-        <p>
-          <b>Reference:</b>
-          ${esc(c.ref)}
-        </p>
-
+        Ask me something first.
       </div>
 
     `;
@@ -3581,27 +7213,101 @@ function askAI(){
 
   }
 
+
+  const found =
+    allTopics().find(
+      t=>
+        normalize(input)
+          .includes(
+            normalize(t.topic)
+          )
+    );
+
+
+  if(found){
+
+    const c =
+      findConcept(
+        found.topic
+      );
+
+
+    document.getElementById(
+      "aiAnswer"
+    ).innerHTML = `
+
+      <div class="answer">
+
+        <b>
+          ${esc(found.topic)}
+        </b>
+
+
+        <p>
+          ${esc(c.why)}
+        </p>
+
+
+        <div class="formula">
+          ${esc(c.formula)}
+        </div>
+
+
+        <p>
+
+          <b>
+            Reference:
+          </b>
+
+          ${esc(c.ref)}
+
+        </p>
+
+      </div>
+
+    `;
+
+
+    return;
+
+  }
+
+
   document.getElementById(
     "aiAnswer"
-  ).innerHTML=`
+  ).innerHTML = `
 
     <div class="answer">
 
-      <b>Study approach</b>
+      <b>
+        Study approach
+      </b>
+
 
       <p>
+
         Break the question into:
-        definition → governing law →
-        formula → assumptions →
-        diagram → numerical application.
+
+        definition →
+        governing law →
+        formula →
+        assumptions →
+        diagram →
+        numerical application.
+
       </p>
 
+
       <p>
+
         Try an exact topic name such as
+
         <b>KCL</b>,
         <b>Slip</b>,
-        <b>Bode plots</b> or
+        <b>Bode plots</b>
+        or
         <b>Buck converter</b>.
+
       </p>
 
     </div>
@@ -3612,7 +7318,42 @@ function askAI(){
 
 
 /* =========================================================
-   KEYBOARD / BACK SAFETY
+   MODULES
+========================================================= */
+
+function renderModules(){
+
+  const box =
+    document.getElementById(
+      "moduleList"
+    );
+
+
+  box.innerHTML =
+    modules.map(
+      m=>`
+
+        <div class="moduleCard">
+
+          <b>
+            ${m[0]} —
+            ${esc(m[1])}
+          </b>
+
+          <p class="muted small">
+            ${esc(m[2])}
+          </p>
+
+        </div>
+
+      `
+    ).join("");
+
+}
+
+
+/* =========================================================
+   KEYBOARD
 ========================================================= */
 
 document.addEventListener(
@@ -3631,10 +7372,17 @@ document.addEventListener(
 ========================================================= */
 
 renderStats();
+
 renderSyllabus();
+
 renderFormulas();
+
 renderPYQStats();
+
 renderMockHistory();
+
+renderModules();
+
 
 </script>
 
