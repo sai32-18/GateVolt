@@ -1,775 +1,1363 @@
-
-/* ============================================================
-   GATE EE — SYLLABUS STUDY DETAIL LAYER
-   SAFE ADD-ON
-   Keeps ALL existing GateVolt features.
-   ============================================================ */
-
-(function () {
-  "use strict";
-
-  /* ---------- STUDY DETAIL STATE ---------- */
-
-  appState.syllabusNotes =
-    appState.syllabusNotes || {};
-
-  appState.syllabusVisited =
-    appState.syllabusVisited || {};
-
-  /* ---------- FIND OFFICIAL UNIT ---------- */
-
-  function getStudyUnit(id) {
-    var units = allOfficialUnits();
-
-    for (var i = 0; i < units.length; i++) {
-      if (units[i].id === id) {
-        return units[i];
-      }
-    }
-
-    return null;
-  }
-
-  /* ---------- OPEN STUDY UNIT ---------- */
-
-  window.openStudyUnit = function (id) {
-
-    window.selectedStudyUnit = id;
-
-    currentView = "officialStudy";
-
-    render();
-  };
-
-  /* ---------- MARK STUDY UNIT ---------- */
-
-  window.toggleStudyUnit = function () {
-
-    var id = window.selectedStudyUnit;
-
-    if (!id) return;
-
-    appState.syllabusCompleted =
-      appState.syllabusCompleted || {};
-
-    appState.syllabusCompleted[id] =
-      !appState.syllabusCompleted[id];
-
-    saveState();
-
-    render();
-  };
-
-  /* ---------- SAVE NOTE ---------- */
-
-  window.saveStudyNote = function () {
-
-    var box =
-      document.getElementById("studyNote");
-
-    if (!box) return;
-
-    var id =
-      window.selectedStudyUnit;
-
-    if (!id) return;
-
-    appState.syllabusNotes =
-      appState.syllabusNotes || {};
-
-    appState.syllabusNotes[id] =
-      box.value;
-
-    saveState();
-
-    box.blur();
-
-    var status =
-      document.getElementById("studyNoteStatus");
-
-    if (status) {
-      status.textContent =
-        "✓ Note saved";
-    }
-  };
-
-  /* ---------- NEXT UNFINISHED ---------- */
-
-  window.nextStudyUnit = function () {
-
-    var units = allOfficialUnits();
-
-    var current =
-      window.selectedStudyUnit;
-
-    var start = 0;
-
-    for (var i = 0; i < units.length; i++) {
-
-      if (units[i].id === current) {
-        start = i + 1;
-        break;
-      }
-    }
-
-    var next = null;
-
-    /* Search forward */
-
-    for (var j = start; j < units.length; j++) {
-
-      if (
-        !(appState.syllabusCompleted || {})[
-          units[j].id
-        ]
-      ) {
-        next = units[j];
-        break;
-      }
-    }
-
-    /* Wrap around */
-
-    if (!next) {
-
-      for (var k = 0; k < start; k++) {
-
-        if (
-          !(appState.syllabusCompleted || {})[
-            units[k].id
-          ]
-        ) {
-          next = units[k];
-          break;
-        }
-      }
-    }
-
-    if (next) {
-
-      window.selectedStudyUnit =
-        next.id;
-
-      currentView =
-        "officialStudy";
-
-      render();
-
-    } else {
-
-      alert(
-        "🎉 All official syllabus units are covered!"
-      );
-    }
-  };
-
-  /* ---------- FIND RELATED CORE TOPIC ---------- */
-
-  function findRelatedTopic(unit) {
-
-    if (!unit || !unit.title) {
-      return null;
-    }
-
-    var title =
-      unit.title.toLowerCase();
-
-    var best = null;
-
-    subjects.forEach(function (subject) {
-
-      subject.topics.forEach(function (topic, index) {
-
-        var topicName =
-          String(topic[0]).toLowerCase();
-
-        var topicText =
-          String(topic[1]).toLowerCase();
-
-        var words =
-          title.split(/[^a-z0-9]+/);
-
-        for (var i = 0; i < words.length; i++) {
-
-          var word = words[i];
-
-          if (
-            word.length >= 5 &&
-            (
-              topicName.indexOf(word) >= 0 ||
-              topicText.indexOf(word) >= 0
-            )
-          ) {
-
-            best = {
-              subject: subject,
-              topic: topic,
-              index: index
-            };
-
-            return;
-          }
-        }
-      });
-    });
-
-    return best;
-  }
-
-  /* ---------- RELATED QUESTIONS ---------- */
-
-  function findRelatedQuestions(unit) {
-
-    if (!unit) return [];
-
-    var title =
-      String(unit.title).toLowerCase();
-
-    var section =
-      String(unit.section).toLowerCase();
-
-    return questions.filter(function (q) {
-
-      var text =
-        (
-          String(q[0]) +
-          " " +
-          String(q[1]) +
-          " " +
-          String(q[3])
-        ).toLowerCase();
-
-      var titleWords =
-        title.split(/[^a-z0-9]+/);
-
-      var match =
-        titleWords.some(function (word) {
-
-          return (
-            word.length >= 5 &&
-            text.indexOf(word) >= 0
-          );
-
-        });
-
-      if (!match) {
-
-        match =
-          text.indexOf(section) >= 0;
-      }
-
-      return match;
-
-    }).slice(0, 5);
-  }
-
-  /* ---------- STUDY PAGE ---------- */
-
-  function officialStudyView() {
-
-    var unit =
-      getStudyUnit(
-        window.selectedStudyUnit
-      );
-
-    if (!unit) {
-
-      currentView =
-        "syllabus";
-
-      return officialSyllabusView();
-    }
-
-    appState.syllabusVisited =
-      appState.syllabusVisited || {};
-
-    appState.syllabusVisited[
-      unit.id
-    ] = true;
-
-    saveState();
-
-    var completed =
-      !!(
-        appState.syllabusCompleted || {}
-      )[unit.id];
-
-    var note =
-      (
-        appState.syllabusNotes || {}
-      )[unit.id] || "";
-
-    var related =
-      findRelatedTopic(unit);
-
-    var relatedQuestions =
-      findRelatedQuestions(unit);
-
-    var h = "";
-
-    /* ---------- HEADER ---------- */
-
-    h +=
-      '<div class="page">';
-
-    h +=
-      '<div class="hero">';
-
-    h +=
-      '<span class="tag">OFFICIAL GATE 2026</span>';
-
-    h +=
-      '<h1 style="margin-top:10px">' +
-      esc(unit.title) +
-      '</h1>';
-
-    h +=
-      '<p><b>Section:</b> ' +
-      esc(unit.section) +
-      '</p>';
-
-    h +=
-      '<p>' +
-      esc(unit.detail) +
-      '</p>';
-
-    h +=
-      '<div class="progressbar">';
-
-    h +=
-      '<div class="progressfill" ' +
-      'style="width:' +
-      (completed ? 100 : 0) +
-      '%"></div>';
-
-    h +=
-      '</div>';
-
-    h +=
-      '<p class="small">' +
-      (
-        completed
-          ? "✓ This syllabus unit is covered"
-          : "Study this unit before marking it covered"
-      ) +
-      '</p>';
-
-    h +=
-      '</div>';
-
-    /* ---------- WHAT TO STUDY ---------- */
-
-    h +=
-      '<div class="section-title">' +
-      '📚 What to Study' +
-      '</div>';
-
-    h +=
-      '<div class="card">';
-
-    h +=
-      '<div class="notice">' +
-      '<b>Concept scope</b><br>' +
-      esc(unit.detail) +
-      '</div>';
-
-    h +=
-      '<div class="notice">' +
-      '<b>Study approach</b><br>' +
-      esc(unit.guide) +
-      '</div>';
-
-    h +=
-      '<div class="notice">' +
-      '<b>Reference</b><br>' +
-      'Use the recommended reference below for derivations, ' +
-      'examples and deeper practice.' +
-      '</div>';
-
-    h +=
-      '</div>';
-
-    /* ---------- REFERENCE ---------- */
-
-    h +=
-      '<div class="section-title">' +
-      '📖 Reference' +
-      '</div>';
-
-    h +=
-      '<div class="card">';
-
-    h +=
-      '<span class="tag">Recommended Book</span>';
-
-    h +=
-      '<p style="margin-top:10px">' +
-      esc(unit.book) +
-      '</p>';
-
-    h +=
-      '</div>';
-
-    /* ---------- RELATED CORE TOPIC ---------- */
-
-    h +=
-      '<div class="section-title">' +
-      '🔗 Existing GateVolt Topic' +
-      '</div>';
-
-    if (related) {
-
-      h +=
-        '<div class="card">';
-
-      h +=
-        '<div style="display:flex;' +
-        'gap:12px;align-items:center">';
-
-      h +=
-        '<div class="subject-icon">' +
-        related.subject.icon +
-        '</div>';
-
-      h +=
-        '<div class="subject-info">';
-
-      h +=
-        '<b>' +
-        esc(related.topic[0]) +
-        '</b>';
-
-      h +=
-        '<small>' +
-        esc(related.subject.name) +
-        '</small>';
-
-      h +=
-        '</div>';
-
-      h +=
-        '</div>';
-
-      h +=
-        '<button class="btn" ' +
-        'onclick="' +
-        "selectedSubject='" +
-        related.subject.id +
-        "';" +
-        "selectedTopic=" +
-        related.index +
-        ";" +
-        "currentView='topic';" +
-        "render();" +
-        '">' +
-        '📖 Open Full Topic' +
-        '</button>';
-
-      h +=
-        '</div>';
-
-    } else {
-
-      h +=
-        '<div class="empty">' +
-        'No direct existing core-topic match.' +
-        '</div>';
-    }
-
-    /* ---------- FORMULAS ---------- */
-
-    h +=
-      '<div class="section-title">' +
-      'Σ Useful Formulas' +
-      '</div>';
-
-    var matchedFormulas =
-      formulas.filter(function (f) {
-
-        var text =
-          (
-            String(f[0]) +
-            " " +
-            String(f[1]) +
-            " " +
-            String(f[2])
-          ).toLowerCase();
-
-        var title =
-          String(unit.title)
-          .toLowerCase();
-
-        var words =
-          title.split(/[^a-z0-9]+/);
-
-        return words.some(function (w) {
-
-          return (
-            w.length >= 5 &&
-            text.indexOf(w) >= 0
-          );
-
-        });
-
-      }).slice(0, 6);
-
-    if (matchedFormulas.length) {
-
-      matchedFormulas.forEach(function (f) {
-
-        h +=
-          '<div class="card">';
-
-        h +=
-          '<span class="tag">' +
-          esc(f[0]) +
-          '</span>';
-
-        h +=
-          '<h3 style="font-size:14px;' +
-          'margin:8px 0">' +
-          esc(f[1]) +
-          '</h3>';
-
-        h +=
-          '<div class="formula">' +
-          esc(f[2]) +
-          '</div>';
-
-        h +=
-          '</div>';
-      });
-
-    } else {
-
-      h +=
-        '<div class="empty">' +
-        'No directly matched formula in the current Formula Book.' +
-        '</div>';
-    }
-
-    /* ---------- QUESTIONS ---------- */
-
-    h +=
-      '<div class="section-title">' +
-      '🎯 Related Practice' +
-      '</div>';
-
-    if (relatedQuestions.length) {
-
-      relatedQuestions.forEach(
-        function (q) {
-
-          h +=
-            '<div class="card">';
-
-          h +=
-            '<span class="tag ' +
-            String(q[2]).toLowerCase() +
-            '">' +
-            esc(q[2]) +
-            '</span>';
-
-          h +=
-            '<p style="margin-top:9px">' +
-            '<b>' +
-            esc(q[3]) +
-            '</b>' +
-            '</p>';
-
-          h +=
-            '<p class="small">' +
-            esc(q[6]) +
-            '</p>';
-
-          h +=
-            '</div>';
-        }
-      );
-
-    } else {
-
-      h +=
-        '<div class="empty">' +
-        'No directly matched question yet.' +
-        '</div>';
-    }
-
-    /* ---------- PERSONAL NOTES ---------- */
-
-    h +=
-      '<div class="section-title">' +
-      '📝 My Notes' +
-      '</div>';
-
-    h +=
-      '<div class="card">';
-
-    h +=
-      '<textarea id="studyNote" ' +
-      'placeholder="Write formulas, shortcuts, mistakes or revision notes..." ' +
-      'style="width:100%;min-height:130px;' +
-      'background:#0d0d1a;' +
-      'border:1px solid rgba(255,255,255,.08);' +
-      'border-radius:10px;' +
-      'padding:12px;color:#fff;' +
-      'resize:vertical;">' +
-      esc(note) +
-      '</textarea>';
-
-    h +=
-      '<button class="btn secondary" ' +
-      'onclick="saveStudyNote()">' +
-      '💾 Save Note' +
-      '</button>';
-
-    h +=
-      '<p id="studyNoteStatus" ' +
-      'class="small" style="margin-top:7px">' +
-      '</p>';
-
-    h +=
-      '</div>';
-
-    /* ---------- ACTIONS ---------- */
-
-    h +=
-      '<button class="btn success" ' +
-      'onclick="toggleStudyUnit()">' +
-
-      (
-        completed
-          ? '✓ Covered — Tap to Mark Pending'
-          : '✓ Mark Unit Covered'
-      ) +
-
-      '</button>';
-
-    h +=
-      '<button class="btn" ' +
-      'onclick="' +
-      "selectedSubject='';" +
-      "practicePool=questions.slice();" +
-      "practiceIndex=0;" +
-      "practiceAnswered=false;" +
-      "lastChoice=-1;" +
-      "appState.sessionAnswers=[];" +
-      "currentView='practice';" +
-      "render();" +
-      '">' +
-      '🎯 Practice' +
-      '</button>';
-
-    h +=
-      '<button class="btn secondary" ' +
-      'onclick="nextStudyUnit()">' +
-      'Next Unfinished Unit →' +
-      '</button>';
-
-    h +=
-      '<button class="btn secondary" ' +
-      'onclick="' +
-      "currentView='syllabus';" +
-      "render();" +
-      '">' +
-      '← Back to Syllabus' +
-      '</button>';
-
-    h +=
-      '</div>';
-
-    return h;
-  }
-
-  /* ---------- ADD STUDY PAGE TO ROUTER ---------- */
-
-  var originalViewContent =
-    window.viewContent;
-
-  window.viewContent =
-    function () {
-
-      if (
-        currentView ===
-        "officialStudy"
-      ) {
-        return officialStudyView();
-      }
-
-      return originalViewContent();
-    };
-
-  /* ---------- MAKE SYLLABUS CARDS OPEN STUDY PAGE ---------- */
-
-  var originalSyllabusCard =
-    window.syllabusCard;
-
-  window.syllabusCard =
-    function (u) {
-
-      var done =
-        !!(
-          appState.syllabusCompleted || {}
-        )[u.id];
-
-      return (
-        '<button class="subject syllabus-unit" ' +
-        'onclick="openStudyUnit(\'' +
-        u.id +
-        '\')">' +
-
-        '<div class="subject-icon">' +
-        (done ? '✓' : '📘') +
-        '</div>' +
-
-        '<div class="subject-info">' +
-
-        '<b>' +
-        esc(u.title) +
-        '</b>' +
-
-        '<small>' +
-        esc(u.detail) +
-        '</small>' +
-
-        '<small style="margin-top:5px;color:#4FC3F7">' +
-        (
-          done
-            ? 'Covered • tap to study/revise'
-            : 'Tap to learn • formulas • reference • practice'
-        ) +
-        '</small>' +
-
-        '</div>' +
-
-        '<span class="arrow">›</span>' +
-
-        '</button>'
-      );
-    };
-
-  /* ---------- BACK BUTTON ---------- */
-
-  var originalGoBack =
-    window.goBack;
-
-  window.goBack =
-    function () {
-
-      if (
-        currentView ===
-        "officialStudy"
-      ) {
-
-        currentView =
-          "syllabus";
-
-        render();
-
-        return;
-      }
-
-      originalGoBack();
-    };
-
-})();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0e17">
+<title>GateVolt — GATE EE 2026</title>
+
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#090c14;color:#eef2ff;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{padding-bottom:82px}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.app{max-width:900px;margin:auto;padding:16px}
+.top{
+  position:sticky;top:0;z-index:20;
+  background:rgba(9,12,20,.94);backdrop-filter:blur(14px);
+  padding:10px 4px 14px;border-bottom:1px solid #242a40
+}
+.brand{font-size:28px;font-weight:900;letter-spacing:-1px}
+.brand b{color:#42b7ff}
+.sub{color:#98a2c2;font-size:13px;margin-top:3px}
+.hero{
+  margin-top:16px;padding:22px;border-radius:22px;
+  background:linear-gradient(145deg,#172d4f,#0f1426);
+  border:1px solid #28456d;box-shadow:0 12px 35px #0004
+}
+.hero h1{font-size:32px;margin:0 0 8px}
+.hero p{color:#aab5d2;line-height:1.55}
+.btn{
+  border:0;border-radius:12px;padding:12px 16px;
+  background:#2388e8;color:white;font-weight:800
+}
+.btn.secondary{background:#20263a}
+.btn.green{background:#1a9d72}
+.btn.red{background:#a93650}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.card{
+  background:#111526;border:1px solid #252c47;border-radius:18px;
+  padding:16px;margin-top:12px
+}
+.stat{text-align:center;padding:15px}
+.stat strong{font-size:25px;color:#42b7ff;display:block}
+.stat span{font-size:12px;color:#929cba}
+h2{margin:22px 0 10px;font-size:21px}
+h3{margin:0 0 7px}
+.muted{color:#929cba}
+.small{font-size:12px}
+.progress{height:8px;background:#242a3c;border-radius:99px;overflow:hidden;margin:9px 0}
+.progress i{display:block;height:100%;background:#36a9ff;border-radius:99px}
+.badge{
+ display:inline-block;padding:5px 9px;border-radius:99px;
+ background:#172944;color:#72c5ff;font-size:11px;font-weight:800
+}
+.search{
+ width:100%;padding:13px 14px;border-radius:13px;
+ border:1px solid #303750;background:#0d1120;color:white;outline:none
+}
+.subject{
+ padding:16px;border-radius:18px;background:#111526;
+ border:1px solid #29314e;margin:10px 0
+}
+.subjectTop{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.subjectTitle{font-size:18px;font-weight:900}
+.topic{
+ padding:13px;margin-top:8px;border-radius:13px;
+ background:#0d1120;border:1px solid #242b42
+}
+.topicTop{display:flex;justify-content:space-between;gap:8px}
+.topic button{margin-top:9px}
+.chip{
+ display:inline-block;padding:5px 8px;border-radius:8px;
+ background:#261b2e;color:#ff8ba5;font-size:10px;font-weight:800
+}
+.nav{
+ position:fixed;z-index:50;bottom:0;left:0;right:0;
+ background:rgba(13,16,27,.97);border-top:1px solid #292f45;
+ display:flex;justify-content:center
+}
+.navInner{max-width:900px;width:100%;display:grid;grid-template-columns:repeat(7,1fr)}
+.nav button{
+ background:none;border:0;color:#727b96;padding:9px 2px 8px;font-size:10px
+}
+.nav button b{display:block;font-size:20px;margin-bottom:2px}
+.nav button.active{color:#4ab8ff}
+.page{display:none}
+.page.active{display:block}
+.list button{
+ width:100%;text-align:left;background:#111526;color:white;
+ border:1px solid #292f48;border-radius:14px;padding:14px;margin:5px 0
+}
+.answer{
+ margin-top:12px;padding:14px;border-radius:13px;
+ background:#0d241d;border:1px solid #246c53;color:#baf5dc
+}
+.option{
+ display:block;width:100%;text-align:left;padding:12px;margin:7px 0;
+ background:#151a2b;color:#edf2ff;border:1px solid #303750;border-radius:11px
+}
+.option.correct{border-color:#29b77d;background:#102a22}
+.option.wrong{border-color:#d34b67;background:#2b1420}
+.modal{
+ position:fixed;inset:0;background:#000b;z-index:100;
+ display:none;align-items:flex-end;justify-content:center
+}
+.modal.show{display:flex}
+.sheet{
+ width:min(900px,100%);max-height:88vh;overflow:auto;
+ background:#101423;border:1px solid #303750;
+ border-radius:24px 24px 0 0;padding:20px
+}
+.close{float:right;background:#292f42;border:0;color:white;border-radius:50%;width:34px;height:34px}
+.formula{
+ background:#080b13;border:1px solid #303750;border-radius:12px;
+ padding:12px;margin:8px 0;font-family:ui-monospace,monospace;color:#8ed4ff;
+ overflow:auto
+}
+.ref{
+ padding:11px;background:#151b2c;border-radius:11px;margin:6px 0;color:#c3cce3
+}
+.notice{
+ padding:13px;border-left:4px solid #ffcc4d;
+ background:#18171c;border-radius:10px;color:#cbd1e4
+}
+.empty{text-align:center;padding:30px;color:#7f89a4}
+@media(max-width:520px){
+ .grid3{grid-template-columns:repeat(3,1fr)}
+ .hero h1{font-size:28px}
+ .app{padding:12px}
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<header class="top">
+  <div class="brand">GATE <b>EE</b></div>
+  <div class="sub">GATE 2026 Electrical Engineering • GateVolt</div>
+</header>
+
+<!-- HOME -->
+<section id="home" class="page active">
+  <div class="hero">
+    <span class="badge">GATE 2026 • EE</span>
+    <h1>Prepare smarter. Crack GATE. 🚀</h1>
+    <p>
+      Complete syllabus learning, formulas, practice, PYQs,
+      mock tests, references and progress tracking — all in one place.
+    </p>
+    <button class="btn" onclick="go('syllabus')">▶ Start Smart Study</button>
+  </div>
+
+  <div class="grid3">
+    <div class="card stat"><strong id="homeTopics">0</strong><span>Topics</span></div>
+    <div class="card stat"><strong id="homeDone">0%</strong><span>Completed</span></div>
+    <div class="card stat"><strong id="homeAccuracy">0%</strong><span>Accuracy</span></div>
+  </div>
+
+  <div class="card">
+    <h3>🎯 What should I study?</h3>
+    <p id="recommendation" class="muted">Loading recommendation...</p>
+    <button class="btn secondary" onclick="go('syllabus')">Open Syllabus</button>
+  </div>
+
+  <div class="card">
+    <h3>📚 GateVolt Study System</h3>
+    <p class="muted">
+      Learn → Formula → Practice → PYQ → Mock → Revision → Track progress.
+    </p>
+  </div>
+
+  <div class="notice">
+    <b>Progress is saved locally.</b><br>
+    Your completed topics, practice attempts and bookmarks remain on this device.
+  </div>
+</section>
+
+<!-- SYLLABUS -->
+<section id="syllabus" class="page">
+  <h2>📚 Complete GATE EE Syllabus</h2>
+
+  <input id="search" class="search"
+    placeholder="Search subject, topic or formula..."
+    oninput="renderSyllabus()">
+
+  <div class="grid3">
+    <div class="card stat"><strong id="totalSubjects">0</strong><span>Subjects</span></div>
+    <div class="card stat"><strong id="totalTopics">0</strong><span>Learning Units</span></div>
+    <div class="card stat"><strong id="syllabusPct">0%</strong><span>Mastery</span></div>
+  </div>
+
+  <div id="syllabusList"></div>
+</section>
+
+<!-- PRACTICE -->
+<section id="practice" class="page">
+  <h2>🧠 Practice</h2>
+  <div class="card">
+    <p class="muted">Practice questions with instant checking and explanations.</p>
+    <button class="btn" onclick="startPractice()">Start Practice</button>
+  </div>
+  <div id="practiceBox"></div>
+</section>
+
+<!-- PYQ -->
+<section id="pyq" class="page">
+  <h2>📝 PYQ</h2>
+  <div class="card">
+    <h3>GATE-style / PYQ workspace</h3>
+    <p class="muted">
+      Use topic-wise questions after learning the concept. Official GATE
+      master question papers and answer keys are available from the GATE office.
+    </p>
+    <button class="btn" onclick="startPractice(true)">Start PYQ Practice</button>
+  </div>
+  <div id="pyqBox"></div>
+</section>
+
+<!-- MOCK -->
+<section id="mock" class="page">
+  <h2>🎯 Mock Test</h2>
+  <div class="card">
+    <h3>GATE EE Mini Mock</h3>
+    <p class="muted">Mixed questions from circuits, machines, power systems, control and electronics.</p>
+    <button class="btn" onclick="startMock()">Start Mock</button>
+  </div>
+  <div id="mockBox"></div>
+</section>
+
+<!-- FORMULA -->
+<section id="formula" class="page">
+  <h2>Σ Formula Book</h2>
+  <input id="formulaSearch" class="search"
+    placeholder="Search formulas..."
+    oninput="renderFormulas()">
+  <div id="formulaList"></div>
+</section>
+
+<!-- AI -->
+<section id="ai" class="page">
+  <h2>🤖 AI Teacher</h2>
+  <div class="card">
+    <h3>Ask GateVolt</h3>
+    <p class="muted">
+      Ask for a concept explanation, formula meaning, solution method or revision plan.
+    </p>
+    <textarea id="aiInput" class="search"
+      style="min-height:120px"
+      placeholder="Example: Explain Thevenin theorem in simple words..."></textarea>
+    <br><br>
+    <button class="btn" onclick="askAI()">Explain</button>
+    <div id="aiAnswer"></div>
+  </div>
+
+  <div class="card">
+    <h3>📖 Recommended References</h3>
+    <div class="ref">Engineering Mathematics — B.S. Grewal / standard GATE mathematics material</div>
+    <div class="ref">Electric Circuits — Alexander & Sadiku</div>
+    <div class="ref">Electrical Machines — P.S. Bimbhra</div>
+    <div class="ref">Power Systems — C.L. Wadhwa</div>
+    <div class="ref">Control Systems — Nagrath & Gopal</div>
+    <div class="ref">Signals & Systems — Oppenheim / GATE-oriented notes</div>
+    <div class="ref">Power Electronics — P.S. Bimbhra</div>
+  </div>
+</section>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="nav">
+<div class="navInner">
+  <button onclick="go('home')" data-page="home" class="active"><b>⌂</b>Home</button>
+  <button onclick="go('syllabus')" data-page="syllabus"><b>☷</b>Syllabus</button>
+  <button onclick="go('practice')" data-page="practice"><b>✓</b>Practice</button>
+  <button onclick="go('pyq')" data-page="pyq"><b>Q</b>PYQ</button>
+  <button onclick="go('mock')" data-page="mock"><b>♟</b>Mock</button>
+  <button onclick="go('formula')" data-page="formula"><b>Σ</b>Formula</button>
+  <button onclick="go('ai')" data-page="ai"><b>AI</b>AI</button>
+</div>
+</nav>
+
+<!-- TOPIC MODAL -->
+<div id="modal" class="modal" onclick="if(event.target===this)closeModal()">
+  <div class="sheet">
+    <button class="close" onclick="closeModal()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* =========================================================
+   GATEVOLT STATE
+========================================================= */
+
+const KEY="gatevolt_ee_2026_v3";
+
+let state=JSON.parse(localStorage.getItem(KEY)||"{}");
+
+state.completed=state.completed||{};
+state.visited=state.visited||{};
+state.bookmarks=state.bookmarks||{};
+state.correct=state.correct||0;
+state.attempted=state.attempted||0;
+
+function save(){
+  localStorage.setItem(KEY,JSON.stringify(state));
+  renderStats();
+}
+
+/* =========================================================
+   OFFICIAL GATE EE 2026 SYLLABUS
+========================================================= */
+
+const subjects=[
+
+{
+name:"General Aptitude",
+icon:"🎯",
+topics:[
+"Verbal Aptitude",
+"Basic English grammar",
+"Basic vocabulary",
+"Reading and comprehension",
+"Narrative sequencing",
+"Quantitative Aptitude",
+"Data interpretation",
+"Numerical computation and estimation",
+"Ratios and percentages",
+"Powers, exponents and logarithms",
+"Permutations and combinations",
+"Series",
+"Mensuration and geometry",
+"Elementary statistics and probability",
+"Analytical Aptitude",
+"Logic: deduction and induction",
+"Analogy",
+"Numerical relations and reasoning",
+"Spatial Aptitude",
+"Transformation of shapes",
+"Translation, rotation and scaling",
+"Mirroring",
+"Assembling and grouping",
+"Paper folding, cutting and patterns"
+]
+},
+
+{
+name:"Engineering Mathematics",
+icon:"∑",
+topics:[
+"Matrix Algebra",
+"Systems of linear equations",
+"Eigenvalues",
+"Eigenvectors",
+"Mean value theorems",
+"Theorems of integral calculus",
+"Evaluation of definite and improper integrals",
+"Partial derivatives",
+"Maxima and minima",
+"Multiple integrals",
+"Fourier series",
+"Vector identities",
+"Directional derivatives",
+"Line integral",
+"Surface integral",
+"Volume integral",
+"Stokes theorem",
+"Gauss theorem",
+"Divergence theorem",
+"Green theorem",
+"First order differential equations: linear",
+"First order differential equations: nonlinear",
+"Higher order linear differential equations with constant coefficients",
+"Variation of parameters",
+"Cauchy equation",
+"Euler equation",
+"Initial value problems",
+"Boundary value problems",
+"Partial differential equations",
+"Separation of variables",
+"Analytic functions",
+"Cauchy integral theorem",
+"Cauchy integral formula",
+"Taylor series",
+"Laurent series",
+"Residue theorem",
+"Solution integrals",
+"Sampling theorems",
+"Conditional probability",
+"Mean, median and mode",
+"Standard deviation",
+"Random variables",
+"Discrete distributions",
+"Continuous distributions",
+"Poisson distribution",
+"Normal distribution",
+"Binomial distribution",
+"Correlation analysis",
+"Regression analysis"
+]
+},
+
+{
+name:"Electric Circuits",
+icon:"⚡",
+topics:[
+"Network elements",
+"Ideal voltage and current sources",
+"Dependent sources",
+"R, L and C elements",
+"KCL",
+"KVL",
+"Node analysis",
+"Mesh analysis",
+"Thevenin theorem",
+"Norton theorem",
+"Superposition theorem",
+"Maximum power transfer theorem",
+"Transient response of DC networks",
+"Transient response of AC networks",
+"Sinusoidal steady-state analysis",
+"Resonance",
+"Two-port networks",
+"Balanced three-phase circuits",
+"Star-delta transformation",
+"Complex power",
+"Power factor"
+]
+},
+
+{
+name:"Electromagnetic Fields",
+icon:"🧲",
+topics:[
+"Coulomb law",
+"Electric field intensity",
+"Electric flux density",
+"Gauss law",
+"Divergence",
+"Electric field due to point charge",
+"Electric field due to line charge",
+"Electric field due to plane charge",
+"Electric field due to spherical charge",
+"Electric potential",
+"Effect of dielectric medium",
+"Capacitance of simple configurations",
+"Biot-Savart law",
+"Ampere law",
+"Curl",
+"Faraday law",
+"Lorentz force",
+"Inductance",
+"Magnetomotive force",
+"Reluctance",
+"Magnetic circuits",
+"Self inductance",
+"Mutual inductance"
+]
+},
+
+{
+name:"Signals and Systems",
+icon:"〰️",
+topics:[
+"Continuous-time signals",
+"Discrete-time signals",
+"Shifting properties",
+"Scaling properties",
+"Linear time-invariant systems",
+"Causal systems",
+"Fourier series: continuous-time",
+"Fourier series: discrete-time",
+"Sampling theorem",
+"Fourier transform: continuous-time",
+"Fourier transform: discrete-time",
+"Laplace transform",
+"Z transform",
+"RMS value of periodic waveform",
+"Average value of periodic waveform"
+]
+},
+
+{
+name:"Electrical Machines",
+icon:"⚙️",
+topics:[
+"Single-phase transformer equivalent circuit",
+"Transformer phasor diagram",
+"Open-circuit test",
+"Short-circuit test",
+"Transformer regulation",
+"Transformer efficiency",
+"Three-phase transformer connections",
+"Transformer vector groups",
+"Parallel operation of transformers",
+"Auto-transformer",
+"Electromechanical energy conversion",
+"Separately excited DC machine",
+"Series DC machine",
+"Shunt DC machine",
+"DC motor operation",
+"DC generator operation",
+"DC machine characteristics",
+"Speed control of DC motors",
+"Three-phase induction machine principle",
+"Types of induction machines",
+"Induction machine performance",
+"Torque-speed characteristics",
+"No-load test",
+"Blocked-rotor test",
+"Induction motor equivalent circuit",
+"Induction motor starting",
+"Induction motor speed control",
+"Single-phase induction motor",
+"Cylindrical rotor synchronous machine",
+"Salient pole synchronous machine",
+"Synchronous machine performance",
+"Synchronous machine characteristics",
+"Generator voltage regulation",
+"Parallel operation of generators",
+"Starting of synchronous motors",
+"Losses in electrical machines",
+"Efficiency calculations"
+]
+},
+
+{
+name:"Power Systems",
+icon:"🔌",
+topics:[
+"Electrical power generation",
+"AC transmission",
+"DC transmission",
+"Transmission line models",
+"Transmission line performance",
+"Cable models",
+"Series compensation",
+"Shunt compensation",
+"Electric field distribution",
+"Insulators",
+"Distribution systems",
+"Per-unit quantities",
+"Bus admittance matrix",
+"Gauss-Seidel load flow",
+"Newton-Raphson load flow",
+"Voltage control",
+"Frequency control",
+"Power factor correction",
+"Symmetrical components",
+"Symmetrical fault analysis",
+"Unsymmetrical fault analysis",
+"Over-current protection",
+"Differential protection",
+"Directional protection",
+"Distance protection",
+"Circuit breakers",
+"Power system stability",
+"Equal area criterion",
+"Economic load dispatch without losses",
+"Economic load dispatch with losses"
+]
+},
+
+{
+name:"Control Systems",
+icon:"🎛️",
+topics:[
+"Mathematical modelling",
+"Feedback principle",
+"Transfer function",
+"Block diagrams",
+"Signal flow graphs",
+"Transient analysis",
+"Steady-state analysis",
+"Routh-Hurwitz stability",
+"Nyquist stability",
+"Bode plots",
+"Root locus",
+"Lag compensator",
+"Lead compensator",
+"Lead-lag compensator",
+"P controller",
+"PI controller",
+"PID controller",
+"State-space model",
+"Solution of state equations of LTI systems"
+]
+},
+
+{
+name:"Electrical and Electronic Measurements",
+icon:"📏",
+topics:[
+"Bridges",
+"Potentiometers",
+"Measurement of voltage",
+"Measurement of current",
+"Measurement of power",
+"Measurement of energy",
+"Power factor measurement",
+"Instrument transformers",
+"Digital voltmeters",
+"Digital multimeters",
+"Phase measurement",
+"Time measurement",
+"Frequency measurement",
+"Oscilloscopes",
+"Error analysis"
+]
+},
+
+{
+name:"Analog and Digital Electronics",
+icon:"💻",
+topics:[
+"Diode clipping circuits",
+"Diode clamping circuits",
+"Rectifiers",
+"Amplifier biasing",
+"Amplifier equivalent circuits",
+"Amplifier frequency response",
+"Oscillators",
+"Feedback amplifiers",
+"Operational amplifier characteristics",
+"Operational amplifier applications",
+"Single-stage active filters",
+"Sallen-Key filters",
+"Butterworth filters",
+"VCOs",
+"Timers",
+"Combinational logic circuits",
+"Sequential logic circuits",
+"Multiplexers",
+"Demultiplexers",
+"Schmitt triggers",
+"Sample and hold circuits",
+"Analog-to-digital converters",
+"Digital-to-analog converters"
+]
+},
+
+{
+name:"Power Electronics",
+icon:"🔋",
+topics:[
+"Thyristor V-I characteristics",
+"Thyristor firing and gating circuits",
+"MOSFET characteristics",
+"IGBT characteristics",
+"Buck converter",
+"Boost converter",
+"Buck-Boost converter",
+"Single-phase uncontrolled rectifiers",
+"Three-phase uncontrolled rectifiers",
+"Voltage-commutated thyristor converters",
+"Current-commutated thyristor converters",
+"Bidirectional AC-DC voltage source converters",
+"Line current harmonics",
+"Power factor of converters",
+"Distortion factor",
+"Single-phase voltage source inverter",
+"Three-phase voltage source inverter",
+"Single-phase current source inverter",
+"Three-phase current source inverter",
+"Sinusoidal PWM"
+]
+}
+
+];
+
+/* =========================================================
+   FORMULAS
+========================================================= */
+
+const formulas=[
+
+["Matrix Algebra","det(A−λI)=0","Characteristic equation used to find eigenvalues."],
+["Eigenvectors","A v = λ v","For a non-zero vector v, A v equals λv."],
+["KCL","ΣI = 0","Algebraic sum of currents at a node is zero."],
+["KVL","ΣV = 0","Algebraic sum of voltages around a closed loop is zero."],
+["Ohm Law","V = IR","Voltage equals current multiplied by resistance."],
+["Capacitor","i = C dv/dt","Capacitor current-voltage relation."],
+["Inductor","v = L di/dt","Inductor voltage-current relation."],
+["Thevenin","Vth = Voc,  Rth = Voc/Isc","Equivalent voltage source and resistance."],
+["Norton","In = Isc,  Rn = Rth","Equivalent current source and resistance."],
+["Maximum Power","RL = Rth","For a resistive DC network, maximum power occurs when load equals Thevenin resistance."],
+["AC Power","S = P + jQ","Complex apparent power."],
+["Real Power","P = VI cosφ","Average real power in sinusoidal AC."],
+["Reactive Power","Q = VI sinφ","Reactive power."],
+["Power Factor","pf = cosφ = P/S","Ratio of real to apparent power."],
+["Resonance","ω0 = 1/√(LC)","Series/parallel ideal LC resonance frequency."],
+["Three Phase","P = √3 VL IL cosφ","Balanced three-phase real power."],
+["Coulomb Law","F = (1/4πε) q1q2/r²","Electrostatic force."],
+["Electric Field","E = F/q","Force per unit positive test charge."],
+["Gauss Law","∮E·dA = Qenc/ε","Electric flux through closed surface."],
+["Capacitance","C = Q/V","Charge stored per unit voltage."],
+["Biot-Savart","dB = μ/(4π) · I dl×r̂/r²","Magnetic field due to current element."],
+["Faraday Law","e = −N dΦ/dt","Induced emf opposes change in flux."],
+["Lorentz Force","F = q(E + v×B)","Force on a charged particle."],
+["Transformer EMF","E = 4.44 f N Φm","RMS induced emf for sinusoidal flux."],
+["Transformer Regulation","%VR = (VNL−VFL)/VFL ×100","Voltage regulation."],
+["Transformer Efficiency","η = Pout/Pin ×100%","Efficiency."],
+["Synchronous Speed","Ns = 120f/P","Speed in rpm."],
+["Slip","s = (Ns−N)/Ns","Induction motor slip."],
+["Induction Torque","T ∝ sR2/(R2²+(sX2)²)","Approximate torque dependence."],
+["DC Machine EMF","E = PΦZN/(60A)","Generated/back EMF equation."],
+["DC Motor Speed","N ∝ (V−IaRa)/Φ","Approximate speed relation."],
+["Synchronous Generator","Ea = V + jXs Ia","Simplified phasor relation."],
+["Transmission","Vdrop ≈ IR","Basic voltage-drop relation."],
+["Per Unit","pu = actual/base","Per-unit representation."],
+["Load Flow","P = Σ|Vi||Vj||Yij|cos(δi−δj−θij)","General AC power-flow expression."],
+["Control Transfer","G(s)=C(s)/R(s)","Transfer function."],
+["Closed Loop","T(s)=G(s)/(1+G(s)H(s))","Negative-feedback closed-loop transfer function."],
+["Routh","First-column sign changes = RHP poles","Routh criterion for stability."],
+["Steady State Error","ess = lim(s→0) sE(s)","Final value theorem when applicable."],
+["Bode Magnitude","20 log10 |G(jω)|","Magnitude in dB."],
+["Op-Amp","Vout = −(Rf/Rin)Vin","Ideal inverting amplifier."],
+["Non-Inverting Op-Amp","Vout = (1+Rf/R1)Vin","Ideal non-inverting amplifier."],
+["Buck","Vo = D Vs","Ideal buck converter in CCM."],
+["Boost","Vo = Vs/(1−D)","Ideal boost converter in CCM."],
+["Buck-Boost","Vo = −D/(1−D) Vs","Ideal inverting buck-boost."],
+["ADC Resolution","Δ = VFS/(2^N)","Ideal ADC step size."],
+["Sampling","fs ≥ 2fm","Nyquist sampling condition."],
+["RMS","Xrms = √[(1/T)∫x²(t)dt]","RMS value of a periodic waveform."],
+["Average","Xavg = (1/T)∫x(t)dt","Average value over one period."]
+];
+
+/* =========================================================
+   TOPIC EXPLANATIONS / REFERENCES
+========================================================= */
+
+const conceptMap={
+
+"Matrix Algebra":{
+why:"Matrices provide a compact way to represent and solve simultaneous equations and electrical-network models.",
+formula:"A⁻¹A = I   |   det(A)=0 → singular matrix",
+ref:"B.S. Grewal — Higher Engineering Mathematics"
+},
+
+"Systems of linear equations":{
+why:"Linear equations describe many circuit and engineering relationships. GATE commonly tests existence, uniqueness and solution methods.",
+formula:"AX=B   |   unique solution when det(A)≠0",
+ref:"GATE Engineering Mathematics notes / B.S. Grewal"
+},
+
+"Eigenvalues":{
+why:"Eigenvalues describe special scaling factors associated with a matrix transformation.",
+formula:"det(A−λI)=0",
+ref:"B.S. Grewal — Higher Engineering Mathematics"
+},
+
+"Eigenvectors":{
+why:"An eigenvector keeps its direction under a matrix transformation and is only scaled by its eigenvalue.",
+formula:"Av=λv,  v≠0",
+ref:"B.S. Grewal — Higher Engineering Mathematics"
+},
+
+"KCL":{
+why:"At a node, charge cannot continuously accumulate in the lumped circuit model, so incoming and outgoing currents balance.",
+formula:"ΣIin = ΣIout",
+ref:"Alexander & Sadiku — Fundamentals of Electric Circuits"
+},
+
+"KVL":{
+why:"Around a closed loop, conservation of energy requires the algebraic sum of voltage rises and drops to be zero.",
+formula:"ΣV = 0",
+ref:"Alexander & Sadiku — Fundamentals of Electric Circuits"
+},
+
+"Thevenin theorem":{
+why:"A linear two-terminal network can be reduced to one voltage source and one series resistance/impedance.",
+formula:"Vth=Voc,  Rth=Vth/Isc",
+ref:"Alexander & Sadiku — Fundamentals of Electric Circuits"
+},
+
+"Fourier series":{
+why:"Periodic signals can be represented as sums of sinusoids. This is fundamental for signal and power-system analysis.",
+formula:"x(t)=a0+Σ[an cos(nω0t)+bn sin(nω0t)]",
+ref:"Oppenheim — Signals and Systems"
+},
+
+"Sampling theorem":{
+why:"A band-limited signal can be reconstructed from samples when the sampling frequency is at least twice the highest frequency.",
+formula:"fs ≥ 2fm",
+ref:"Oppenheim — Signals and Systems"
+},
+
+"Laplace transform":{
+why:"The Laplace transform converts differential equations into algebraic equations in the s-domain.",
+formula:"L{dx/dt}=sX(s)−x(0−)",
+ref:"Oppenheim / standard GATE Signals notes"
+},
+
+"Transformer":{
+why:"Transformers transfer AC power between voltage levels using electromagnetic induction.",
+formula:"E=4.44fNΦm",
+ref:"P.S. Bimbhra — Electrical Machinery"
+},
+
+"Slip":{
+why:"Slip measures the speed difference between the rotating magnetic field and an induction-motor rotor.",
+formula:"s=(Ns−N)/Ns",
+ref:"P.S. Bimbhra — Electrical Machinery"
+},
+
+"Synchronous Speed":{
+why:"The rotating magnetic field of an AC machine moves at synchronous speed determined by frequency and pole count.",
+formula:"Ns=120f/P rpm",
+ref:"P.S. Bimbhra — Electrical Machinery"
+},
+
+"Power factor":{
+why:"Power factor indicates how effectively AC apparent power is converted into real power.",
+formula:"pf=P/S=cosφ",
+ref:"C.L. Wadhwa — Electrical Power Systems"
+},
+
+"Transfer function":{
+why:"The transfer function relates output to input in the Laplace domain under zero initial conditions.",
+formula:"G(s)=Y(s)/X(s)",
+ref:"Nagrath & Gopal — Control Systems"
+},
+
+"Routh-Hurwitz stability":{
+why:"Routh's method determines the number of right-half-plane poles without directly solving the characteristic polynomial.",
+formula:"Number of sign changes in first column = number of RHP roots",
+ref:"Nagrath & Gopal — Control Systems"
+},
+
+"Bode plots":{
+why:"Bode plots show magnitude and phase versus logarithmic frequency and are useful for stability and bandwidth analysis.",
+formula:"Magnitude(dB)=20log10|G(jω)|",
+ref:"Nagrath & Gopal — Control Systems"
+},
+
+"Operational amplifier characteristics":{
+why:"An ideal op-amp has very high open-loop gain, infinite input resistance and approximately zero output resistance.",
+formula:"V+=V− under negative feedback",
+ref:"Sedra/Smith or standard GATE Analog Electronics notes"
+},
+
+"Buck converter":{
+why:"A buck converter steps DC voltage down using controlled switching.",
+formula:"Vo=DVs  (ideal CCM)",
+ref:"P.S. Bimbhra — Power Electronics"
+},
+
+"Boost converter":{
+why:"A boost converter raises DC voltage above its input value.",
+formula:"Vo=Vs/(1−D)  (ideal CCM)",
+ref:"P.S. Bimbhra — Power Electronics"
+},
+
+"ADC Resolution":{
+why:"ADC resolution determines the smallest input-voltage step represented by an N-bit converter.",
+formula:"Δ≈VFS/2^N",
+ref:"Standard GATE Analog/Digital Electronics references"
+}
+
+};
+
+/* =========================================================
+   UTILITY
+========================================================= */
+
+function allTopics(){
+ let a=[];
+ subjects.forEach((s,si)=>{
+   s.topics.forEach((t,ti)=>{
+     a.push({subject:s.name,icon:s.icon,topic:t,si,ti,id:si+"_"+ti});
+   });
+ });
+ return a;
+}
+
+function esc(s){
+ return String(s).replace(/[&<>"']/g,m=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ }[m]));
+}
+
+function normalize(s){return String(s).toLowerCase()}
+
+function findConcept(topic){
+ if(conceptMap[topic]) return conceptMap[topic];
+
+ const key=Object.keys(conceptMap).find(k=>{
+   return normalize(topic).includes(normalize(k)) ||
+          normalize(k).includes(normalize(topic));
+ });
+
+ if(key)return conceptMap[key];
+
+ return {
+   why:"This is an official GATE EE learning unit. Study the definition, governing equations, assumptions, standard diagrams and typical numerical applications.",
+   formula:"Use the governing equations and standard relationships for this topic. Add your important formulas to the Formula Book.",
+   ref:"GATE EE 2026 official syllabus + standard GATE preparation/reference material"
+ };
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function go(page){
+ document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
+ document.getElementById(page).classList.add("active");
+
+ document.querySelectorAll(".nav button").forEach(x=>{
+   x.classList.toggle("active",x.dataset.page===page);
+ });
+
+ if(page==="home")renderStats();
+ if(page==="syllabus")renderSyllabus();
+ if(page==="formula")renderFormulas();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+function renderStats(){
+ const topics=allTopics();
+ const done=topics.filter(t=>state.completed[t.id]).length;
+ const pct=topics.length?Math.round(done/topics.length*100):0;
+ const acc=state.attempted?Math.round(state.correct/state.attempted*100):0;
+
+ document.getElementById("homeTopics").textContent=topics.length;
+ document.getElementById("homeDone").textContent=pct+"%";
+ document.getElementById("homeAccuracy").textContent=acc+"%";
+
+ document.getElementById("totalSubjects").textContent=subjects.length;
+ document.getElementById("totalTopics").textContent=topics.length;
+ document.getElementById("syllabusPct").textContent=pct+"%";
+
+ const weak=subjects.find(s=>{
+   const arr=allTopics().filter(t=>t.subject===s.name);
+   const d=arr.filter(t=>state.completed[t.id]).length;
+   return d<arr.length;
+ });
+
+ document.getElementById("recommendation").textContent=
+   weak ? "Priority: "+weak.name+" — "+weak.topics[0]+". Build the concept before increasing difficulty."
+        :"Excellent. Continue revision and mixed practice.";
+}
+
+/* =========================================================
+   SYLLABUS
+========================================================= */
+
+function renderSyllabus(){
+ const box=document.getElementById("syllabusList");
+ const q=normalize(document.getElementById("search").value||"");
+ let html="";
+
+ subjects.forEach((s,si)=>{
+   const topics=s.topics.filter(t=>
+     !q || normalize(s.name).includes(q) || normalize(t).includes(q)
+   );
+
+   if(!topics.length)return;
+
+   const all=s.topics.length;
+   const done=s.topics.filter((t,ti)=>state.completed[si+"_"+ti]).length;
+   const pct=Math.round(done/all*100);
+
+   html+=`
+   <div class="subject">
+     <div class="subjectTop">
+       <div>
+         <div class="subjectTitle">${s.icon} ${esc(s.name)}</div>
+         <div class="muted small">${done}/${all} learning units completed</div>
+       </div>
+       <span class="badge">${pct}%</span>
+     </div>
+     <div class="progress"><i style="width:${pct}%"></i></div>
+   `;
+
+   topics.forEach(topic=>{
+     const ti=s.topics.indexOf(topic);
+     const id=si+"_"+ti;
+     const completed=!!state.completed[id];
+
+     html+=`
+       <div class="topic">
+         <div class="topicTop">
+           <b>${completed?"✅ ":""}${esc(topic)}</b>
+           <span class="chip">${completed?"MASTERED":"0%"}</span>
+         </div>
+         <div class="muted small">Learn • Formula • Reference • Practice • Revision</div>
+         <button class="btn secondary" onclick="openTopic(${si},${ti})">Learn Topic</button>
+         <button class="btn ${completed?"green":"secondary"}"
+           onclick="toggleComplete('${id}')">
+           ${completed?"✓ Completed":"Mark Complete"}
+         </button>
+       </div>`;
+   });
+
+   html+="</div>";
+ });
+
+ box.innerHTML=html||`<div class="empty">No matching topic found.</div>`;
+ renderStats();
+}
+
+function toggleComplete(id){
+ state.completed[id]=!state.completed[id];
+ save();
+ renderSyllabus();
+}
+
+/* =========================================================
+   TOPIC LEARNING
+========================================================= */
+
+function openTopic(si,ti){
+ const s=subjects[si];
+ const topic=s.topics[ti];
+ const c=findConcept(topic);
+ const id=si+"_"+ti;
+
+ state.visited[id]=true;
+ save();
+
+ document.getElementById("modalContent").innerHTML=`
+   <span class="badge">${esc(s.name)}</span>
+   <h2>${s.icon} ${esc(topic)}</h2>
+
+   <div class="card">
+     <h3>📖 Simple explanation</h3>
+     <p class="muted" style="line-height:1.65">${esc(c.why)}</p>
+   </div>
+
+   <div class="card">
+     <h3>Σ Key formula</h3>
+     <div class="formula">${esc(c.formula)}</div>
+   </div>
+
+   <div class="card">
+     <h3>📚 Reference</h3>
+     <div class="ref">${esc(c.ref)}</div>
+     <div class="ref">Official source: GATE 2026 EE syllabus — IIT Guwahati</div>
+   </div>
+
+   <div class="card">
+     <h3>🧠 Study method</h3>
+     <p class="muted">
+       1. Understand the definition.<br>
+       2. Learn the governing equation.<br>
+       3. Draw the standard diagram where applicable.<br>
+       4. Solve 5–10 basic problems.<br>
+       5. Attempt GATE-level questions.<br>
+       6. Mark the topic complete only after revision.
+     </p>
+   </div>
+
+   <button class="btn green" onclick="toggleComplete('${id}');closeModal();renderSyllabus()">
+     ${state.completed[id]?"Mark as not completed":"✓ Mark topic complete"}
+   </button>
+ `;
+
+ document.getElementById("modal").classList.add("show");
+}
+
+function closeModal(){
+ document.getElementById("modal").classList.remove("show");
+}
+
+/* =========================================================
+   FORMULA BOOK
+========================================================= */
+
+function renderFormulas(){
+ const q=normalize(document.getElementById("formulaSearch").value||"");
+ const box=document.getElementById("formulaList");
+
+ const rows=formulas.filter(f=>
+   !q || normalize(f[0]+" "+f[1]+" "+f[2]).includes(q)
+ );
+
+ box.innerHTML=rows.map(f=>`
+   <div class="card">
+     <span class="badge">${esc(f[0])}</span>
+     <div class="formula">${esc(f[1])}</div>
+     <div class="muted small">${esc(f[2])}</div>
+   </div>
+ `).join("") || `<div class="empty">No formula found.</div>`;
+}
+
+/* =========================================================
+   QUESTION BANK
+========================================================= */
+
+const questions=[
+
+{
+s:"Electric Circuits",
+q:"For a resistive circuit, maximum power is transferred to the load when:",
+o:["RL=0","RL=Rth","RL=2Rth","RL→∞"],
+a:1,
+e:"Maximum power transfer for a DC resistive network occurs when the load resistance equals the Thevenin resistance."
+},
+
+{
+s:"Electrical Machines",
+q:"The synchronous speed of a 4-pole, 50 Hz machine is:",
+o:["750 rpm","1000 rpm","1500 rpm","3000 rpm"],
+a:2,
+e:"Ns=120f/P=120×50/4=1500 rpm."
+},
+
+{
+s:"Signals and Systems",
+q:"The minimum sampling frequency for a band-limited signal with highest frequency fm is:",
+o:["fm","2fm","fm/2","4fm"],
+a:1,
+e:"Nyquist condition: fs ≥ 2fm."
+},
+
+{
+s:"Power Systems",
+q:"Per-unit quantity is defined as:",
+o:["Actual/base","Base/actual","Actual×base","Actual−base"],
+a:0,
+e:"Per-unit value = actual quantity divided by selected base quantity."
+},
+
+{
+s:"Control Systems",
+q:"For negative feedback with forward transfer G and feedback H, the closed-loop transfer function is:",
+o:["G/(1−GH)","G/(1+GH)","GH/(1+G)","1/GH"],
+a:1,
+e:"For standard negative feedback, T(s)=G(s)/(1+G(s)H(s))."
+},
+
+{
+s:"Power Electronics",
+q:"For an ideal buck converter operating in CCM, the output voltage is:",
+o:["Vs/(1−D)","DVs","Vs/D","−DVs"],
+a:1,
+e:"For an ideal buck converter, Vo=DVs."
+},
+
+{
+s:"Electromagnetic Fields",
+q:"Gauss law relates electric flux through a closed surface to:",
+o:["Resistance","Enclosed charge","Inductance","Current only"],
+a:1,
+e:"∮E·dA=Qenc/ε."
+},
+
+{
+s:"Analog and Digital Electronics",
+q:"The ideal closed-loop gain of an inverting op-amp is:",
+o:["Rf/Rin","−Rf/Rin","1+Rf/Rin","−Rin/Rf"],
+a:1,
+e:"For the ideal inverting amplifier, Av=−Rf/Rin."
+},
+
+{
+s:"Engineering Mathematics",
+q:"The characteristic equation used to find eigenvalues of A is:",
+o:["det(A+λI)=0","det(A−λI)=0","det(A)=λ","Aλ=0"],
+a:1,
+e:"Eigenvalues satisfy det(A−λI)=0."
+},
+
+{
+s:"Electrical and Electronic Measurements",
+q:"A digital voltmeter primarily measures:",
+o:["Voltage","Torque","Flux","Speed"],
+a:0,
+e:"A digital voltmeter is designed for electrical potential difference measurement."
+}
+
+];
+
+/* =========================================================
+   PRACTICE ENGINE
+========================================================= */
+
+let currentQ=0;
+let practiceQuestions=[];
+
+function startPractice(isPYQ=false){
+ practiceQuestions=[...questions].sort(()=>Math.random()-.5);
+ currentQ=0;
+
+ const target=isPYQ?"pyqBox":"practiceBox";
+ document.getElementById(target).innerHTML="";
+ renderQuestion(target,isPYQ);
+ go(isPYQ?"pyq":"practice");
+}
+
+function renderQuestion(target,isPYQ=false){
+ const box=document.getElementById(target);
+
+ if(currentQ>=practiceQuestions.length){
+   box.innerHTML=`
+   <div class="card">
+     <h2>🎉 Finished</h2>
+     <p class="muted">Attempted: ${state.attempted} • Correct: ${state.correct}</p>
+     <button class="btn" onclick="go('home')">Back Home</button>
+   </div>`;
+   renderStats();
+   return;
+ }
+
+ const q=practiceQuestions[currentQ];
+
+ box.innerHTML=`
+ <div class="card">
+   <span class="badge">${esc(q.s)}</span>
+   <h3 style="margin-top:12px">${currentQ+1}. ${esc(q.q)}</h3>
+   ${q.o.map((o,i)=>`
+     <button class="option" onclick="answerQuestion(${i},${q.a},'${target}')">
+       ${String.fromCharCode(65+i)}. ${esc(o)}
+     </button>
+   `).join("")}
+   <div id="answerArea"></div>
+ </div>`;
+}
+
+function answerQuestion(choice,correct,target){
+ const buttons=document.querySelectorAll("#"+target+" .option");
+
+ buttons.forEach((b,i)=>{
+   b.disabled=true;
+   if(i===correct)b.classList.add("correct");
+   if(i===choice && i!==correct)b.classList.add("wrong");
+ });
+
+ state.attempted++;
+
+ if(choice===correct)state.correct++;
+
+ const q=practiceQuestions[currentQ];
+
+ document.getElementById("answerArea").innerHTML=`
+   <div class="answer">
+     <b>${choice===correct?"✅ Correct!":"❌ Incorrect"}</b>
+     <p>${esc(q.e)}</p>
+     <button class="btn" onclick="currentQ++;renderQuestion('${target}',${target==="pyqBox"})">
+       Next →
+     </button>
+   </div>`;
+
+ save();
+}
+
+/* =========================================================
+   MOCK
+========================================================= */
+
+function startMock(){
+ const mock=[...questions].sort(()=>Math.random()-.5).slice(0,8);
+ let score=0;
+
+ const box=document.getElementById("mockBox");
+
+ box.innerHTML=mock.map((q,i)=>`
+   <div class="card">
+     <span class="badge">${esc(q.s)}</span>
+     <h3>${i+1}. ${esc(q.q)}</h3>
+     ${q.o.map((o,j)=>`
+       <label style="display:block;margin:8px 0">
+         <input type="radio" name="m${i}" value="${j}">
+         ${String.fromCharCode(65+j)}. ${esc(o)}
+       </label>
+     `).join("")}
+   </div>
+ `).join("")+
+ `<button class="btn" onclick="submitMock(${JSON.stringify(mock).replace(/"/g,'&quot;')})">
+   Submit Mock
+ </button>`;
+}
+
+function submitMock(mock){
+ let score=0;
+
+ mock.forEach((q,i)=>{
+   const checked=document.querySelector(`input[name="m${i}"]:checked`);
+   if(checked && Number(checked.value)===q.a)score++;
+ });
+
+ state.attempted+=mock.length;
+ state.correct+=score;
+ save();
+
+ document.getElementById("mockBox").innerHTML=`
+ <div class="card">
+   <h2>Mock Result</h2>
+   <div class="grid3">
+     <div class="stat"><strong>${score}</strong><span>Correct</span></div>
+     <div class="stat"><strong>${mock.length-score}</strong><span>Wrong/Unattempted</span></div>
+     <div class="stat"><strong>${Math.round(score/mock.length*100)}%</strong><span>Accuracy</span></div>
+   </div>
+   <button class="btn" onclick="startMock()">Retry</button>
+ </div>`;
+}
+
+/* =========================================================
+   AI TEACHER — OFFLINE FALLBACK
+========================================================= */
+
+function askAI(){
+ const input=document.getElementById("aiInput").value.trim();
+
+ if(!input){
+   document.getElementById("aiAnswer").innerHTML=
+   `<div class="answer">Ask me something first.</div>`;
+   return;
+ }
+
+ const found=allTopics().find(t=>
+   normalize(input).includes(normalize(t.topic))
+ );
+
+ if(found){
+   const c=findConcept(found.topic);
+
+   document.getElementById("aiAnswer").innerHTML=`
+    <div class="answer">
+      <b>${esc(found.topic)}</b>
+      <p>${esc(c.why)}</p>
+      <div class="formula">${esc(c.formula)}</div>
+      <p><b>Reference:</b> ${esc(c.ref)}</p>
+    </div>`;
+   return;
+ }
+
+ document.getElementById("aiAnswer").innerHTML=`
+ <div class="answer">
+   <b>Study approach</b>
+   <p>
+   Break the question into: definition → governing law → formula →
+   assumptions → diagram → numerical application.
+   </p>
+   <p>
+   For a specific GATE topic, type its exact name, for example
+   <b>"KCL"</b>, <b>"Slip"</b>, <b>"Bode plots"</b> or
+   <b>"Buck converter"</b>.
+   </p>
+ </div>`;
+}
+
+/* =========================================================
+   INITIALISE
+========================================================= */
+
+renderStats();
+renderSyllabus();
+renderFormulas();
+
+</script>
+</body>
+</html>
