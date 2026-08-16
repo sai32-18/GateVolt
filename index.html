@@ -1,28 +1,54 @@
 
-<script>
+/* ============================================================
+   GATE EE — SYLLABUS STUDY DETAIL LAYER
+   SAFE ADD-ON
+   Keeps ALL existing GateVolt features.
+   ============================================================ */
+
 (function () {
   "use strict";
 
-  /* ---------- STATE ---------- */
+  /* ---------- STUDY DETAIL STATE ---------- */
 
-  appState.syllabusNotes = appState.syllabusNotes || {};
-  appState.syllabusVisited = appState.syllabusVisited || {};
+  appState.syllabusNotes =
+    appState.syllabusNotes || {};
 
-  function getOfficialUnit(id) {
-    var all = allOfficialUnits();
+  appState.syllabusVisited =
+    appState.syllabusVisited || {};
 
-    for (var i = 0; i < all.length; i++) {
-      if (all[i].id === id) return all[i];
+  /* ---------- FIND OFFICIAL UNIT ---------- */
+
+  function getStudyUnit(id) {
+    var units = allOfficialUnits();
+
+    for (var i = 0; i < units.length; i++) {
+      if (units[i].id === id) {
+        return units[i];
+      }
     }
 
     return null;
   }
 
-  function officialCompleted(id) {
-    return !!(appState.syllabusCompleted || {})[id];
-  }
+  /* ---------- OPEN STUDY UNIT ---------- */
 
-  function markOfficialComplete(id) {
+  window.openStudyUnit = function (id) {
+
+    window.selectedStudyUnit = id;
+
+    currentView = "officialStudy";
+
+    render();
+  };
+
+  /* ---------- MARK STUDY UNIT ---------- */
+
+  window.toggleStudyUnit = function () {
+
+    var id = window.selectedStudyUnit;
+
+    if (!id) return;
+
     appState.syllabusCompleted =
       appState.syllabusCompleted || {};
 
@@ -30,411 +56,57 @@
       !appState.syllabusCompleted[id];
 
     saveState();
+
     render();
-  }
+  };
 
-  function markOfficialVisited(id) {
-    appState.syllabusVisited =
-      appState.syllabusVisited || {};
+  /* ---------- SAVE NOTE ---------- */
 
-    appState.syllabusVisited[id] = true;
+  window.saveStudyNote = function () {
 
-    saveState();
-  }
+    var box =
+      document.getElementById("studyNote");
 
-  /* ---------- SECTION ICONS ---------- */
+    if (!box) return;
 
-  function syllabusIcon(section) {
-    var s = String(section).toLowerCase();
+    var id =
+      window.selectedStudyUnit;
 
-    if (s.indexOf("mathematics") >= 0) return "📐";
-    if (s.indexOf("circuits") >= 0) return "🔋";
-    if (s.indexOf("electromagnetic") >= 0) return "🧲";
-    if (s.indexOf("signals") >= 0) return "〰️";
-    if (s.indexOf("machines") >= 0) return "⚙️";
-    if (s.indexOf("power systems") >= 0) return "⚡";
-    if (s.indexOf("control") >= 0) return "🎛️";
-    if (s.indexOf("measurements") >= 0) return "📏";
-    if (s.indexOf("analog") >= 0) return "💻";
-    if (s.indexOf("power electronics") >= 0) return "🔌";
-    if (s.indexOf("aptitude") >= 0) return "🧠";
-
-    return "📘";
-  }
-
-  /* ---------- FIND RELATED CORE TOPICS ---------- */
-
-  function relatedCoreTopics(unit) {
-    var words = String(unit.title)
-      .toLowerCase()
-      .split(/[^a-z0-9]+/)
-      .filter(function (w) {
-        return w.length >= 4;
-      });
-
-    var results = [];
-
-    subjects.forEach(function (s) {
-      s.topics.forEach(function (t, i) {
-
-        var text =
-          (t[0] + " " + t[1]).toLowerCase();
-
-        var hit = words.some(function (w) {
-          return text.indexOf(w) >= 0;
-        });
-
-        if (hit) {
-          results.push({
-            subject: s,
-            topic: t,
-            index: i
-          });
-        }
-      });
-    });
-
-    return results.slice(0, 4);
-  }
-
-  /* ---------- FIND RELATED QUESTIONS ---------- */
-
-  function relatedQuestions(unit) {
-    var words = String(unit.title)
-      .toLowerCase()
-      .split(/[^a-z0-9]+/)
-      .filter(function (w) {
-        return w.length >= 4;
-      });
-
-    return questions.filter(function (q) {
-
-      var text =
-        (q[0] + " " + q[1] + " " + q[3])
-        .toLowerCase();
-
-      return words.some(function (w) {
-        return text.indexOf(w) >= 0;
-      });
-
-    }).slice(0, 5);
-  }
-
-  /* ---------- OFFICIAL UNIT PAGE ---------- */
-
-  function officialUnitView() {
-
-    var unit =
-      getOfficialUnit(window.selectedOfficialUnit);
-
-    if (!unit) {
-      currentView = "syllabus";
-      return officialSyllabusView();
-    }
-
-    markOfficialVisited(unit.id);
-
-    var done = officialCompleted(unit.id);
-
-    var related =
-      relatedCoreTopics(unit);
-
-    var qs =
-      relatedQuestions(unit);
-
-    var note =
-      (appState.syllabusNotes || {})[unit.id] || "";
-
-    var h = "";
-
-    h += '<div class="page">';
-
-    /* HERO */
-
-    h += '<div class="hero">';
-
-    h += '<span class="tag">' +
-      syllabusIcon(unit.section) +
-      ' OFFICIAL SYLLABUS' +
-      '</span>';
-
-    h += '<h1>' +
-      esc(unit.title) +
-      '</h1>';
-
-    h += '<p><b>Section:</b> ' +
-      esc(unit.section) +
-      '</p>';
-
-    h += '<p>' +
-      esc(unit.detail) +
-      '</p>';
-
-    h += '<div class="progressbar">';
-
-    h += '<div class="progressfill" style="width:' +
-      (done ? 100 : 0) +
-      '%"></div>';
-
-    h += '</div>';
-
-    h += '<p class="small">' +
-      (done
-        ? "✓ Marked as covered"
-        : "Not marked as covered") +
-      '</p>';
-
-    h += '</div>';
-
-    /* STUDY PLAN */
-
-    h += '<div class="section-title">Study Plan</div>';
-
-    h += '<div class="card">';
-
-    h += '<div class="notice">';
-    h += '<b>1. Learn the concept</b><br>';
-    h += esc(unit.detail);
-    h += '</div>';
-
-    h += '<div class="notice">';
-    h += '<b>2. Use the existing GateVolt material</b><br>';
-    h += esc(unit.guide);
-    h += '</div>';
-
-    h += '<div class="notice">';
-    h += '<b>3. Solve questions</b><br>';
-    h += 'Start with related questions below, then use Practice for timed solving.';
-    h += '</div>';
-
-    h += '<div class="notice">';
-    h += '<b>4. Review mistakes</b><br>';
-    h += 'Record mistakes and revisit this unit before marking it mastered.';
-    h += '</div>';
-
-    h += '</div>';
-
-    /* REFERENCE */
-
-    h += '<div class="section-title">Reference</div>';
-
-    h += '<div class="card">';
-
-    h += '<span class="tag">📖 Recommended reference</span>';
-
-    h += '<p style="margin-top:10px">' +
-      esc(unit.book) +
-      '</p>';
-
-    h += '</div>';
-
-    /* RELATED TOPICS */
-
-    h += '<div class="section-title">Related GateVolt Topics</div>';
-
-    if (related.length) {
-
-      related.forEach(function (r) {
-
-        h += '<button class="subject" onclick="' +
-          "selectedSubject='" +
-          r.subject.id +
-          "';selectedTopic=" +
-          r.index +
-          ";currentView='topic';render();" +
-          '">';
-
-        h += '<div class="subject-icon">' +
-          r.subject.icon +
-          '</div>';
-
-        h += '<div class="subject-info">';
-
-        h += '<b>' +
-          esc(r.topic[0]) +
-          '</b>';
-
-        h += '<small>' +
-          esc(r.subject.name) +
-          '</small>';
-
-        h += '</div>';
-
-        h += '<span class="arrow">›</span>';
-
-        h += '</button>';
-
-      });
-
-    } else {
-
-      h += '<div class="empty">';
-      h += 'No direct existing core-topic match found.';
-      h += '</div>';
-
-    }
-
-    /* RELATED QUESTIONS */
-
-    h += '<div class="section-title">Related Questions</div>';
-
-    if (qs.length) {
-
-      qs.forEach(function (q) {
-
-        h += '<div class="card">';
-
-        h += '<span class="tag ' +
-          String(q[2]).toLowerCase() +
-          '">' +
-          esc(q[2]) +
-          '</span>';
-
-        h += '<p style="margin-top:9px"><b>' +
-          esc(q[3]) +
-          '</b></p>';
-
-        h += '<p class="small">' +
-          esc(q[6]) +
-          '</p>';
-
-        h += '</div>';
-
-      });
-
-    } else {
-
-      h += '<div class="empty">';
-      h += 'No directly matched question. Use Practice to continue.';
-      h += '</div>';
-
-    }
-
-    /* NOTES */
-
-    h += '<div class="section-title">My Notes</div>';
-
-    h += '<div class="card">';
-
-    h += '<textarea id="officialNote" ';
-
-    h += 'placeholder="Write your shortcut, mistake, formula or revision note..." ';
-
-    h += 'style="width:100%;min-height:130px;' +
-      'background:#0d0d1a;' +
-      'border:1px solid rgba(255,255,255,.08);' +
-      'border-radius:10px;' +
-      'padding:12px;color:#fff;resize:vertical;">';
-
-    h += esc(note);
-
-    h += '</textarea>';
-
-    h += '<button class="btn secondary" ' +
-      'onclick="saveOfficialNote()">';
-
-    h += 'Save Note';
-
-    h += '</button>';
-
-    h += '</div>';
-
-    /* ACTION BUTTONS */
-
-    h += '<button class="btn success" ' +
-      'onclick="toggleOfficialComplete()">';
-
-    h += done
-      ? '✓ Marked Covered — Tap to Undo'
-      : '✓ Mark This Unit Covered';
-
-    h += '</button>';
-
-    h += '<button class="btn" ' +
-      'onclick="startOfficialPractice()">';
-
-    h += '🎯 Practice This Unit';
-
-    h += '</button>';
-
-    h += '<button class="btn secondary" ' +
-      'onclick="nextOfficialUnit()">';
-
-    h += 'Next Unfinished Unit →';
-
-    h += '</button>';
-
-    h += '<button class="btn secondary" ' +
-      'onclick="currentView=\'syllabus\';render()">';
-
-    h += '← Back to Official Syllabus';
-
-    h += '</button>';
-
-    h += '</div>';
-
-    return h;
-  }
-
-  /* ---------- SAVE NOTES ---------- */
-
-  window.saveOfficialNote = function () {
-
-    var el =
-      document.getElementById("officialNote");
-
-    if (!el) return;
+    if (!id) return;
 
     appState.syllabusNotes =
       appState.syllabusNotes || {};
 
-    appState.syllabusNotes[
-      window.selectedOfficialUnit
-    ] = el.value;
+    appState.syllabusNotes[id] =
+      box.value;
 
     saveState();
 
-    el.blur();
+    box.blur();
 
-    alert("Note saved ✓");
-  };
+    var status =
+      document.getElementById("studyNoteStatus");
 
-  /* ---------- COMPLETE UNIT ---------- */
-
-  window.toggleOfficialComplete = function () {
-
-    if (!window.selectedOfficialUnit) return;
-
-    markOfficialComplete(
-      window.selectedOfficialUnit
-    );
-  };
-
-  /* ---------- OPEN UNIT ---------- */
-
-  window.openOfficialUnit = function (id) {
-
-    window.selectedOfficialUnit = id;
-
-    currentView = "officialUnit";
-
-    render();
+    if (status) {
+      status.textContent =
+        "✓ Note saved";
+    }
   };
 
   /* ---------- NEXT UNFINISHED ---------- */
 
-  window.nextOfficialUnit = function () {
+  window.nextStudyUnit = function () {
 
-    var all = allOfficialUnits();
+    var units = allOfficialUnits();
+
+    var current =
+      window.selectedStudyUnit;
 
     var start = 0;
 
-    for (var i = 0; i < all.length; i++) {
+    for (var i = 0; i < units.length; i++) {
 
-      if (
-        all[i].id ===
-        window.selectedOfficialUnit
-      ) {
+      if (units[i].id === current) {
         start = i + 1;
         break;
       }
@@ -442,14 +114,16 @@
 
     var next = null;
 
-    /* Search after current */
+    /* Search forward */
 
-    for (var j = start; j < all.length; j++) {
+    for (var j = start; j < units.length; j++) {
 
-      if (!officialCompleted(all[j].id)) {
-
-        next = all[j];
-
+      if (
+        !(appState.syllabusCompleted || {})[
+          units[j].id
+        ]
+      ) {
+        next = units[j];
         break;
       }
     }
@@ -460,10 +134,12 @@
 
       for (var k = 0; k < start; k++) {
 
-        if (!officialCompleted(all[k].id)) {
-
-          next = all[k];
-
+        if (
+          !(appState.syllabusCompleted || {})[
+            units[k].id
+          ]
+        ) {
+          next = units[k];
           break;
         }
       }
@@ -471,164 +147,629 @@
 
     if (next) {
 
-      window.selectedOfficialUnit =
+      window.selectedStudyUnit =
         next.id;
 
       currentView =
-        "officialUnit";
+        "officialStudy";
 
       render();
 
     } else {
 
       alert(
-        "🎉 All official syllabus units are marked covered!"
+        "🎉 All official syllabus units are covered!"
       );
-
     }
   };
 
-  /* ---------- PRACTICE THIS UNIT ---------- */
+  /* ---------- FIND RELATED CORE TOPIC ---------- */
 
-  window.startOfficialPractice = function () {
+  function findRelatedTopic(unit) {
+
+    if (!unit || !unit.title) {
+      return null;
+    }
+
+    var title =
+      unit.title.toLowerCase();
+
+    var best = null;
+
+    subjects.forEach(function (subject) {
+
+      subject.topics.forEach(function (topic, index) {
+
+        var topicName =
+          String(topic[0]).toLowerCase();
+
+        var topicText =
+          String(topic[1]).toLowerCase();
+
+        var words =
+          title.split(/[^a-z0-9]+/);
+
+        for (var i = 0; i < words.length; i++) {
+
+          var word = words[i];
+
+          if (
+            word.length >= 5 &&
+            (
+              topicName.indexOf(word) >= 0 ||
+              topicText.indexOf(word) >= 0
+            )
+          ) {
+
+            best = {
+              subject: subject,
+              topic: topic,
+              index: index
+            };
+
+            return;
+          }
+        }
+      });
+    });
+
+    return best;
+  }
+
+  /* ---------- RELATED QUESTIONS ---------- */
+
+  function findRelatedQuestions(unit) {
+
+    if (!unit) return [];
+
+    var title =
+      String(unit.title).toLowerCase();
+
+    var section =
+      String(unit.section).toLowerCase();
+
+    return questions.filter(function (q) {
+
+      var text =
+        (
+          String(q[0]) +
+          " " +
+          String(q[1]) +
+          " " +
+          String(q[3])
+        ).toLowerCase();
+
+      var titleWords =
+        title.split(/[^a-z0-9]+/);
+
+      var match =
+        titleWords.some(function (word) {
+
+          return (
+            word.length >= 5 &&
+            text.indexOf(word) >= 0
+          );
+
+        });
+
+      if (!match) {
+
+        match =
+          text.indexOf(section) >= 0;
+      }
+
+      return match;
+
+    }).slice(0, 5);
+  }
+
+  /* ---------- STUDY PAGE ---------- */
+
+  function officialStudyView() {
 
     var unit =
-      getOfficialUnit(
-        window.selectedOfficialUnit
+      getStudyUnit(
+        window.selectedStudyUnit
       );
 
-    if (!unit) return;
+    if (!unit) {
 
-    var qs =
-      relatedQuestions(unit);
+      currentView =
+        "syllabus";
 
-    if (!qs.length) {
-
-      alert(
-        "No directly matched question is available yet. " +
-        "Use the main Practice section for mixed questions."
-      );
-
-      return;
+      return officialSyllabusView();
     }
 
-    practicePool = qs;
+    appState.syllabusVisited =
+      appState.syllabusVisited || {};
 
-    practiceIndex = 0;
+    appState.syllabusVisited[
+      unit.id
+    ] = true;
 
-    practiceAnswered = false;
+    saveState();
 
-    lastChoice = -1;
+    var completed =
+      !!(
+        appState.syllabusCompleted || {}
+      )[unit.id];
 
-    appState.sessionAnswers = [];
+    var note =
+      (
+        appState.syllabusNotes || {}
+      )[unit.id] || "";
 
-    currentView = "practice";
+    var related =
+      findRelatedTopic(unit);
 
-    render();
-  };
+    var relatedQuestions =
+      findRelatedQuestions(unit);
 
-  /* ---------- SYLLABUS CARD ---------- */
+    var h = "";
 
-  window.syllabusCard = function (u) {
+    /* ---------- HEADER ---------- */
 
-    var done =
-      !!(appState.syllabusCompleted || {})[u.id];
+    h +=
+      '<div class="page">';
 
-    return (
+    h +=
+      '<div class="hero">';
 
-      '<div class="card syllabus-unit" ' +
-      'style="padding:12px">' +
+    h +=
+      '<span class="tag">OFFICIAL GATE 2026</span>';
 
-      '<div style="display:flex;gap:10px;' +
-      'align-items:center">' +
+    h +=
+      '<h1 style="margin-top:10px">' +
+      esc(unit.title) +
+      '</h1>';
 
-      '<div class="subject-icon">' +
-      (done
-        ? "✓"
-        : syllabusIcon(u.section)) +
-      '</div>' +
+    h +=
+      '<p><b>Section:</b> ' +
+      esc(unit.section) +
+      '</p>';
 
-      '<div class="subject-info">' +
+    h +=
+      '<p>' +
+      esc(unit.detail) +
+      '</p>';
 
-      '<b>' +
-      esc(u.title) +
-      '</b>' +
+    h +=
+      '<div class="progressbar">';
 
-      '<small>' +
-      esc(u.section) +
-      '</small>' +
+    h +=
+      '<div class="progressfill" ' +
+      'style="width:' +
+      (completed ? 100 : 0) +
+      '%"></div>';
 
-      '<small style="margin-top:4px">' +
-      (done
-        ? "Covered"
-        : "Not covered") +
-      '</small>' +
+    h +=
+      '</div>';
 
-      '</div>' +
+    h +=
+      '<p class="small">' +
+      (
+        completed
+          ? "✓ This syllabus unit is covered"
+          : "Study this unit before marking it covered"
+      ) +
+      '</p>';
 
-      '</div>' +
+    h +=
+      '</div>';
 
-      '<button class="btn" ' +
-      'onclick="openOfficialUnit(\'' +
-      u.id +
-      '\')">' +
+    /* ---------- WHAT TO STUDY ---------- */
 
-      '📖 Study Unit' +
+    h +=
+      '<div class="section-title">' +
+      '📚 What to Study' +
+      '</div>';
 
-      '</button>' +
+    h +=
+      '<div class="card">';
 
+    h +=
+      '<div class="notice">' +
+      '<b>Concept scope</b><br>' +
+      esc(unit.detail) +
+      '</div>';
+
+    h +=
+      '<div class="notice">' +
+      '<b>Study approach</b><br>' +
+      esc(unit.guide) +
+      '</div>';
+
+    h +=
+      '<div class="notice">' +
+      '<b>Reference</b><br>' +
+      'Use the recommended reference below for derivations, ' +
+      'examples and deeper practice.' +
+      '</div>';
+
+    h +=
+      '</div>';
+
+    /* ---------- REFERENCE ---------- */
+
+    h +=
+      '<div class="section-title">' +
+      '📖 Reference' +
+      '</div>';
+
+    h +=
+      '<div class="card">';
+
+    h +=
+      '<span class="tag">Recommended Book</span>';
+
+    h +=
+      '<p style="margin-top:10px">' +
+      esc(unit.book) +
+      '</p>';
+
+    h +=
+      '</div>';
+
+    /* ---------- RELATED CORE TOPIC ---------- */
+
+    h +=
+      '<div class="section-title">' +
+      '🔗 Existing GateVolt Topic' +
+      '</div>';
+
+    if (related) {
+
+      h +=
+        '<div class="card">';
+
+      h +=
+        '<div style="display:flex;' +
+        'gap:12px;align-items:center">';
+
+      h +=
+        '<div class="subject-icon">' +
+        related.subject.icon +
+        '</div>';
+
+      h +=
+        '<div class="subject-info">';
+
+      h +=
+        '<b>' +
+        esc(related.topic[0]) +
+        '</b>';
+
+      h +=
+        '<small>' +
+        esc(related.subject.name) +
+        '</small>';
+
+      h +=
+        '</div>';
+
+      h +=
+        '</div>';
+
+      h +=
+        '<button class="btn" ' +
+        'onclick="' +
+        "selectedSubject='" +
+        related.subject.id +
+        "';" +
+        "selectedTopic=" +
+        related.index +
+        ";" +
+        "currentView='topic';" +
+        "render();" +
+        '">' +
+        '📖 Open Full Topic' +
+        '</button>';
+
+      h +=
+        '</div>';
+
+    } else {
+
+      h +=
+        '<div class="empty">' +
+        'No direct existing core-topic match.' +
+        '</div>';
+    }
+
+    /* ---------- FORMULAS ---------- */
+
+    h +=
+      '<div class="section-title">' +
+      'Σ Useful Formulas' +
+      '</div>';
+
+    var matchedFormulas =
+      formulas.filter(function (f) {
+
+        var text =
+          (
+            String(f[0]) +
+            " " +
+            String(f[1]) +
+            " " +
+            String(f[2])
+          ).toLowerCase();
+
+        var title =
+          String(unit.title)
+          .toLowerCase();
+
+        var words =
+          title.split(/[^a-z0-9]+/);
+
+        return words.some(function (w) {
+
+          return (
+            w.length >= 5 &&
+            text.indexOf(w) >= 0
+          );
+
+        });
+
+      }).slice(0, 6);
+
+    if (matchedFormulas.length) {
+
+      matchedFormulas.forEach(function (f) {
+
+        h +=
+          '<div class="card">';
+
+        h +=
+          '<span class="tag">' +
+          esc(f[0]) +
+          '</span>';
+
+        h +=
+          '<h3 style="font-size:14px;' +
+          'margin:8px 0">' +
+          esc(f[1]) +
+          '</h3>';
+
+        h +=
+          '<div class="formula">' +
+          esc(f[2]) +
+          '</div>';
+
+        h +=
+          '</div>';
+      });
+
+    } else {
+
+      h +=
+        '<div class="empty">' +
+        'No directly matched formula in the current Formula Book.' +
+        '</div>';
+    }
+
+    /* ---------- QUESTIONS ---------- */
+
+    h +=
+      '<div class="section-title">' +
+      '🎯 Related Practice' +
+      '</div>';
+
+    if (relatedQuestions.length) {
+
+      relatedQuestions.forEach(
+        function (q) {
+
+          h +=
+            '<div class="card">';
+
+          h +=
+            '<span class="tag ' +
+            String(q[2]).toLowerCase() +
+            '">' +
+            esc(q[2]) +
+            '</span>';
+
+          h +=
+            '<p style="margin-top:9px">' +
+            '<b>' +
+            esc(q[3]) +
+            '</b>' +
+            '</p>';
+
+          h +=
+            '<p class="small">' +
+            esc(q[6]) +
+            '</p>';
+
+          h +=
+            '</div>';
+        }
+      );
+
+    } else {
+
+      h +=
+        '<div class="empty">' +
+        'No directly matched question yet.' +
+        '</div>';
+    }
+
+    /* ---------- PERSONAL NOTES ---------- */
+
+    h +=
+      '<div class="section-title">' +
+      '📝 My Notes' +
+      '</div>';
+
+    h +=
+      '<div class="card">';
+
+    h +=
+      '<textarea id="studyNote" ' +
+      'placeholder="Write formulas, shortcuts, mistakes or revision notes..." ' +
+      'style="width:100%;min-height:130px;' +
+      'background:#0d0d1a;' +
+      'border:1px solid rgba(255,255,255,.08);' +
+      'border-radius:10px;' +
+      'padding:12px;color:#fff;' +
+      'resize:vertical;">' +
+      esc(note) +
+      '</textarea>';
+
+    h +=
       '<button class="btn secondary" ' +
-      'onclick="markSyllabusUnit(\'' +
-      u.id +
-      '\')">' +
+      'onclick="saveStudyNote()">' +
+      '💾 Save Note' +
+      '</button>';
 
-      (done
-        ? '↩ Mark Pending'
-        : '✓ Mark Covered') +
+    h +=
+      '<p id="studyNoteStatus" ' +
+      'class="small" style="margin-top:7px">' +
+      '</p>';
 
-      '</button>' +
+    h +=
+      '</div>';
 
-      '</div>'
-    );
-  };
+    /* ---------- ACTIONS ---------- */
 
-  /* ---------- CONTENT ROUTER ---------- */
+    h +=
+      '<button class="btn success" ' +
+      'onclick="toggleStudyUnit()">' +
 
-  var oldViewContent =
+      (
+        completed
+          ? '✓ Covered — Tap to Mark Pending'
+          : '✓ Mark Unit Covered'
+      ) +
+
+      '</button>';
+
+    h +=
+      '<button class="btn" ' +
+      'onclick="' +
+      "selectedSubject='';" +
+      "practicePool=questions.slice();" +
+      "practiceIndex=0;" +
+      "practiceAnswered=false;" +
+      "lastChoice=-1;" +
+      "appState.sessionAnswers=[];" +
+      "currentView='practice';" +
+      "render();" +
+      '">' +
+      '🎯 Practice' +
+      '</button>';
+
+    h +=
+      '<button class="btn secondary" ' +
+      'onclick="nextStudyUnit()">' +
+      'Next Unfinished Unit →' +
+      '</button>';
+
+    h +=
+      '<button class="btn secondary" ' +
+      'onclick="' +
+      "currentView='syllabus';" +
+      "render();" +
+      '">' +
+      '← Back to Syllabus' +
+      '</button>';
+
+    h +=
+      '</div>';
+
+    return h;
+  }
+
+  /* ---------- ADD STUDY PAGE TO ROUTER ---------- */
+
+  var originalViewContent =
     window.viewContent;
 
-  window.viewContent = function () {
+  window.viewContent =
+    function () {
 
-    if (currentView === "officialUnit") {
+      if (
+        currentView ===
+        "officialStudy"
+      ) {
+        return officialStudyView();
+      }
 
-      return officialUnitView();
+      return originalViewContent();
+    };
 
-    }
+  /* ---------- MAKE SYLLABUS CARDS OPEN STUDY PAGE ---------- */
 
-    return oldViewContent();
+  var originalSyllabusCard =
+    window.syllabusCard;
 
-  };
+  window.syllabusCard =
+    function (u) {
+
+      var done =
+        !!(
+          appState.syllabusCompleted || {}
+        )[u.id];
+
+      return (
+        '<button class="subject syllabus-unit" ' +
+        'onclick="openStudyUnit(\'' +
+        u.id +
+        '\')">' +
+
+        '<div class="subject-icon">' +
+        (done ? '✓' : '📘') +
+        '</div>' +
+
+        '<div class="subject-info">' +
+
+        '<b>' +
+        esc(u.title) +
+        '</b>' +
+
+        '<small>' +
+        esc(u.detail) +
+        '</small>' +
+
+        '<small style="margin-top:5px;color:#4FC3F7">' +
+        (
+          done
+            ? 'Covered • tap to study/revise'
+            : 'Tap to learn • formulas • reference • practice'
+        ) +
+        '</small>' +
+
+        '</div>' +
+
+        '<span class="arrow">›</span>' +
+
+        '</button>'
+      );
+    };
 
   /* ---------- BACK BUTTON ---------- */
 
-  var oldGoBack =
+  var originalGoBack =
     window.goBack;
 
-  window.goBack = function () {
+  window.goBack =
+    function () {
 
-    if (currentView === "officialUnit") {
+      if (
+        currentView ===
+        "officialStudy"
+      ) {
 
-      currentView = "syllabus";
+        currentView =
+          "syllabus";
 
-      render();
+        render();
 
-      return;
+        return;
+      }
 
-    }
-
-    oldGoBack();
-
-  };
+      originalGoBack();
+    };
 
 })();
-</script>
